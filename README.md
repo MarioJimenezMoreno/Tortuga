@@ -14,6 +14,7 @@ npm -i (DESCARGAR DEPENDENCIAS DEL PROYECTO) <!-- IMPORTANTE> IMPORTANTE> IMPORT
 ## Typescript Commands
 
 npm install -g typescript (instalar de forma global)
+npm install typescript (instalar en el proyecto)
 npm root (para comprobar instalación normal)
 npm root -g (para comprobar instalación en el directorio global)
 tsc -v (comprobar si tenemos tsc instalado)
