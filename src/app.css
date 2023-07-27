@@ -1,33 +1,24 @@
+html,
 body {
+  height: 100%;
+  width: 100%;
   margin: 0;
-  background-color: rgb(35, 35, 35);
-  height: 100vh;
-  overflow: hidden;
-  width: 100vw;
+  padding: 0;
+  offset: hidden;
+}
+body {
+  display: grid;
+  grid-template: 100px auto 100px 50px / 100px auto 100px 50px;
   font-family: "REM", sans-serif;
 }
-a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 nav,
 ul,
 li {
-  width: inherit;
-  height: inherit;
+  height: 100%;
+  width: 100%;
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-header {
-  width: inherit;
-  height: 80px;
-  background-color: rgb(70, 70, 70);
-  border-bottom: rgb(130, 17, 236) dotted 2px;
-  z-index: 2;
 }
 ul {
   display: flex;
@@ -35,10 +26,15 @@ ul {
 li {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  font-size: 32px;
+  justify-content: center;
 }
-
+header {
+  grid-area: 1/1/2/5;
+  background-color: rgb(70, 70, 70);
+  border-bottom: rgb(130, 17, 236) dotted 2px;
+  font-size: 32px;
+  z-index: 2;
+}
 a,
 .link {
   color: rgb(130, 17, 236);
@@ -47,25 +43,20 @@ a,
 }
 
 .logo {
+  background-color: white;
   height: 50px;
   width: 50px;
-  background-color: white;
-}
-.blankSpace {
-  width: 45%;
-  flex: 1;
 }
 .calendar {
+  grid-area: 2/1/5/2;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 85%;
-  width: 150px;
   font-weight: 700;
   background-color: rgb(45, 45, 45);
   border-right: rgb(130, 17, 236) dotted 2px;
 }
-.daysContainer {
+.currentWeek {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -76,10 +67,10 @@ a,
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80px;
-  height: 80px;
-  font-size: 60px;
-  margin-block: 20px;
+  width: 4vw;
+  height: 8vh;
+  font-size: 4em;
+  margin-block: 2vh;
   background-color: rgb(60, 60, 60);
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -91,24 +82,41 @@ a,
   position: absolute;
   color: rgb(130, 17, 236);
 }
-
+.taskContainer {
+  grid-area: 2/2/5/5;
+  background-color: rgb(35, 35, 35);
+  display: grid;
+  grid-template: repeat(24, 1fr) / 25px auto;
+  align-items: center;
+}
+.taskContainer p {
+  margin-block: 0;
+  margin-inline: 5px;
+  color: whitesmoke;
+}
+.line {
+  width: auto;
+  height: 2px;
+  color: whitesmoke;
+}
 button {
-  height: 50px;
+  height: 100%;
+  width: 100%;
 }
 .newTask {
+  grid-area: 3/3/5/5;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
   color: white;
   font-size: 150px;
-  top: 90%;
-  left: 95%;
   height: 100px;
   width: 100px;
   border-radius: 100%;
   background-color: rgb(130, 17, 236);
+  z-index: 2;
 }
 .textTask {
   font-weight: 300;
+  margin: 0;
 }
