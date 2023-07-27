@@ -1,4 +1,4 @@
-![image](https://github.com/MarioJimenezMoreno/Tortuga/assets/133980150/cfb2eb18-3c8b-47ae-a6a0-b0104ce84e54)# DEPENDENCIES INFO
+# DEPENDENCIES INFO
 
 ## Nodejs Commands
 
@@ -179,4 +179,5 @@ https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
 
 
 #### JSON Viewer chrome 
+![image](https://github.com/MarioJimenezMoreno/Tortuga/assets/133980150/cfb2eb18-3c8b-47ae-a6a0-b0104ce84e54
 <img width="286" alt="Captura" src="https://github.com/MarioJimenezMoreno/Tortuga/assets/133980150/06f6e10a-d58c-433a-a2d4-eeb15df67900">
