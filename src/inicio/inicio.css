@@ -42,6 +42,7 @@ body{
 #box-prop>*:hover{
     scale: 1.4;
 }
+
 #box-log{
     justify-content: flex-end;
     align-items: center;
