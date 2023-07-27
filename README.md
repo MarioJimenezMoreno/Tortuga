@@ -172,6 +172,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ## Bibliografía
 
+#### Git
+https://git-scm.com/doc
+
 #### Gitflow
 https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
 
