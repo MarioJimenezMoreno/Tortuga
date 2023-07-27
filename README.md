@@ -1,4 +1,4 @@
-# DEPENDENCIES INFO
+![image](https://github.com/MarioJimenezMoreno/Tortuga/assets/133980150/cfb2eb18-3c8b-47ae-a6a0-b0104ce84e54)# DEPENDENCIES INFO
 
 ## Nodejs Commands
 
@@ -170,7 +170,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-## Bibliografía información
+## Bibliografía
 
 #### Gitflow
 https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
+
+## Herramientas de tereros
+
+
+#### JSON Viewer chrome 
+<img width="286" alt="Captura" src="https://github.com/MarioJimenezMoreno/Tortuga/assets/133980150/06f6e10a-d58c-433a-a2d4-eeb15df67900">
