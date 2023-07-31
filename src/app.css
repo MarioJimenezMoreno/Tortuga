@@ -88,15 +88,16 @@ a,
   position: absolute;
   color: rgb(150, 73, 223);
 }
-.taskContainer,
+.currentTaskContainer,
 .previousTaskContainer,
 .nextTaskContainer {
   grid-area: 3/2/6/5;
-  background-color: rgb(35, 35, 35);
+  /* background-color: rgb(35, 35, 35); */ /* TESTING */
   display: grid;
   grid-template: repeat(24, 1fr) / 50px auto;
   gap: 10px 5px;
   align-items: center;
+  height: 100%; /* TESTING */
 }
 .tasksCicle {
   grid-area: 3/2/6/5;
@@ -106,7 +107,7 @@ a,
 .tasksCicle::-webkit-scrollbar-thumb {
   display: none;
 }
-.taskContainer p,
+.currentTaskContainer p,
 .previousTaskContainer p,
 .nextTaskContainer p {
   margin-block: 0;
@@ -114,6 +115,18 @@ a,
   color: grey;
   justify-self: center;
 }
+
+/* TESTING */
+.previousTaskContainer {
+  background-color: blue;
+}
+.currentTaskContainer {
+  background-color: red;
+}
+.nextTaskContainer {
+  background-color: green;
+}
+
 .line {
   width: auto;
   margin-right: 20px;
