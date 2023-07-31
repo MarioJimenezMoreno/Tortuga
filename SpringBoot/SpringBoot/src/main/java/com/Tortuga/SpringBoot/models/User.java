@@ -5,29 +5,26 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity(name= "users")
 public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Getter @Setter
 	private Integer id;
 
-	@Column(name = "username")
+	@Getter @Setter @Column(name = "username")
 	private String name;
 
-	@Column(name = "password")
+	@Getter @Setter @Column(name = "password")
 	private String password;
 
-	@Column(name = "email")
+	@Getter @Setter @Column(name = "email")
 	private String email;
 
-	@Column(name = "phone")
+	@Getter @Setter @Column(name = "phone")
 	private String phone;
 }
