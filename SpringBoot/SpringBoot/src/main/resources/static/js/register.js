@@ -2,14 +2,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-async function logIn() {
+async function registerUser() {
 
     let data = {};
 
     data.username = document.querySelector("#inputUsername").value;
+    data.phone = document.querySelector("#inputPhone").value;
     data.password = document.querySelector("#inputPassword").value;
+    let repeatpassword = document.querySelector("#inputRepeatPassword").value;
+    data.email = document.querySelector("#inputEmail").value;
 
-    const request = await fetch('api/login', {
+    if (data.password != repeatpassword) {
+        alert("Passwords must be identical")
+        return;
+    }
+
+    const request = await fetch('api/users', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -18,17 +26,5 @@ async function logIn() {
         body: JSON.stringify({ data })
     });
 
-
-
-    const credentials = await request.text();
-
-    if (credentials != 'FAIL') {
-        localStorage.token = credentials;
-        localStorage.username = data.username;
-        window.location.href = "users.html";
-    }
-    else {
-        alert("Email or password are incorrect.");
-    }
-
 }
+
