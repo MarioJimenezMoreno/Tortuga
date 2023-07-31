@@ -60,7 +60,7 @@ a,
 
   z-index: 2;
 }
-.currentWeek {
+.daysPreview {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -170,6 +170,7 @@ button {
   border-radius: 100%;
   background-color: rgb(119, 75, 160);
   z-index: 2;
+  cursor: pointer;
 }
 .textTask {
   font-weight: 300;

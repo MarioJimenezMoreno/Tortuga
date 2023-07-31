@@ -5,6 +5,7 @@ let initialScrollTop: any;
 let firstLoad = true;
 // The specific element to enable scrolling with mouse drag
 const daysContainer: HTMLElement = document.querySelector(".daysContainer")!;
+const daysPreview: HTMLElement = document.querySelector(".daysPreview")!;
 const calendarContainer: HTMLElement = document.querySelector(".calendar")!;
 const newTask: HTMLElement = document.querySelector(".newTask")!;
 
@@ -17,7 +18,7 @@ window.onload = () => {
 };
 
 newTask.onclick = () => {
-  taskWindowController("open");
+  taskCreatorController("open");
 };
 
 function setupDays() {
@@ -113,7 +114,7 @@ function updateContainersByScroll() {
   counter++;
 }
 
-function taskWindowController(action: String) {
+function taskCreatorController(action: String) {
   switch (action) {
     case "open":
       break;
