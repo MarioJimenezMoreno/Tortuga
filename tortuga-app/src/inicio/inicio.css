@@ -1,0 +1,84 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+}
+.flex{
+    display: flex;
+}
+.implement{   
+    width: 90px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    height: fit-content;
+    background-color: white;
+    /* border: solid 1px black; */
+}
+.container{
+    display: grid;
+    grid-template-rows: 50px 840px;
+
+}
+#box-1{
+    grid-area: 1/1/2/2;
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    background-color: white;
+}
+#logo{
+    height: 50px;
+    width: auto;
+    transition: height 0.2s ease;
+}
+#logo:hover {
+    height: 75px;
+}
+#box-nav{
+    width: 100%;
+    justify-content: space-between;
+    margin-left: 20px;
+}
+/* #box-prop{
+    align-items: center;
+} */
+#box-prop>*{
+    
+    transition: scale 0.2s ease;
+}
+/* #box-prop>*:hover{
+    scale: 1.4;
+} */
+
+#box-log{
+    justify-content: flex-end;
+    padding-right: 30px;
+}
+#box-log>*{
+    padding: 10px;
+    transition: scale 0.2s ease;
+}
+/* #box-log>*:hover{
+    scale: 1.4;
+} */
+
+#box-2{
+    grid-area: 2/1/3/2;
+    background-image: url("./img/escritorio_placeholder.jpg");
+}
+.box_texto{
+    width: 700px;
+    margin: 30px 20% 0px 20%;
+    color: antiquewhite;
+}
+.imagen{
+    width: auto;
+    height: 170px;
+    margin: 10px;
+}
+.der{
+    flex-direction: row-reverse;
+
+}
