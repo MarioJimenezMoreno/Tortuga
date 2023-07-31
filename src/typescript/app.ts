@@ -2,26 +2,38 @@
 let isDragging = false;
 let initialMouseY: any;
 let initialScrollTop: any;
-
+let firstLoad = true;
 // The specific element to enable scrolling with mouse drag
-const tasksCicle: HTMLElement = document.querySelector(".tasksCicle")!;
+const daysContainer: HTMLElement = document.querySelector(".daysContainer")!;
+const calendarContainer: HTMLElement = document.querySelector(".calendar")!;
+const newTask: HTMLElement = document.querySelector(".newTask")!;
+
 let array = [1, 2, 3, 4, 5];
+let counter = 0;
 
 window.onload = () => {
   setupDays();
   window.location.replace("http://127.0.0.1:5500/src/app.html#app");
 };
 
+newTask.onclick = () => {
+  taskWindowController("open");
+};
+
 function setupDays() {
   const previousDiv = document.createElement("div");
+  previousDiv.innerHTML = "DIA 1";
   previousDiv.classList.add("previousTaskContainer");
-  tasksCicle.appendChild(previousDiv);
+  daysContainer.appendChild(previousDiv);
   const currentDiv = document.createElement("div");
+  currentDiv.innerHTML = "DIA 2";
   currentDiv.classList.add("currentTaskContainer");
-  tasksCicle.appendChild(currentDiv);
+  currentDiv.setAttribute("id", "app");
+  daysContainer.appendChild(currentDiv);
   const nextDiv = document.createElement("div");
+  nextDiv.innerHTML = "DIA 3";
   nextDiv.classList.add("nextTaskContainer");
-  tasksCicle.appendChild(nextDiv);
+  daysContainer.appendChild(nextDiv);
 }
 
 // Function to handle the mousemove event while dragging
@@ -29,14 +41,14 @@ function handleMouseMove(event: any) {
   if (!isDragging) return;
 
   const deltaY = event.clientY - initialMouseY;
-  tasksCicle.scrollTop = initialScrollTop - deltaY;
+  daysContainer.scrollTop = initialScrollTop - deltaY;
 }
 
 // Function to handle the mousedown event and initiate the dragging
 function handleMouseDown(event: any) {
   isDragging = true;
   initialMouseY = event.clientY;
-  initialScrollTop = tasksCicle.scrollTop;
+  initialScrollTop = daysContainer.scrollTop;
 
   document.addEventListener("mousemove", handleMouseMove);
 }
@@ -47,45 +59,33 @@ function handleMouseUp() {
   document.removeEventListener("mousemove", handleMouseMove);
 }
 
-// Attach event listeners when the DOM content is loaded
-document.addEventListener("DOMContentLoaded", () => {
-  document.addEventListener("mousedown", handleMouseDown);
-  document.addEventListener("mouseup", handleMouseUp);
-});
-
 // Función para calcular el porcentaje de scroll respecto al contenido
 function calculateScrollPercentage(container: any) {
   const scrollTop = container.scrollTop;
   const scrollHeight = container.scrollHeight;
   const clientHeight = container.clientHeight;
-  console.log(scrollTop);
-  console.log(scrollHeight);
-  console.log(clientHeight);
   return (scrollTop / (scrollHeight - clientHeight)) * 100;
 }
 
 // Función para cambiar las clases de los contenedores según el porcentaje de scroll
 function updateContainersByScroll() {
-  const previousContainer: HTMLElement = document.querySelector(
+  let previousContainer: HTMLElement = document.querySelector(
     ".previousTaskContainer"
   )!;
-  const currentContainer: HTMLElement = document.querySelector(
+  let currentContainer: HTMLElement = document.querySelector(
     ".currentTaskContainer"
   )!;
-  const nextContainer: HTMLElement =
+  let nextContainer: HTMLElement =
     document.querySelector(".nextTaskContainer")!;
 
-  const previousContainerHeight = previousContainer.clientHeight;
-  const currentContainerHeight = currentContainer.clientHeight;
+  const scrollPercentage = calculateScrollPercentage(daysContainer);
+  const thresholdPercentage = 25;
 
-  const previousScrollPercentage = calculateScrollPercentage(tasksCicle);
-  const currentScrollPercentage = calculateScrollPercentage(tasksCicle);
+  console.log(scrollPercentage);
 
-  const thresholdPercentage = 70;
-
-  if (previousScrollPercentage >= thresholdPercentage) {
-    /*ELIMINO NEXT*/
-    console.log("previous");
+  if (scrollPercentage <= thresholdPercentage) {
+    nextContainer.remove();
+    console.log("previous creado");
     currentContainer.className = "nextTaskContainer";
     currentContainer.classList.remove("currentTaskContainer");
 
@@ -93,11 +93,12 @@ function updateContainersByScroll() {
     previousContainer.classList.remove("previousTaskContainer");
 
     const previousDiv = document.createElement("div");
+    previousDiv.innerHTML = "DIA 1_" + counter;
     previousDiv.classList.add("previousTaskContainer");
-    tasksCicle.insertBefore(previousDiv, currentContainer);
-  } else if (currentScrollPercentage <= 100 - thresholdPercentage) {
-    /* ELIMINO PREVIOUS */
-    console.log("next");
+    daysContainer.insertBefore(previousDiv, previousContainer);
+  } else if (scrollPercentage >= 100 - thresholdPercentage) {
+    previousContainer.remove();
+    console.log("next creado");
     nextContainer.className = "currentTaskContainer";
     nextContainer.classList.remove("nextTaskContainer");
 
@@ -106,8 +107,28 @@ function updateContainersByScroll() {
 
     const nextDiv = document.createElement("div");
     nextDiv.classList.add("nextTaskContainer");
-    tasksCicle.appendChild(nextDiv);
+    nextDiv.innerHTML = "DIA 3_" + counter;
+    daysContainer.appendChild(nextDiv);
+  }
+  counter++;
+}
+
+function taskWindowController(action: String) {
+  switch (action) {
+    case "open":
+      break;
+
+    case "close":
+      break;
+
+    case "create":
+      break;
   }
 }
 
-tasksCicle.addEventListener("scroll", updateContainersByScroll);
+//  Attach event listener to the daysContainer element MOUSE DOWN
+daysContainer.addEventListener("mousedown", handleMouseDown);
+//  Attach event listener to the document MOUSE UP
+document.addEventListener("mouseup", handleMouseUp);
+//  Attach event listener to the daysContainer element SCROLL
+daysContainer.addEventListener("scroll", updateContainersByScroll);

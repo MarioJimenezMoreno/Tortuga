@@ -99,12 +99,13 @@ a,
   align-items: center;
   height: 100%; /* TESTING */
 }
-.tasksCicle {
+.daysContainer {
   grid-area: 3/2/6/5;
   overflow: scroll;
+  height: 100%;
 }
-.tasksCicle::-webkit-scrollbar,
-.tasksCicle::-webkit-scrollbar-thumb {
+.daysContainer::-webkit-scrollbar,
+.daysContainer::-webkit-scrollbar-thumb {
   display: none;
 }
 .currentTaskContainer p,
