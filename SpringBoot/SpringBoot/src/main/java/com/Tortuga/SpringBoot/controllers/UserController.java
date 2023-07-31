@@ -2,24 +2,38 @@ package com.Tortuga.SpringBoot.controllers;
 
 import java.util.List;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import com.Tortuga.SpringBoot.DAO.UserDAO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Tortuga.SpringBoot.models.User;
-import com.Tortuga.SpringBoot.services.UserService;
 
 @RestController
-@RequestMapping("/users")
+
 public class UserController {
-	UserService userService;
 
-	public UserController(UserService userService) {
-		this.userService = userService;
+	@Autowired
+	private UserDAO userDAO;
+
+
+	//Obtener usuario
+	@RequestMapping("/api/users")
+	public List<User> getUsers() {
+		return userDAO.getUsers();
 	}
 
-	@GetMapping
-	public List<User> getAllUsers() {
-		return userService.findAllUsers();
+	@RequestMapping(value = "/api/user/{id}", method = RequestMethod.GET)
+	public void getUser() {
+
 	}
+
+	@RequestMapping(value = "/api/user/{id}", method = RequestMethod.DELETE)
+	public void deleteUser(@PathVariable Integer id ) {
+		userDAO.delete(id);
+	}
+
 }
