@@ -22,6 +22,6 @@ export default function Login() {
         content = <button>Log in </button>;
       }
   return (
-    <div class="implement" id="login" onClick={evento}>{content}</div>
+    <div className="implement" id="login" onClick={evento}>{content}</div>
   )
 }

@@ -22,6 +22,6 @@ export default function Descargar() {
         content = <div> Descargar </div>;
       }
   return (
-    <div class="implement" id="download" onMouseEnter={evento} onMouseLeave={evento}>{content}</div>
+    <div className="implement" id="download" onMouseEnter={evento} onMouseLeave={evento}>{content}</div>
   )
 }

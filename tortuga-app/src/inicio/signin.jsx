@@ -22,6 +22,6 @@ export default function Signin() {
         content = <button>Sign in </button>;
       }
   return (
-    <div class="implement" id="signin" onClick={evento}>{content}</div>
+    <div className="implement" id="signin" onClick={evento}>{content}</div>
   )
 }

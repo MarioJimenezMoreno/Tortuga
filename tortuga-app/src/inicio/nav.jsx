@@ -12,14 +12,14 @@ export default function Nav() {
     
 
   return (
-    <div class="flex" id="box-1">
+    <div className="flex" id="box-1">
         <div><img id="logo" src={tortuga} alt="placeholder" /></div>
-        <div class="flex" id="box-nav">
-          <div class="flex" id="box-prop">
+        <div className="flex" id="box-nav">
+          <div className="flex" id="box-prop">
             <Descargar/>
             <Guia/>
           </div>
-          <div class="flex" id="box-log">
+          <div className="flex" id="box-log">
             <Login/>
             <Signin/>
           </div>

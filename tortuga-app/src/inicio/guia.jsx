@@ -22,6 +22,6 @@ export default function Guia() {
         content = <div>Guia </div>;
       }
   return (
-    <div class="implement" id="guide" onMouseEnter={evento} onMouseLeave={evento}>{content}</div>
+    <div className="implement" id="guide" onMouseEnter={evento} onMouseLeave={evento}>{content}</div>
   )
 }
