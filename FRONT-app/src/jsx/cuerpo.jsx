@@ -1,7 +1,7 @@
 import React from 'react'
-import "./inicio.css"
-import galapago from './img/galapago.jpg'
-import grupo_tortugas from './img/grupo_tortugas.jpg'
+import "../css/inicio.css";
+import galapago from '../img/galapago.jpg'
+import grupo_tortugas from '../img/grupo_tortugas.jpg'
 
 export default function Cuerpo() {
   return (

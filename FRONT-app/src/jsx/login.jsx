@@ -1,7 +1,7 @@
 import React,{ useState } from 'react'
-import "./inicio.css"
+import "../css/inicio.css";
 
-export default function Descargar() {
+export default function Login() {
     const evento = () => setVariableA(!isExpanded);
     let content;
     let [isExpanded, setVariableA] = useState(false);
@@ -11,7 +11,7 @@ export default function Descargar() {
         
         content = 
         <div>
-            <div>Descargar</div>
+            <button>Log in</button>
             <div>
                 <li>
                     To Be implemented
@@ -19,9 +19,9 @@ export default function Descargar() {
             </div>
         </div>;
       } else {
-        content = <div> Descargar </div>;
+        content = <button>Log in </button>;
       }
   return (
-    <div className="implement" id="download" onMouseEnter={evento} onMouseLeave={evento}>{content}</div>
+    <div className="implement" id="login" onClick={evento}>{content}</div>
   )
 }

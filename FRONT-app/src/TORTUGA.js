@@ -1,7 +1,7 @@
 /* import './App.css'; */
-import "./inicio/inicio.css"
-import Nav from './inicio/nav';
-import Cuerpo from './inicio/cuerpo';
+import "./css/inicio.css"
+import Nav from './jsx/nav';
+import Cuerpo from './jsx/cuerpo';
 
 function App() {
   return (

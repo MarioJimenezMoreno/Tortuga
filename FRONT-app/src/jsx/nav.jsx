@@ -1,7 +1,6 @@
 import React,{ useState } from 'react'
-import Toimplement from './toimplement'
-import "./inicio.css"
-import tortuga from './img/tortuga.png'
+import "../css/inicio.css";
+import tortuga from '../img/tortuga.png'
 import Descargar from './descargar'
 import Guia from './guia'
 import Login from './login'
