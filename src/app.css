@@ -1,0 +1,218 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  offset: hidden;
+  background-color: rgb(35, 35, 35);
+  user-select: none;
+}
+body {
+  display: grid;
+  grid-template: 100px 10px auto 100px 50px 10px / 100px auto 100px 50px 10px;
+  font-family: "REM", sans-serif;
+}
+nav,
+ul,
+li {
+  height: 100%;
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+ul {
+  display: flex;
+}
+li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header {
+  grid-area: 1/1/2/6;
+  background-color: rgb(70, 70, 70);
+  border-bottom: rgb(130, 17, 236) dotted 2px;
+  font-size: 32px;
+  z-index: 2;
+}
+a,
+.link {
+  color: rgb(150, 73, 223);
+  letter-spacing: inherit;
+  text-decoration: none;
+}
+
+.logo {
+  background-color: white;
+  height: 50px;
+  width: 50px;
+}
+.calendar {
+  grid-area: 2/1/7/2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-weight: 700;
+  background-color: rgb(45, 45, 45);
+  border-right: rgb(130, 17, 236) dotted 2px;
+
+  z-index: 2;
+}
+.daysPreview {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  width: inherit;
+}
+.day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4vw;
+  height: 8vh;
+  font-size: 4em;
+  margin-block: 2vh;
+  background-color: rgb(60, 60, 60);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.separator {
+  height: 20px;
+}
+.dayText {
+  position: absolute;
+  color: rgb(150, 73, 223);
+}
+.currentTaskContainer,
+.previousTaskContainer,
+.nextTaskContainer {
+  grid-area: 3/2/6/5;
+  /* background-color: rgb(35, 35, 35); */ /* TESTING */
+  display: grid;
+  grid-template: repeat(24, 1fr) / 50px auto;
+  gap: 10px 5px;
+  align-items: center;
+  height: 100%; /* TESTING */
+}
+.daysContainer {
+  grid-area: 3/2/6/5;
+  overflow: scroll;
+  height: 100%;
+}
+.daysContainer::-webkit-scrollbar,
+.daysContainer::-webkit-scrollbar-thumb {
+  display: none;
+}
+.currentTaskContainer p,
+.previousTaskContainer p,
+.nextTaskContainer p {
+  margin-block: 0;
+  margin-inline: 5px;
+  color: grey;
+  justify-self: center;
+}
+
+/* TESTING */
+.previousTaskContainer {
+  background-color: blue;
+}
+.currentTaskContainer {
+  background-color: red;
+}
+.nextTaskContainer {
+  background-color: green;
+}
+
+.line {
+  width: auto;
+  margin-right: 20px;
+  border-top: 1px grey dashed;
+}
+.tareaVerde {
+  grid-area: 1/2/5/3;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  background-color: rgb(40, 151, 40);
+}
+.tareaAzul {
+  grid-area: 12/2/18/3;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  background-color: rgb(39, 39, 160);
+}
+.tareaRoja {
+  grid-area: 6/2/9/3;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  background-color: rgb(161, 84, 70);
+}
+button {
+  height: 100%;
+  width: 100%;
+}
+.newTask {
+  grid-area: 4/3/5/4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 150px;
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  background-color: rgb(119, 75, 160);
+  z-index: 2;
+  cursor: pointer;
+}
+.textTask {
+  font-weight: 300;
+  margin: 0;
+}
+.taskCreatorContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  color: white;
+  z-index: 5;
+  visibility: hidden;
+}
+.taskCreatorWindow {
+  height: 50%;
+  width: 25%;
+  background-color: rgb(30, 30, 30);
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.formNewTask {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: center;
+}
+.fader {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  background-color: black;
+  opacity: 0.75;
+  visibility: hidden;
+}
+.disabled {
+  pointer-events: none;
+  background-color: grey;
+}

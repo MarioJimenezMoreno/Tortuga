@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tarea</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=REM:wght@300;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="app.css" />
+  </head>
+  <body>
+    <div class="taskCreatorContainer">
+      <div class="taskCreatorWindow">
+        <h2>New Task</h2>
+        <form action="" method="post" class="formNewTask">
+          <span>NAME</span>
+          <input
+            type="text"
+            name="taskName"
+            class="taskNameInput"
+            maxlength="10"
+            required
+          />
+          <span>CATEGORY</span>
+          <select name="category" class="categoryInput" required>
+            <option value="">Selecciona una categoría</option>
+            <option value="Ocio">Ocio</option>
+            <option value="Estudio">Estudio</option>
+            <option value="Trabajo">Trabajo</option>
+          </select>
+          <span>INITIAL HOUR</span>
+          <div class="initialHourContainer">
+            <select name="initialHour" class="initialHourInput" required>
+              <option value="">Hora</option>
+              <option value="00">00</option>
+              <option value="01">01</option>
+              <option value="02">02</option>
+              <option value="03">03</option>
+              <option value="04">04</option>
+              <option value="05">05</option>
+              <option value="06">06</option>
+              <option value="07">07</option>
+              <option value="08">08</option>
+              <option value="09">09</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+            </select>
+            <span>:</span>
+            <select name="initialMinute" class="initialMinuteInput" required>
+              <option value="">Minuto</option>
+              <option value="00">00</option>
+              <option value="05">05</option>
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="25">25</option>
+              <option value="30">30</option>
+              <option value="35">35</option>
+              <option value="40">40</option>
+              <option value="45">45</option>
+              <option value="50">50</option>
+              <option value="55">55</option>
+            </select>
+          </div>
+
+          <span>END HOUR</span>
+          <div class="endHourContainer">
+            <select name="endHour" class="endHourInput" required>
+              <option value="">Hora</option>
+              <option value="00">00</option>
+              <option value="01">01</option>
+              <option value="02">02</option>
+              <option value="03">03</option>
+              <option value="04">04</option>
+              <option value="05">05</option>
+              <option value="06">06</option>
+              <option value="07">07</option>
+              <option value="08">08</option>
+              <option value="09">09</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+            </select>
+            <span>:</span>
+            <select name="endMinute" class="endMinuteInput" required>
+              <option value="">Minuto</option>
+              <option value="00">00</option>
+              <option value="05">05</option>
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="25">25</option>
+              <option value="30">30</option>
+              <option value="35">35</option>
+              <option value="40">40</option>
+              <option value="45">45</option>
+              <option value="50">50</option>
+              <option value="55">55</option>
+            </select>
+          </div>
+          <button type="button" class="createTaskBtn disabled">Create</button>
+        </form>
+      </div>
+    </div>
+    <div class="fader"></div>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <a href="#"><img class="logo" /></a>
+          </li>
+          <li>
+            <div><a href="#">Stats</a></div>
+          </li>
+          <li>
+            <div><a href="#">Featu</a></div>
+          </li>
+          <li>
+            <div><a href="#">Featu</a></div>
+          </li>
+          <li>
+            <div><a href="#">Notis</a></div>
+          </li>
+          <li>
+            <div><a href="#">Help</a></div>
+          </li>
+          <li>
+            <div><a href="#">Settings</a></div>
+          </li>
+          <li>
+            <div><a href="#">Profile</a></div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <nav class="calendar">
+      <!-- <div class="previousWeek"></div> -->
+      <button class="buttonTop">^</button>
+      <div class="daysPreview">
+        <div class="day">
+          <p class="dayText">16</p>
+        </div>
+        <div class="day">
+          <p class="dayText">17</p>
+        </div>
+        <div class="day">
+          <p class="dayText">18</p>
+        </div>
+        <div class="day">
+          <p class="dayText">19</p>
+        </div>
+        <div class="day">
+          <p class="dayText">20</p>
+        </div>
+        <div class="day">
+          <p class="dayText">21</p>
+        </div>
+        <div class="day">
+          <p class="dayText">22</p>
+        </div>
+      </div>
+      <button class="buttonBot">v</button>
+      <!-- <div class="nextWeek"></div> -->
+    </nav>
+    <div class="daysContainer"></div>
+    <div class="newTask">
+      <p class="textTask">+</p>
+    </div>
+    <script src="javascript/app.js"></script>
+  </body>
+</html>

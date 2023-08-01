@@ -4,35 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="output.css" />
+    <link rel="stylesheet" href="loginRegister.css" />
   </head>
   <body>
     <div
       class="formsContainer h-screen w-screen flex justify-around items-center"
     >
       <div
-        class="loginContainer bg-blue-400 w-1/3 h-1/2 border-2 border-black border-solid rounded-xl flex flex-col items-center justify-evenly"
+        class="loginContainer bg-blue-400 w-auto h-auto py-3.5 px-10 border-2 border-black border-solid rounded-xl flex flex-col items-center justify-evenly"
       >
-        <h1 class="text-5xl">Login</h1>
+        <h1 class="text-5xl mb-5">Login</h1>
         <form method="post" class="flex flex-col">
-          <span>Username</span>
+          <p>Username<span class="text-red-600">*</span></p>
           <input type="text" class="mb-5" id="loginUsername" />
-          <span>Password</span>
+          <p>Password<span class="text-red-600">*</span></p>
           <input type="password" class="mb-5" id="loginPassword" />
           <button class="text-white bg-green-600 rounded-full">Enter</button>
         </form>
       </div>
       <div
-        class="registerContainer bg-blue-400 w-1/3 h-1/2 border-2 border-black border-solid rounded-xl flex flex-col items-center justify-evenly"
+        class="registerContainer bg-blue-400 w-auto h-auto py-3.5 px-10 border-2 border-black border-solid rounded-xl flex flex-col items-center justify-evenly"
       >
-        <h1 class="text-5xl">Register</h1>
+        <h1 class="text-5xl mb-5">Register</h1>
         <form method="post" class="flex flex-col">
-          <span>Username</span>
+          <p>Username<span class="text-red-600">*</span></p>
           <input type="text" class="mb-5" id="registerUsername" />
-          <span>Password</span>
+          <p>Password<span class="text-red-600">*</span></p>
           <input type="password" class="mb-5" id="registerPassword" />
-          <span>Email</span>
+          <p>Email<span class="text-red-600">*</span></p>
           <input type="email" class="mb-5" id="registerEmail" />
+          <p>Teléfono</p>
+          <input type="number" class="mb-5" id="registerTelephone" />
           <button class="text-white bg-green-600 rounded-full">Create</button>
         </form>
       </div>

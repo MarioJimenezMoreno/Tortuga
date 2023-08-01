@@ -18,7 +18,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+<<<<<<< HEAD
     "pp": "tailwindcss -i ./src/input.css -o ./src/inicio.css --watch"
+=======
+    "lr": "tailwindcss -i ./src/input.css -o ./src/loginRegister.css --watch"
+>>>>>>> feature/proto_app
   },
   "eslintConfig": {
     "extends": [
@@ -37,5 +41,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/aria-query": "^5.0.1",
+    "aria-query": "^5.3.0"
   }
 }
