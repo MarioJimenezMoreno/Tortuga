@@ -1,16 +1,34 @@
-// Variables to store the initial mouse position and scroll position
-let isDragging = false;
-let initialMouseY: any;
-let initialScrollTop: any;
-let firstLoad = true;
-// The specific element to enable scrolling with mouse drag
 const daysContainer: HTMLElement = document.querySelector(".daysContainer")!;
 const daysPreview: HTMLElement = document.querySelector(".daysPreview")!;
 const calendarContainer: HTMLElement = document.querySelector(".calendar")!;
 const newTask: HTMLElement = document.querySelector(".newTask")!;
+const createTaskBtn: HTMLElement = document.querySelector(".createTaskBtn")!;
+const fader: HTMLElement = document.querySelector(".fader")!;
+const taskCreatorContainer: HTMLElement = document.querySelector(
+  ".taskCreatorContainer"
+)!;
+
+const taskNameInput: HTMLInputElement =
+  document.querySelector(".taskNameInput")!;
+const categoryInput: HTMLInputElement =
+  document.querySelector(".categoryInput")!;
+const initialHourInput: HTMLInputElement =
+  document.querySelector(".initialHourInput")!;
+const initialMinuteInput: HTMLInputElement = document.querySelector(
+  ".initialMinuteInput"
+)!;
+const endHourInput: HTMLInputElement = document.querySelector(".endHourInput")!;
+const endMinuteInput: HTMLInputElement =
+  document.querySelector(".endMinuteInput")!;
 
 let array = [1, 2, 3, 4, 5];
-let counter = 0;
+let counter: number = 0;
+let closedWindow: boolean = true;
+
+let isDragging: boolean = false;
+let initialMouseY: any;
+let initialScrollTop: any;
+let firstLoad: boolean = true;
 
 window.onload = () => {
   setupDays();
@@ -18,7 +36,38 @@ window.onload = () => {
 };
 
 newTask.onclick = () => {
-  taskCreatorController("open");
+  createTaskController("setup");
+  animationController("newTask");
+};
+
+createTaskBtn.onclick = () => {
+  createTaskController("create");
+  animationController("newTask");
+};
+
+taskCreatorContainer.onclick = (event) => {
+  if (event.target === taskCreatorContainer) {
+    animationController("newTask");
+  }
+};
+
+taskNameInput.oninput = () => {
+  createTaskController("check");
+};
+categoryInput.oninput = () => {
+  createTaskController("check");
+};
+initialHourInput.oninput = () => {
+  createTaskController("check");
+};
+initialMinuteInput.oninput = () => {
+  createTaskController("check");
+};
+endHourInput.oninput = () => {
+  createTaskController("check");
+};
+endMinuteInput.oninput = () => {
+  createTaskController("check");
 };
 
 function setupDays() {
@@ -114,12 +163,58 @@ function updateContainersByScroll() {
   counter++;
 }
 
-function taskCreatorController(action: String) {
+function animationController(action: String) {
   switch (action) {
-    case "open":
+    case "newTask":
+      if (closedWindow) {
+        fader.style.animation = "";
+        fader.style.zIndex = "4";
+        fader.style.opacity = "0.25";
+        fader.style.visibility = "visible";
+        taskCreatorContainer.style.visibility = "visible";
+        closedWindow = false;
+      } else {
+        fader.style.zIndex = "2";
+        fader.style.visibility = "hidden";
+        taskCreatorContainer.style.visibility = "hidden";
+        closedWindow = true;
+      }
+      break;
+  }
+}
+
+function createTaskController(state: String) {
+  switch (state) {
+    case "check":
+      if (
+        taskNameInput.value !== "" &&
+        categoryInput.value !== "" &&
+        initialHourInput.value !== "" &&
+        initialMinuteInput.value !== "" &&
+        endHourInput.value !== "" &&
+        endMinuteInput.value !== ""
+      ) {
+        createTaskBtn.classList.remove("disabled");
+      } else if (
+        taskNameInput.value === "" ||
+        categoryInput.value === "" ||
+        initialHourInput.value === "" ||
+        initialMinuteInput.value === "" ||
+        endHourInput.value === "" ||
+        endMinuteInput.value === ""
+      ) {
+        createTaskBtn.classList.add("disabled");
+      }
       break;
 
-    case "close":
+    case "setup":
+      createTaskBtn.classList.add("disabled");
+      taskNameInput.value = "";
+      categoryInput.value = "";
+      initialHourInput.value = "";
+      initialMinuteInput.value = "";
+      endHourInput.value = "";
+      endMinuteInput.value = "";
       break;
 
     case "create":

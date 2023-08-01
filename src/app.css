@@ -176,3 +176,43 @@ button {
   font-weight: 300;
   margin: 0;
 }
+.taskCreatorContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  color: white;
+  z-index: 5;
+  visibility: hidden;
+}
+.taskCreatorWindow {
+  height: 50%;
+  width: 25%;
+  background-color: rgb(30, 30, 30);
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.formNewTask {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: center;
+}
+.fader {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  background-color: black;
+  opacity: 0.75;
+  visibility: hidden;
+}
+.disabled {
+  pointer-events: none;
+  background-color: grey;
+}
