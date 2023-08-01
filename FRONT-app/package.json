@@ -1,5 +1,5 @@
 {
-  "name": "tortuga-app",
+  "name": "proyectotortuga",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,13 +9,17 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^5.1.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "pp": "tailwindcss -i ./src/input.css -o ./src/inicio.css --watch",
+    "lr": "tailwindcss -i ./src/input.css -o ./src/loginRegister.css --watch"
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +38,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/aria-query": "^5.0.1",
+    "aria-query": "^5.3.0"
   }
 }
