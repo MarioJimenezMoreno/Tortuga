@@ -24,7 +24,7 @@ public class UserController {
 	}
 	@RequestMapping(value= "/api/users", method = RequestMethod.POST)
 	public void registerUser(@RequestBody User user) {
-	user.getPassword()
+
 
 		userDAO.register(user);
 	}
