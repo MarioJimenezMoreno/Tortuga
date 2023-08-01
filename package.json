@@ -18,11 +18,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-<<<<<<< HEAD
-    "pp": "tailwindcss -i ./src/input.css -o ./src/inicio.css --watch"
-=======
+    "pp": "tailwindcss -i ./src/input.css -o ./src/inicio.css --watch",
     "lr": "tailwindcss -i ./src/input.css -o ./src/loginRegister.css --watch"
->>>>>>> feature/proto_app
   },
   "eslintConfig": {
     "extends": [
