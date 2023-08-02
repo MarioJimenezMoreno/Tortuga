@@ -24,16 +24,14 @@ public class UserController {
 	}
 	@RequestMapping(value= "/api/users", method = RequestMethod.POST)
 	public void registerUser(@RequestBody User user) {
-
-
 		userDAO.register(user);
 	}
-	@RequestMapping(value = "/api/user/{id}", method = RequestMethod.GET)
-	public void getUser() {
-
+	@RequestMapping(value = "/api/users/{id}", method = RequestMethod.GET)
+	public User getUser(@PathVariable Integer id) {
+	return userDAO.getUserById(id);
 	}
 
-	@RequestMapping(value = "/api/user/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/api/users/{id}", method = RequestMethod.DELETE)
 	public void deleteUser(@PathVariable Integer id ) {
 		userDAO.delete(id);
 	}
