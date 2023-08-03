@@ -5,28 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/estadistica.css">
+    <script src="../../node_modules/chart.js/dist/chart.umd.js"></script>
 </head>
 <body>
     <div class="container">
         <div class="menu_container">
-            <div class="perfil">soy el perfil</div>
+            <div class="perfil fs">soy el perfil</div>
             <div class="feature_container">
-                <div class="feature">feature</div>
-                <div class="feature">feature</div>
-                <div class="feature">feature</div>
-                <div class="feature">feature</div>
-                <div class="feature">feature</div>
+                <div class="feature fs">feature</div>
+                <div class="feature fs">feature</div>
+                <div class="feature fs">feature</div>
+                <div class="feature fs">feature</div>
+                <div class="feature fs">feature</div>
             </div>
         </div>
         <div class="horas_container">
-            <div class="horas_categorias" id="categoria_0">categoria</div>
-            <div class="horas_categorias" id="categoria_1">categoria</div>
-            <div class="horas_categorias" id="categoria_2">categoria</div>
-            <div class="horas_categorias" id="categoria_3">categoria</div>
+            <div class="horas_categorias fs" id="categoria_0">categoria</div>
+            <div class="horas_categorias fs" id="categoria_1">categoria</div>
+            <div class="horas_categorias fs" id="categoria_2">categoria</div>
+            <div class="horas_categorias fs" id="categoria_3">categoria</div>
         </div>
         <div class="graficos_container">
-            <div class="horas_libres_container">grafico 1</div>
-            <div class="categorias_grafico_container">grafico 2</div>
+            <div class="horas_libres_container fs">grafico 1</div>
+            <div class="categorias_grafico_container">
+                <canvas class="fs" id="grafico_pastel"></canvas>
+            </div>
         </div>
     </div>
     <script src="../javascript/estadistica.js"></script>
