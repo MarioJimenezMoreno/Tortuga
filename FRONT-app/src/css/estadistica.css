@@ -20,9 +20,6 @@ body {
     flex-flow: column;
     justify-content:space-around;
 }
-.container>*{
-    
-}
 /*******************************/
 
 /******************************/
@@ -76,9 +73,9 @@ body {
     align-items: center;
 }
 .horas_container>*{
-    border-radius: 10%;
+    border-radius: 15px;
     height: 75%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 25 / 9;
     background-color: #3282B8;
     display: flex;
     align-items: center;
