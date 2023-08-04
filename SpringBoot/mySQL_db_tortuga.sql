@@ -32,10 +32,13 @@ fk_tarea_categoria_id INTEGER UNSIGNED
 
 CREATE TABLE IF NOT EXISTS dias(
 dia_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-dia DATE,
+dia_inicio DATE,
 hora_inicio DATETIME, /* ASEGURAR QUE SEA DATETIME*/
-hora_final DATETIME
+dia_final DATE,
+hora_final DATETIME,
+duracion INT
 );
+
 
 CREATE TABLE IF NOT EXISTS dias_tareas(
 dias_tareas_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
@@ -48,3 +51,4 @@ categoria_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 color VARCHAR(45),
 color_code VARCHAR(45)
 );
+

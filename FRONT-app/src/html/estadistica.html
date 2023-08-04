@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html id="html" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/estadistica.css">
+    <script src="../../node_modules/chart.js/dist/chart.umd.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="menu_container">
+            <div class="perfil fs">soy el perfil</div>
+            <div class="feature_container">
+                <div class="feature fs">feature</div>
+                <div class="feature fs">feature</div>
+                <div class="feature fs">feature</div>
+                <div class="feature fs">feature</div>
+                <div class="feature fs">feature</div>
+            </div>
+        </div>
+        <div class="horas_container">
+            <div class="horas_categorias fs" id="categoria_0">categoria</div>
+            <div class="horas_categorias fs" id="categoria_1">categoria</div>
+            <div class="horas_categorias fs" id="categoria_2">categoria</div>
+            <div class="horas_categorias fs" id="categoria_3">categoria</div>
+        </div>
+        <div class="graficos_container">
+            <div class="horas_libres_container fs">
+                <canvas class="fs" id="grafico_barras"></canvas>
+            </div>
+            <div class="categorias_grafico_container">
+                <canvas class="fs" id="grafico_pastel"></canvas>
+            </div>
+        </div>
+    </div>
+    <script src="../javascript/estadistica.js"></script>
+</body>
+</html>
