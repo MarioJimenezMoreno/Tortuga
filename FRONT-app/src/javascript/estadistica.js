@@ -31,6 +31,12 @@ const RESPUESTA_1 = [
         color: "#FDF6F0"
     },
     {
+      dia: -1,
+      nombre: "Ocio",
+      horas: 14 ,
+      color: "#F8E2CF"
+    },    
+    {
         dia: -1,
         nombre: "Ocio",
         horas: 12 ,
@@ -190,18 +196,28 @@ const RESPUESTA_1 = [
 ]
 //------------------------------------//
 
-/************categorias hardcodeadas GRAFICO 2********/
+/************categorias hardcodeadas GRAFICO 2 Y CATEGORIAS********/
 const RESPUESTA_2 = [
     {
         nombre: "Libre",
-        horas: 40,
+        horas: 10,
         color: "#FCD8D4"
     },
+    {
+      nombre: "Libre",
+      horas: 20,
+      color: "#FCD8D4"
+  },
     {
         nombre: "Trabajo",
         horas: 36,
         color: "#FDF6F0"
     },
+    {
+      nombre: "Trabajo",
+      horas: 106,
+      color: "#FDF6F0"
+  },
     {
         nombre: "Ocio",
         horas: 80,
@@ -215,45 +231,143 @@ const RESPUESTA_2 = [
 ]
 //------------------------------------//
 
-/*********-reorganiza el array de mayor a menor-*********/
-function compararMayorMenor(a, b) {
-    return b.horas - a.horas;
-  }  
-RESPUESTA_2.sort(compararMayorMenor);
-//------------------------------------//
-
-/*********-reorganizar los divs segun las horas-*********/
-//definiendo los divs//
-const CAT_0 =document.getElementById("categoria_0");
-const CAT_1 =document.getElementById("categoria_1");
-const CAT_2 =document.getElementById("categoria_2");
-const CAT_3 =document.getElementById("categoria_3");
-//primer div//
-CAT_0.style.backgroundColor=RESPUESTA_2[0].color;
-CAT_0.innerText = RESPUESTA_2[0].nombre+":\n"+RESPUESTA_2[0].horas+" horas";
-//segundo div//
-CAT_1.style.backgroundColor=RESPUESTA_2[1].color;
-CAT_1.innerText = RESPUESTA_2[1].nombre+":\n"+RESPUESTA_2[1].horas+" horas";
-//tercer div//
-CAT_2.style.backgroundColor=RESPUESTA_2[2].color;
-CAT_2.innerText = RESPUESTA_2[2].nombre+":\n"+RESPUESTA_2[2].horas+" horas";
-//cuarto div//
-CAT_3.style.backgroundColor=RESPUESTA_2[3].color;
-CAT_3.innerText = RESPUESTA_2[3].nombre+":\n"+RESPUESTA_2[3].horas+" horas";
-//------------------------------------//
-
 /*********-hacer los graficos-*********/
 
-//      grafico PASTEL      //
+// esta linea de codigo me estandariza el tamaño de fuente segun el tamaño del div del grafico
+const FUENTE_GRAFICO = window.getComputedStyle(document.getElementById("grafico_barras"));
+
+  // proceso de estandarizacion //
+
+  // para el grafico de BARRAS
+  let resultado = RESPUESTA_1.reduce(function(acumulador, elemento) {
+    let elementoExistente = acumulador.find(function(item) {
+      
+      return item.dia === elemento.dia && item.nombre === elemento.nombre;
+      
+    });
+  
+    if (elementoExistente) {
+      elementoExistente.horas += elemento.horas;
+    } else {
+      acumulador.push(elemento);
+    }
+  
+    return acumulador;
+  }, []);
+
+  // para el grafico de PASTEL Y CATEGORIA
+  let resultado_2 = RESPUESTA_2.reduce(function(acumulador, elemento) {
+    let elementoExistente = acumulador.find(function(item) {
+      return item.nombre === elemento.nombre;
+    });
+  
+    if (elementoExistente) {
+      elementoExistente.horas += elemento.horas;
+    } else {
+      acumulador.push(elemento);
+    }
+  
+    return acumulador;
+  }, []);
+  console.log(resultado_2);
+  //------------------------------------//
+
+  //      grafico BARRAS     //  
+
+ // Obtener un objeto con días únicos
+ const diasUnicos = [...new Set(resultado.map(item => item.dia))];
+
+// Preparar un objeto para los datos del gráfico
+const data = {
+  labels: diasUnicos.map(dia => `Día ${dia}`),
+  datasets: resultado.reduce((datasets, item) => {
+    const datasetIndex = datasets.findIndex(ds => ds.label === item.nombre);
+    if (datasetIndex !== -1) {
+      datasets[datasetIndex].data.push(item.horas);
+      datasets[datasetIndex].backgroundColor.push(item.color);
+    } else {
+      datasets.push({
+        label: item.nombre,
+        data: [item.horas],
+        backgroundColor: [item.color],
+      });
+    }
+    return datasets;
+  },
+   []),
+};
+
+// Configuración del gráfico
+const config = {
+  type: 'bar',
+  data: data,
+  options: {
+    plugins: {
+      legend: {
+          labels: {
+              color: "#000",
+              font: {
+                  size: parseFloat(FUENTE_GRAFICO.fontSize)
+              },
+          }
+      }
+    },
+    scales: {
+      x: {
+        stacked: true,
+        ticks: {
+          color: "#000", // Cambiar color del eje Y
+          font: {
+            size: parseFloat(FUENTE_GRAFICO.fontSize), // Cambiar tamaño de fuente del eje Y
+          },
+        },
+        grid: {
+          color: "#000" // Cambiar color de la grilla
+        },
+      },
+      y: {
+        stacked: true,
+        beginAtZero: true,
+        ticks: {
+          color: "#000", // Cambiar color del eje Y
+          font: {
+            size: parseFloat(FUENTE_GRAFICO.fontSize), // Cambiar tamaño de fuente del eje Y
+          },
+        },
+        grid: {
+          color: "#000" // Cambiar color de la grilla
+        },
+      },      
+    },
+    layout: {
+      height: {
+        
+      },
+    },
+  },
+};
+
+// CREAR grafico de BARRAS //
+const GRAFICO_BARRAS = document.getElementById("grafico_barras").getContext("2d");
+new Chart(GRAFICO_BARRAS, config);
+
+//      grafico PASTEL y CATEGORIAS     //  
+
+/*********-reorganiza el array de mayor a menor-*********/
+function compararMayorMenor(a, b) {
+  return b.horas - a.horas;
+}  
+resultado_2.sort(compararMayorMenor);
+//------------------------------------//
 
 // Obtener el elemento canvas del HTML
-const FUENTE_GRAFICO = window.getComputedStyle(document.getElementById("grafico_pastel"));
 const CTX = document.getElementById("grafico_pastel").getContext("2d");
+
 // Datos para el gráfico
 let color_array_2 =[];
 let data_array_2 = [];
 let categoria_array_2 = [];
-RESPUESTA_2.forEach(element => {
+resultado_2.forEach(element => {
     color_array_2.push(element.color);
     data_array_2.push(element.horas);
     categoria_array_2.push(element.nombre);
@@ -292,109 +406,27 @@ let grafico_pastel = new Chart(CTX, {
     data: datos_2,
     options: opciones_2
   });
+//------------------------------------//
 
-  //      grafico BARRAS      //
-
- // Obtener un objeto con días únicos
- const diasUnicos = [...new Set(RESPUESTA_1.map(item => item.dia))];
-
-// Preparar un objeto para los datos del gráfico
-const data = {
-  labels: diasUnicos.map(dia => `Día ${dia}`),
-  datasets: RESPUESTA_1.reduce((datasets, item) => {
-    const datasetIndex = datasets.findIndex(ds => ds.label === item.nombre);
-    if (datasetIndex !== -1) {
-      datasets[datasetIndex].data.push(item.horas);
-      datasets[datasetIndex].backgroundColor.push(item.color);
-    } else {
-      datasets.push({
-        label: item.nombre,
-        data: [item.horas],
-        backgroundColor: [item.color],
-      });
-    }
-    return datasets;
-  },
-   []),
-};
-
-// Configuración del gráfico
-const config = {
-  type: 'bar',
-  data: data,
-  options: {
-    plugins: {
-      legend: {
-          labels: {
-              color: "#000",
-              font: {
-                  size: parseFloat(FUENTE_GRAFICO.fontSize)
-              },
-          }
-      }
-    },
-    scales: {
-      x: {
-        stacked: true,
-      },
-      y: {
-        stacked: true,
-        beginAtZero: true,
-      },
-    },
-  },
-};
-// CREAR grafico de barras //
-const GRAFICO_BARRAS = document.getElementById("grafico_barras").getContext("2d");
-new Chart(GRAFICO_BARRAS, config);
-
-  /*
-  propuesta de chatgpt
-  // Obtener un objeto con días únicos
-const diasUnicos = [...new Set(datos.map(item => item.dia))];
-
-// Preparar un objeto para los datos del gráfico
-const data = {
-  labels: diasUnicos.map(dia => `Día ${dia}`),
-  datasets: datos.reduce((datasets, item) => {
-    const datasetIndex = datasets.findIndex(ds => ds.label === item.nombre);
-    if (datasetIndex !== -1) {
-      datasets[datasetIndex].data.push(item.horas);
-      datasets[datasetIndex].backgroundColor.push(item.color);
-    } else {
-      datasets.push({
-        label: item.nombre,
-        data: [item.horas],
-        backgroundColor: [item.color],
-      });
-    }
-    return datasets;
-  }, []),
-};
-
-// Configuración del gráfico
-const config = {
-  type: 'bar',
-  data: data,
-  options: {
-    scales: {
-      x: {
-        stacked: true,
-      },
-      y: {
-        stacked: true,
-        beginAtZero: true,
-      },
-    },
-  },
-};
-
-// Crear el gráfico
-const ctx = document.getElementById('graficoBarras').getContext('2d');
-new Chart(ctx, config);
-</script>
-    
-  */
+/*********-reorganizar los divs segun las horas-*********/
+//definiendo los divs//
+const CAT_0 =document.getElementById("categoria_0");
+const CAT_1 =document.getElementById("categoria_1");
+const CAT_2 =document.getElementById("categoria_2");
+const CAT_3 =document.getElementById("categoria_3");
+//primer div//
+CAT_0.style.backgroundColor=resultado_2[0].color;
+CAT_0.innerText = resultado_2[0].nombre+":\n"+resultado_2[0].horas+" horas";
+//segundo div//
+CAT_1.style.backgroundColor=resultado_2[1].color;
+CAT_1.innerText = resultado_2[1].nombre+":\n"+resultado_2[1].horas+" horas";
+//tercer div//
+CAT_2.style.backgroundColor=resultado_2[2].color;
+CAT_2.innerText = resultado_2[2].nombre+":\n"+resultado_2[2].horas+" horas";
+//cuarto div//
+CAT_3.style.backgroundColor=resultado_2[3].color;
+CAT_3.innerText = resultado_2[3].nombre+":\n"+resultado_2[3].horas+" horas";
+//------------------------------------//
 
 
 
