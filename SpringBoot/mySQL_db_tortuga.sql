@@ -4,10 +4,10 @@ USE db_tortuga;
 SHOW TABLES;
 CREATE TABLE IF NOT EXISTS users(
 	id INTEGER PRIMARY KEY AUTO_INCREMENT,
-	email VARCHAR(45) UNIQUE,
-	password VARCHAR(45) UNIQUE,
-    phone INT UNIQUE,
-	username VARCHAR(45) UNIQUE
+	username VARCHAR(45) NOT NULL UNIQUE,
+	password VARCHAR(45) NOT NULL UNIQUE,
+	email VARCHAR(45) NOT NULL UNIQUE,
+    phone INT UNIQUE
 );
 select * from users;
 INSERT INTO users (id,username,password,email,phone)
