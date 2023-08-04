@@ -295,49 +295,58 @@ let grafico_pastel = new Chart(CTX, {
 
   //      grafico BARRAS      //
 
-// Datos para el gráfico
-// TENGO QUE REPLANTEAR COMO HACERLO PORQUE NO VA A IR BIEN
-let color_array_1 =[];
-let data_array_1 = [];
-let categoria_array_1 = [];
-let dias_array_1 =[];
-RESPUESTA_1.forEach(element => {
-    if (!color_array_1.includes(element.color)) {
-        color_array_1.push(element.color);
-      }
-    data_array_1.push(element.horas);
-    categoria_array_1.push(element.nombre);
-    dias_array_1.push(element.dia);
-});
+ // Obtener un objeto con días únicos
+ const diasUnicos = [...new Set(RESPUESTA_1.map(item => item.dia))];
 
-let datos_1 = {
-    labels: meses,
-    datasets: [{
-      label: 'Ventas Mensuales',
-      data: ventas,
-      backgroundColor: 'rgba(75, 192, 192, 0.2)',
-      borderColor: 'rgba(75, 192, 192, 1)',
-      borderWidth: 1
-    }]
-  };
-
-  // Opciones de personalización
-let opciones_1 = {
-    scales: {
-      y: {
-        beginAtZero: true
-      }
+// Preparar un objeto para los datos del gráfico
+const data = {
+  labels: diasUnicos.map(dia => `Día ${dia}`),
+  datasets: RESPUESTA_1.reduce((datasets, item) => {
+    const datasetIndex = datasets.findIndex(ds => ds.label === item.nombre);
+    if (datasetIndex !== -1) {
+      datasets[datasetIndex].data.push(item.horas);
+      datasets[datasetIndex].backgroundColor.push(item.color);
+    } else {
+      datasets.push({
+        label: item.nombre,
+        data: [item.horas],
+        backgroundColor: [item.color],
+      });
     }
-  };
+    return datasets;
+  },
+   []),
+};
 
-
-// CREAR grafico de barras //
-
+// Configuración del gráfico
 const config = {
-    type: 'bar',
-    data: datos_1,
-    options: opciones_1
-  };
+  type: 'bar',
+  data: data,
+  options: {
+    plugins: {
+      legend: {
+          labels: {
+              color: "#000",
+              font: {
+                  size: parseFloat(FUENTE_GRAFICO.fontSize)
+              },
+          }
+      }
+    },
+    scales: {
+      x: {
+        stacked: true,
+      },
+      y: {
+        stacked: true,
+        beginAtZero: true,
+      },
+    },
+  },
+};
+// CREAR grafico de barras //
+const GRAFICO_BARRAS = document.getElementById("grafico_barras").getContext("2d");
+new Chart(GRAFICO_BARRAS, config);
 
   /*
   propuesta de chatgpt
