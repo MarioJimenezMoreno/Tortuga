@@ -12,8 +12,6 @@ public interface UserDAO {
     boolean verifyCredentials(User user);
 
 
-
-
     User getUserById(Integer id);
 
     void register(User user);

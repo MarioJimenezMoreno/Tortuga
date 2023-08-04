@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
     @Autowired
     private UserDAO userDAO;
-    @RequestMapping(value= "/api/login", method = RequestMethod.POST)
+    @RequestMapping(value= "api/login", method = RequestMethod.POST)
     public String login(@RequestBody User user) {
         if (userDAO.verifyCredentials(user)) {
             return "OK";

@@ -18,20 +18,20 @@ public class UserController {
 
 
 	//Obtener usuario
-	@RequestMapping(value= "/api/users", method = RequestMethod.GET)
+	@RequestMapping(value= "api/users", method = RequestMethod.GET)
 	public List<User> getUsers() {
 		return userDAO.getUsers();
 	}
-	@RequestMapping(value= "/api/users", method = RequestMethod.POST)
+	@RequestMapping(value= "api/users/register", method = RequestMethod.POST)
 	public void registerUser(@RequestBody User user) {
 		userDAO.register(user);
 	}
-	@RequestMapping(value = "/api/users/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "api/users/{id}", method = RequestMethod.GET)
 	public User getUser(@PathVariable Integer id) {
 	return userDAO.getUserById(id);
 	}
 
-	@RequestMapping(value = "/api/users/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "api/users/{id}", method = RequestMethod.DELETE)
 	public void deleteUser(@PathVariable Integer id ) {
 		userDAO.delete(id);
 	}
