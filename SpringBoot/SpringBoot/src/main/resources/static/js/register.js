@@ -9,19 +9,22 @@ async function registerUser() {
     let repeatpassword = document.querySelector("#inputRepeatPassword").value;
 
 
-    if (data.password != repeatpassword) {
+    if (data.password !== repeatpassword) {
         alert("Passwords must be identical")
-        return;
-    }
 
+    }else if (data.password.length<6)
+    {
+        alert("Password require a minimum length of 6")
+    } else {
     const request = await fetch('api/users/register', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify( data )
+        body: JSON.stringify( data)
     });
-
-}
+    alert("The account was successfully created")
+    window.location.href = 'users.html'
+}}
 

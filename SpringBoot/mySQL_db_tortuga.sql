@@ -2,18 +2,16 @@ DROP DATABASE IF EXISTS db_tortuga;
 CREATE DATABASE IF NOT EXISTS db_tortuga;
 USE db_tortuga;
 SHOW TABLES;
-CREATE TABLE IF NOT EXISTS users(
-	id INTEGER PRIMARY KEY AUTO_INCREMENT,
-	username VARCHAR(45) NOT NULL UNIQUE,
-	password VARCHAR(45) NOT NULL UNIQUE,
-	email VARCHAR(45) NOT NULL UNIQUE,
+CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(45) NOT NULL,
+    password VARCHAR(255) NOT NULL CHECK (LENGTH(password) >= 6),
+    email VARCHAR(45) NOT NULL UNIQUE,
     phone INT UNIQUE
 );
+
 select * from users;
-INSERT INTO users (id,username,password,email,phone)
-VALUES ('29', 'mika2', 'Skagen 21', 'Shola@gmail.com', '635197819');
-INSERT INTO users (id,username,password,email,phone)
-VALUES ('1', 'hola', 'minene', 'kele@gmail.com', '636197819');
+
 
 CREATE TABLE IF NOT EXISTS tareas(
 tarea_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
