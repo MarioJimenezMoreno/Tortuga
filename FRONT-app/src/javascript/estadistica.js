@@ -7,12 +7,33 @@ HTML.style.width = "" + ANCHO + "px";
 HTML.style.height = "" + ALTO + "px";
 //------------------------------------//
 
+/*********-fetch-*********/
+async function fetching() {
+const request = await fetch('api/login', {
+  method: 'GET',
+  headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+  },
+  body: JSON.stringify( fetch_data )
+});
+}
+fetching();
+//------------------------------------//
+
 /*********-hace que el tamaño de fuente siempre sea visible-*********/
 const FS = document.getElementsByClassName("fs");
+const FS2 = document.getElementsByClassName("fs2");
 
 for (let i = 0; i < FS.length; i++) {
   const fs_Style = window.getComputedStyle(FS[i])
   FS[i].style.fontSize = "" + fs_Style.fontSize + "";
+  
+}
+for (let i = 0; i < FS2.length; i++) {
+  const fs_Style = window.getComputedStyle(FS2[i])
+  FS2[i].style.fontSize = "" + fs_Style.fontSize + "";
+  
 }
 //------------------------------------//
 
@@ -304,7 +325,6 @@ let resultado_2 = RESPUESTA_2.reduce(function (acumulador, elemento) {
 
   return acumulador;
 }, []);
-console.log(resultado_2);
 //------------------------------------//
 
 //      grafico BARRAS     //  
@@ -325,6 +345,7 @@ const data = {
         label: item.tarea,
         data: [item.duracion],
         backgroundColor: [item.color_code],
+        
       });
     }
     return datasets;
@@ -357,7 +378,7 @@ const config = {
           },
         },
         grid: {
-          color: "#000" // Cambiar color de la grilla
+          /* color: "#000" // Cambiar color de la grilla */
         },
       },
       y: {
@@ -370,7 +391,7 @@ const config = {
           },
         },
         grid: {
-          color: "#000" // Cambiar color de la grilla
+          /* color: "#000" // Cambiar color de la grilla */
         },
       },
     },
@@ -413,8 +434,8 @@ let datos_2 = {
   datasets: [{
     data: data_array_2,
     backgroundColor: color_array_2,
+    borderWidth: 1,
     borderColor: "#1B262C"
-
   }]
 };
 

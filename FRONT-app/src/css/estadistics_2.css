@@ -1,0 +1,12 @@
+.container {
+  display: grid;
+  grid-template-rows: 50px 840px;
+  grid-template-columns: 1fr 1fr;
+}
+.navbar{
+    grid-area: 1/1/2/3;
+}
+.cat_char{
+    grid-area: 2/1/3/3;
+}
+
