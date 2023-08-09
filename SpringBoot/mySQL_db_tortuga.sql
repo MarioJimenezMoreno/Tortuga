@@ -5,7 +5,7 @@ SHOW TABLES;
 CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(45) NOT NULL,
-    password VARCHAR(255) NOT NULL CHECK (LENGTH(password) >= 6),
+    password VARCHAR(255) NOT NULL CHECK (LENGTH(password) > 5),
     email VARCHAR(45) NOT NULL UNIQUE,
     phone INT UNIQUE
 );

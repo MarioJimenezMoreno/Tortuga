@@ -1,10 +1,17 @@
-document.addEventListener("DOMContentLoaded", function () {
+ document.addEventListener("DOMContentLoaded", function () {
   loadUsers();
   document.querySelector('#users').DataTable();
   updateEmail();
 });
-
+ function getHeaders() {
+   return {
+     'Accept': 'application/json',
+     'Content-Type': 'application/json',
+     'Authorization': localStorage.token
+   }
+ }
 async function loadUsers() {
+
 
   const request = await fetch('api/users', {
     method: 'GET',
@@ -44,11 +51,5 @@ function updateEmail() {
   document.querySelector("#user-email").outerHTML = localStorage.username;
 }
 
-function getHeaders() {
-  return {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json',
-    'Authorization': localStorage.token
-  }
-}
+
 

@@ -9,7 +9,7 @@ public interface UserDAO {
 
     void delete(Integer id);
 
-    boolean verifyCredentials(User user);
+    User obtainUserByCredentials(User user);
 
 
     User getUserById(Integer id);

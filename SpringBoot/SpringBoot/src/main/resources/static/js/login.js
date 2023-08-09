@@ -21,7 +21,7 @@ async function logIn() {
 
     if (credentials != 'FAIL') {
         localStorage.token = credentials;
-        localStorage.username = data.username;
+        localStorage.email = data.email;
         window.location.href = "users.html";
     }
     else {
