@@ -358,6 +358,7 @@ const config = {
   type: 'bar',
   data: data,
   options: {
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         labels: {
@@ -366,7 +367,7 @@ const config = {
             size: parseFloat(FUENTE_GRAFICO.fontSize)
           },
         }
-      }
+      }      
     },
     scales: {
       x: {
@@ -384,7 +385,11 @@ const config = {
       y: {
         stacked: true,
         beginAtZero: true,
+        max: 24,
+        
+        
         ticks: {
+          stepSize: 6,
           color: "#000", // Cambiar color del eje Y
           font: {
             size: parseFloat(FUENTE_GRAFICO.fontSize), // Cambiar tamaño de fuente del eje Y
@@ -395,17 +400,16 @@ const config = {
         },
       },
     },
-    layout: {
-      height: {
-
-      },
-    },
   },
 };
 
 // CREAR grafico de BARRAS //
 const GRAFICO_BARRAS = document.getElementById("grafico_barras").getContext("2d");
 new Chart(GRAFICO_BARRAS, config);
+
+//  TITULO pastel // **cambiar a funcion cuando haya mas implementado**//
+document.getElementById("grafico_barras_titulo").innerText="Horas por categoria y dia";
+//------------------------------------//
 
 //      grafico PASTEL y CATEGORIAS     //  
 
@@ -445,6 +449,7 @@ let opciones_2 = {
   maintainAspectRatio: false,
   plugins: {
     legend: {
+      
       position: "right",
       labels: {
         color: "#000",
@@ -453,7 +458,7 @@ let opciones_2 = {
         },
       }
     }
-  }
+  },
 };
 
 // Crear el gráfico PASTEL
@@ -462,6 +467,9 @@ let grafico_pastel = new Chart(CTX, {
   data: datos_2,
   options: opciones_2
 });
+
+//  TITULO pastel // **cambiar a funcion cuando haya mas implementado**//
+document.getElementById("grafico_pastel_titulo").innerText="Porcentaje semanal";
 //------------------------------------//
 
 /*********-reorganizar los divs segun las horas-*********/
