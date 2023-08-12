@@ -1,4 +1,4 @@
-package com.Tortuga.SpringBoot.DAO;
+package com.Tortuga.SpringBoot.Interfaces;
 
 import com.Tortuga.SpringBoot.models.User;
 

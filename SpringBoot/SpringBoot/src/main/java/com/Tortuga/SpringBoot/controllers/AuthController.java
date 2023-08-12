@@ -1,6 +1,6 @@
 package com.Tortuga.SpringBoot.controllers;
 
-import com.Tortuga.SpringBoot.DAO.UserDAO;
+import com.Tortuga.SpringBoot.Interfaces.UserDAO;
 import com.Tortuga.SpringBoot.models.User;
 import com.Tortuga.SpringBoot.utils.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;

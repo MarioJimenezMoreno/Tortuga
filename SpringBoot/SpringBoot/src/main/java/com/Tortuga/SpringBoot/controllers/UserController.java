@@ -1,14 +1,12 @@
 package com.Tortuga.SpringBoot.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import com.Tortuga.SpringBoot.DAO.UserDAO;
+import com.Tortuga.SpringBoot.Interfaces.UserDAO;
 import com.Tortuga.SpringBoot.utils.JWTUtil;
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import com.Tortuga.SpringBoot.models.User;

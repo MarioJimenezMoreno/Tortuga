@@ -1,5 +1,6 @@
 package com.Tortuga.SpringBoot.DAO;
 
+import com.Tortuga.SpringBoot.Interfaces.UserDAO;
 import com.Tortuga.SpringBoot.models.User;
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
@@ -12,7 +13,7 @@ import java.util.List;
 
 @Repository
 @Transactional
-public class UserDaoImp implements UserDAO{
+public class UserDaoImp implements UserDAO {
     @PersistenceContext
     private EntityManager entityManager;
     @Override
