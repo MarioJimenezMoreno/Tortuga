@@ -1,0 +1,33 @@
+ /*   
+    #1B262C
+    #0F4C75
+    #3282B8
+    #BBE1FA
+*/
+#perfil{
+height: fit-content;
+width: 100px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-between;
+background-color:#0F4C75 ;
+color: #BBE1FA;
+border-radius: 3px;
+box-shadow: 0px 0px 5px 4px #BBE1FA;
+}
+#perfil>*{
+    cursor: pointer;
+    user-select: none;
+    height: 40px;
+    width: 100%;
+    box-sizing:border-box;
+    transition: background-color 0.5s ease;
+    padding: 2px 0px 2px 0px;
+}
+#opciones:hover{
+background-color: #3282B8;
+}
+#logout:hover{
+background-color: #3282B8;
+}

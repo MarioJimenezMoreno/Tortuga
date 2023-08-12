@@ -1,0 +1,28 @@
+ /*   
+    #1B262C
+    #0F4C75
+    #3282B8
+    #BBE1FA
+*/
+#container{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    height: 30px;
+    width: 90px;
+    border-radius: 20px;
+}
+#esfera{
+    cursor: pointer;
+    user-select: none;
+    background-color: #BBE1FA;
+    border-radius: 50%;
+    margin: 0px 2.5px 0px 2.5px;
+    height: 25px;
+    aspect-ratio: 1/1;
+    color: orange;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
