@@ -3,6 +3,8 @@
   document.querySelector('#users').DataTable();
   updateEmail();
 });
+
+
  function getHeaders() {
    return {
      'Accept': 'application/json',
@@ -11,7 +13,6 @@
    }
  }
 async function loadUsers() {
-
 
   const request = await fetch('api/users', {
     method: 'GET',
@@ -48,7 +49,7 @@ async function deleteUser(id) {
 }
 
 function updateEmail() {
-  document.querySelector("#user-email").outerHTML = localStorage.username;
+  document.querySelector("#txt-email-user").outerHTML = localStorage.email;
 }
 
 

@@ -19,7 +19,7 @@ async function logIn() {
 
     const credentials = await request.text();
 
-    if (credentials != 'FAIL') {
+    if (credentials !== 'FAIL') {
         localStorage.token = credentials;
         localStorage.email = data.email;
         window.location.href = "users.html";

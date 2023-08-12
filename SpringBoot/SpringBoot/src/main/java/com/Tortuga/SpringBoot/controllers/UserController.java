@@ -20,19 +20,19 @@ public class UserController {
 
 	@Autowired
 	private JWTUtil jwtUtil;
+	private boolean tokenValidation (String token){
+		String userID = jwtUtil.getKey(token);
+		return userID != null;
+	}
 
 	//Obtener usuario
 	@RequestMapping(value= "api/users", method = RequestMethod.GET)
 	public List<User> getUsers(@RequestHeader (value = "Authorization") String token) {
 		if (!tokenValidation(token)){return null;}
-
 		return userDAO.getUsers();
 	}
 
-	private boolean tokenValidation (String token){
-		String userID = jwtUtil.getKey(token);
-		return userID != null;
-	}
+
 	@RequestMapping(value= "api/users/register", method = RequestMethod.POST)
 	public void registerUser(@RequestBody User user) {
 		Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
