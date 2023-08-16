@@ -7,23 +7,19 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
+/*
+    tarea_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    tarea VARCHAR(45),
+    urgencia BOOLEAN,
+    nota VARCHAR(150),
+    fk_categoria_id INT,
+    inicio DATETIME,
+    final DATETIME,
+    duracion DOUBLE*/
 @Data
-@Entity(name = "tareas")
+@Entity(name="tareas")
 public class Task {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer tarea_id;
-
-    @Column(name = "tarea")
-    private String task;
-
-    @Column(name = "nota")
-    private String note;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer fk_category_id;
-
-
+    private Integer task_id;
 }
