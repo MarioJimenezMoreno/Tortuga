@@ -4,6 +4,7 @@
   updateEmail();
 });
 
+ let data = {};
 
  function getHeaders() {
    return {
@@ -51,6 +52,22 @@ async function deleteUser(id) {
 function updateEmail() {
   document.querySelector("#txt-email-user").outerHTML = localStorage.email;
 }
+ const request2 = await fetch('api/login', {
+   method: 'POST',
+   headers: {
+     'Accept': 'application/json',
+     'Content-Type': 'application/json'
+   },
+   body: JSON.stringify( data )
+ });
+ const credentials = await request2.text();
 
-
+ if (credentials !== 'FAIL') {
+   localStorage.token = credentials;
+   localStorage.email = data.email;
+   window.location.href = "users.html";
+ }
+ else {
+   alert("Email or password are incorrect.");
+ }
 

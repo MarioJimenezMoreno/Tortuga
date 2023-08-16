@@ -13,7 +13,7 @@ import java.util.List;
 
 @Repository
 @Transactional
-public class UserDaoImp implements UserDAO {
+public class UserDAOImp implements UserDAO {
     @PersistenceContext
     private EntityManager entityManager;
     @Override
