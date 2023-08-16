@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import com.Tortuga.SpringBoot.models.User;
 
 @RestController
-
 public class UserController {
 
 	@Autowired
