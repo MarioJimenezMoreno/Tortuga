@@ -1,6 +1,7 @@
 
 import GraficoPastel from "./GraficoPastel";
 import GraficoBarras from "./GraficoBarras";
+import Categories from "./Categorias";
 import Header from "./Header";
 import {Card, CardBody} from '@nextui-org/react'
 /* const HTML = document.getElementById("html");
@@ -31,11 +32,12 @@ export default function Estadisticas() {
     <>
     <Header/>
     
-        <Card><CardBody><GraficoBarras/></CardBody></Card>
-
-        <Card><CardBody><GraficoBarras/></CardBody></Card>
-      
-        <Card><CardBody><GraficoPastel/></CardBody></Card>        
+        <Card className="mb-4"><CardBody><Categories/></CardBody></Card>
+        <div className="flex justify-between">
+          <Card className=""><CardBody className=""><GraficoBarras/></CardBody></Card>
+          <Card className=""><CardBody><GraficoPastel/></CardBody></Card>
+        </div>
+                
       
   </>
 )
