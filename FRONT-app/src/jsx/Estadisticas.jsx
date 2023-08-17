@@ -1,38 +1,67 @@
-import "../css/estadistica.css"
-import "../jsx/GraficoPastel"
+import React,{ useState } from 'react'
+import "../css/estadistica.css";
 import GraficoPastel from "../jsx/GraficoPastel";
+import GraficoBarras from "../jsx/GraficoBarras";
+/* const HTML = document.getElementById("html");
+const ANCHO = HTML.offsetWidth;
+const ALTO = HTML.offsetHeight;
+HTML.style.width = "" + ANCHO + "px";
+HTML.style.height = "" + ALTO + "px"; */
 
-  function Estadisticas() {
+/*********-hace que el tamaño de fuente siempre sea visible-*********/
 
-  return (
-    <div>
-      <div class="container-2 fs2">
-        <div class="categorias"> Categorias</div>
-        <div class="horas_container">
-          <div class="horas_categorias fs2 rel" id="categoria_0">categoria</div>
-          <div class="horas_categorias fs2 rel" id="categoria_1">categoria</div>
-          <div class="horas_categorias fs2 rel" id="categoria_2">categoria</div>
-          <div class="horas_categorias fs2 rel" id="categoria_3">categoria</div>
-        </div>
-      </div>
+/* const FS = document.getElementsByClassName("fs");
+const FS2 = document.getElementsByClassName("fs2");
 
-      <div class="graficos_container">
-        <div class="horas_libres_container rel">
-          <div class="fs2" id="grafico_barras_titulo"></div>
-          <canvas class="fs" id="grafico_barras"></canvas>
-        </div>
-        <div class="categorias_grafico_container rel">
-          <div class="fs2" id="grafico_pastel_titulo"></div>
-          <canvas> <GraficoPastel/></canvas>
-          
-        </div>
+for (let i = 0; i < FS.length; i++) {
+  const fs_Style = window.getComputedStyle(FS[i])
+  FS[i].style.fontSize = "" + fs_Style.fontSize + "";
+  
+}
+for (let i = 0; i < FS2.length; i++) {
+  const fs_Style = window.getComputedStyle(FS2[i])
+  FS2[i].style.fontSize = "" + fs_Style.fontSize + "";
+  
+} */
+
+//------------------------------------//
+export default function Estadisticas() {
+  return(
+    <div id="html">
+      <div className="container">
+    <div className="menu_container rel">
+      <div className="perfil fs rel">soy el perfil</div>
+      <div className="feature_container">
+        <div className="feature fs rel">feature</div>
+        <div className="feature fs rel">feature</div>
+        <div className="feature fs rel">feature</div>
+        <div className="feature fs rel">feature</div>
+        <div className="feature fs rel">feature</div>
       </div>
     </div>
-  )
-}
-/* <Header/>
-    <Bar/> */
-export default Estadisticas;
-// ChartJS.register(ArcElement, Tooltip, Legend);
 
-// <Doughnut data={datos_2}/>
+    
+    <div className="container-2 fs2">
+      <div className="categorias"> Categorias</div>
+      <div className="horas_container">
+        <div className="horas_categorias fs2 rel" id="categoria_0">categoria</div>
+        <div className="horas_categorias fs2 rel" id="categoria_1">categoria</div>
+        <div className="horas_categorias fs2 rel" id="categoria_2">categoria</div>
+        <div className="horas_categorias fs2 rel" id="categoria_3">categoria</div>
+      </div>
+    </div>
+
+    <div className="graficos_container">
+      <div className="horas_libres_container rel">
+        <div className="fs2" id="grafico_barras_titulo"></div>
+        <GraficoBarras className="fs" id="grafico_barras"/>
+      </div>
+      <div className="categorias_grafico_container rel">
+        <div className="fs2" id="grafico_pastel_titulo"></div>
+        <GraficoPastel className="fs" id="grafico_pastel"/>
+      </div>
+    </div>
+  </div></div>
+
+)
+}
