@@ -7,6 +7,7 @@ import './Main.css';
 import './style.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import {NextUIProvider} from "@nextui-org/react";
+import Estadisticas from './Estadisticas';
 
 function AppWrapper() {
   const [theme, setTheme] = useState("dark");
@@ -22,6 +23,7 @@ function AppWrapper() {
         <Routes>
           <Route path='/' element={<MainPage onThemeChange={handleThemeChange} />} />
           <Route path='/app' element={<App />} />
+          <Route path='/stats' element={<Estadisticas />} />
           <Route path='/profile' element={<Profile />} />
         </Routes>
       </NextUIProvider>
