@@ -31,7 +31,6 @@ function MainPage({onThemeChange}:ThemeProps) {
           </div>
       </div>
         </div>
-
       <Team/>
     </>
   )

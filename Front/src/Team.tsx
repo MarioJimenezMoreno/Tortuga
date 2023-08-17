@@ -18,7 +18,7 @@ function Team() {
     <div className="h-screen">
     <h1 className="text-6xl font-medium text-center py-10">Our Team</h1>
     <div className="grid grid-cols-3">
-      <Card className="w-80 bg-success text-black flex justify-between">
+      <Card className="w-80 bg-success text-black">
         <CardHeader className="flex flex-col py-4 gap-2 font-bold text-2xl"> 
         <h1>Mario</h1> 
           <Image isBlurred width={250} src={Mario} alt="NextUI Album Cover" />  
