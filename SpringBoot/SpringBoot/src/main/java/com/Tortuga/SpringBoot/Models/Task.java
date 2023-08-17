@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
+import java.sql.Timestamp;
 @Data
 @Entity(name="tareas")
 public class Task {
@@ -17,14 +18,13 @@ public class Task {
     private String task;
     @Column(name="urgencia")
     private Boolean urgent;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer fk_categoria_id;
+    @Column(name="fk_categoria_id")
+    private Integer fk_category_id;
     @Column(name="inicio")
-    private java.sql.Date beginning;
-    @Column(name="final")
-    private java.sql.Date ending;
+    private Timestamp inicio;
+    @Column(name="finalxd")
+    private Timestamp finalxd;
     @Column(name="duracion")
-    private Double duration;
+    private Double duracion;
 
 }

@@ -15,17 +15,17 @@ INSERT INTO users (username,password,email,phone)
 VALUES ('QUIM', 'contraseña1', 'quim@gmail.com', 642480539);
 
 CREATE TABLE IF NOT EXISTS tareas(
-   tarea_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+   tarea_id INTEGER PRIMARY KEY AUTO_INCREMENT,
    tarea VARCHAR(45),
     urgencia BOOLEAN,
     nota VARCHAR(150),
     fk_categoria_id INT,
     inicio DATETIME,
-    final DATETIME,
+    finalxd DATETIME,
     duracion DOUBLE
     );
 
-INSERT INTO tareas (tarea,fk_categoria_id,inicio,final,duracion)
+INSERT INTO tareas (tarea,fk_categoria_id,inicio,finalxd,duracion)
 VALUES
     ('descansar',1,'2023-08-11 7:30:00','2023-08-11 9:00:00',1.5),
     ('correr',2,'2023-08-11 9:30:00','2023-08-11 19:00:00',9.5),
