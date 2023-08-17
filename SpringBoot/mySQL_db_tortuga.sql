@@ -17,22 +17,21 @@ VALUES ('QUIM', 'contraseña1', 'quim@gmail.com', 642480539);
 CREATE TABLE IF NOT EXISTS tasks(
     task_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(45),
-    urgencia BOOLEAN,
     description VARCHAR(150),
     fk_category_id INT,
-    initialHour DATETIME,
-    finalHour DATETIME,
-    taskDay DATETIME,
+    initialHour TIME,
+    finalHour TIME,
+    date DATE,
     duration DOUBLE
     );
 
-INSERT INTO tasks (title,fk_category_id,initialHour,finalHour,duration)
+INSERT INTO tasks (title,fk_category_id,initialHour,finalHour,date,duration)
 VALUES
-    ('descansar',1,'2023-08-11 7:30:00','2023-08-11 9:00:00',1.5),
-    ('correr',2,'2023-08-11 9:30:00','2023-08-11 19:00:00',9.5),
-    ('trabajar',3,'2023-08-11 19:30:00','2023-08-11 20:00:00',0.5),
-    ('ir al bar',1,'2023-08-11 20:15:00','2023-08-11 21:00:00',0.75),
-    ('ir al gym',2,'2023-08-11 21:30:00','2023-08-11 22:00:00',0.5);
+    ('descansar',1,'7:30','9:00','2012-11-11',1.5),
+    ('correr',2,'9:30','19:00','2011-11-11',9.5),
+    ('trabajar',3,'19:30','20:00','2011-11-11',0.5),
+    ('ir al bar',1,'20:15','21:00','2011-11-11',0.75),
+    ('ir al gym',2,'21:30','22:00','2011-11-11',0.5);
 
 CREATE TABLE IF NOT EXISTS users_tasks(/*deberia ser así pero mejor me aseguro*/
                                            users_tasks_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,/*probablemente esto sobre*/
@@ -61,7 +60,7 @@ VALUES
     ("Trabajo","Azul","#0000FF"),
     ("Ocio","Morado","#800080");	
 
-SELECT username, initialHour, task, duration, color_code
+SELECT username, TIME_FORMAT(initialHour, '%H:%i') AS initialHour,TIME_FORMAT(finalHour, '%H:%i') AS finalHour,DATE_FORMAT(date, '%d/%m/%Y') AS date, title, duration, color_code
 FROM tasks
          JOIN users_tasks ON tasks.task_id = users_tasks.fk_task_id
          JOIN users ON users.id = users_tasks.fk_user_id
