@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS tasks(
     duration DOUBLE
     );
 
-INSERT INTO tasks (task,fk_category_id,initialHour,finalHour,duration)
+INSERT INTO tasks (title,fk_category_id,initialHour,finalHour,duration)
 VALUES
     ('descansar',1,'2023-08-11 7:30:00','2023-08-11 9:00:00',1.5),
     ('correr',2,'2023-08-11 9:30:00','2023-08-11 19:00:00',9.5),
@@ -62,7 +62,7 @@ VALUES
     ("Ocio","Morado","#800080");	
 
 SELECT username, initialHour, task, duration, color_code
-FROM tareas
+FROM tasks
          JOIN users_tasks ON tasks.task_id = users_tasks.fk_task_id
          JOIN users ON users.id = users_tasks.fk_user_id
          JOIN categories ON categories.category_id = tasks.fk_category_id
