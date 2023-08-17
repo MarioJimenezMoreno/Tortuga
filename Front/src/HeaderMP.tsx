@@ -1,7 +1,7 @@
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, Button, useDisclosure, Switch} from "@nextui-org/react";
 import {MoonIcon} from "./IconComponents/MoonIcon";
 import {SunIcon} from "./IconComponents/SunIcon";
-import {Link} from 'react-router-dom'
+import {Link} from 'react-scroll' 
 import Login from "./Login";
 import Register from "./Register";
 import { ThemeProps } from "./types";
@@ -25,18 +25,14 @@ const HeaderMP = ({onThemeChange}:ThemeProps) => {
     </NavbarBrand>
     <NavbarContent className="sm:flex gap-4" justify="center">
       <NavbarItem isActive>
-      <Link to="#">
-          Home
-        </Link>
+      <Link to="home" spy={true} smooth={true} duration={500} className="cursor-pointer">Home</Link>
+      </NavbarItem>
+      <NavbarItem>
+      <Link to="team" spy={true} smooth={true} duration={500} className="cursor-pointer">Team</Link>
       </NavbarItem>
       <NavbarItem>
         <Link to="">
           Customers
-        </Link>
-      </NavbarItem>
-      <NavbarItem>
-      <Link to="">
-          Team
         </Link>
       </NavbarItem>
     </NavbarContent>
@@ -56,9 +52,9 @@ const HeaderMP = ({onThemeChange}:ThemeProps) => {
       color="primary"
       thumbIcon={({ isSelected}) =>
         isSelected ? (
-          <SunIcon/>
+          <MoonIcon/>          
         ) : (
-          <MoonIcon/>
+          <SunIcon/>
         )
       }
     >
