@@ -1,7 +1,7 @@
 import React,{ useState } from 'react'
-import "../css/estadistica.css";
-import GraficoPastel from "../jsx/GraficoPastel";
-import GraficoBarras from "../jsx/GraficoBarras";
+import "./Estadisticas.css";
+import GraficoPastel from "./GraficoPastel";
+import GraficoBarras from "./GraficoBarras";
 /* const HTML = document.getElementById("html");
 const ANCHO = HTML.offsetWidth;
 const ALTO = HTML.offsetHeight;
