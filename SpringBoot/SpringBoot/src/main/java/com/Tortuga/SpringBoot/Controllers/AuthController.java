@@ -1,8 +1,8 @@
-package com.Tortuga.SpringBoot.controllers;
+package com.Tortuga.SpringBoot.Controllers;
 
 import com.Tortuga.SpringBoot.Interfaces.UserDAO;
-import com.Tortuga.SpringBoot.models.User;
-import com.Tortuga.SpringBoot.utils.JWTUtil;
+import com.Tortuga.SpringBoot.Models.User;
+import com.Tortuga.SpringBoot.Utils.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

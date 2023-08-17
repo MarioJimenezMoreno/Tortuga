@@ -1,4 +1,4 @@
-package com.Tortuga.SpringBoot.models;
+package com.Tortuga.SpringBoot.Models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

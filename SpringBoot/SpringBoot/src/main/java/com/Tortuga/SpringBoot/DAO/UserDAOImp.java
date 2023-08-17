@@ -1,14 +1,13 @@
 package com.Tortuga.SpringBoot.DAO;
 
 import com.Tortuga.SpringBoot.Interfaces.UserDAO;
-import com.Tortuga.SpringBoot.models.User;
+import com.Tortuga.SpringBoot.Models.User;
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 @Repository
@@ -42,7 +41,6 @@ public class UserDAOImp implements UserDAO {
         List<User> list = entityManager.createQuery(query)
                 .setParameter("email", user.getEmail())
                 .getResultList();
-
 
         if (list.isEmpty()) {
 

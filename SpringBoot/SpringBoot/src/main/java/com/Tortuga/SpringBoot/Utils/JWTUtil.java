@@ -1,4 +1,4 @@
-package com.Tortuga.SpringBoot.utils;
+package com.Tortuga.SpringBoot.Utils;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;

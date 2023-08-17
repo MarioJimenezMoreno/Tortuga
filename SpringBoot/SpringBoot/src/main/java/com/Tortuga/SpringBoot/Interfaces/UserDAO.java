@@ -1,6 +1,6 @@
 package com.Tortuga.SpringBoot.Interfaces;
 
-import com.Tortuga.SpringBoot.models.User;
+import com.Tortuga.SpringBoot.Models.User;
 
 import java.util.List;
 

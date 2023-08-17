@@ -3,19 +3,20 @@ CREATE DATABASE IF NOT EXISTS db_tortuga;
 USE db_tortuga;
 
 CREATE TABLE IF NOT EXISTS users(
-                                    id INTEGER PRIMARY KEY AUTO_INCREMENT,
-                                    username VARCHAR(45) NOT NULL UNIQUE,
+   id INTEGER PRIMARY KEY AUTO_INCREMENT,
+   username VARCHAR(45) NOT NULL UNIQUE,
     password VARCHAR(45) NOT NULL UNIQUE,
     phone INT UNIQUE,
     email VARCHAR(45) NOT NULL UNIQUE
     );
 
+SELECT * FROM users;
 INSERT INTO users (username,password,email,phone)
 VALUES ('QUIM', 'contraseña1', 'quim@gmail.com', 642480539);
 
 CREATE TABLE IF NOT EXISTS tareas(
-                                     tarea_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-                                     tarea VARCHAR(45),
+   tarea_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+   tarea VARCHAR(45),
     urgencia BOOLEAN,
     nota VARCHAR(150),
     fk_categoria_id INT,

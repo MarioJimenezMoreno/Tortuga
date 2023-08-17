@@ -1,4 +1,4 @@
-package com.Tortuga.SpringBoot.models;
+/*package com.Tortuga.SpringBoot.Models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -7,12 +7,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
-/*CREATE TABLE IF NOT EXISTS categorias(
-categoria_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-name VARCHAR(45),
-color VARCHAR(45),
-color_code VARCHAR(45)
-);*/
 @Data
 @Entity(name="categorias")
 public class Categories {
@@ -31,4 +25,4 @@ public class Categories {
     private String color_code;
 
 
-}
+}*/

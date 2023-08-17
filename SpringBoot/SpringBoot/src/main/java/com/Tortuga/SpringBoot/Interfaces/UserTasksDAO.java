@@ -1,4 +1,4 @@
 package com.Tortuga.SpringBoot.Interfaces;
 
-public interface TaskRepository {
+public interface UserTasksDAO {
 }
