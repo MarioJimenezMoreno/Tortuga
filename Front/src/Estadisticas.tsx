@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 import React,{ useState } from 'react'
 import "./Estadisticas.css";
 import GraficoPastel from "./GraficoPastel";
 import GraficoBarras from "./GraficoBarras";
+=======
+import "./Estadisticas.css";
+import GraficoPastel from "./GraficoPastel";
+import GraficoBarras from "./GraficoBarras";
+import Header from "./Header";
+import {Card, CardBody} from '@nextui-org/react'
+>>>>>>> fa6ab08258b84bab05402012150d6dea4caec861
 /* const HTML = document.getElementById("html");
 const ANCHO = HTML.offsetWidth;
 const ALTO = HTML.offsetHeight;
@@ -27,7 +35,9 @@ for (let i = 0; i < FS2.length; i++) {
 //------------------------------------//
 export default function Estadisticas() {
   return(
-    <div id="html">
+    <>
+    <Header/>
+    {/* <div id="html">
       <div className="container">
     <div className="menu_container rel">
       <div className="perfil fs rel">soy el perfil</div>
@@ -53,15 +63,15 @@ export default function Estadisticas() {
 
     <div className="graficos_container">
       <div className="horas_libres_container rel">
-        <div className="fs2" id="grafico_barras_titulo"></div>
-        <GraficoBarras className="fs" id="grafico_barras"/>
-      </div>
+        <div className="fs2" id="grafico_barras_titulo"></div> */}
+        <Card><CardBody><GraficoBarras/></CardBody></Card>
+      {/* </div>
       <div className="categorias_grafico_container rel">
-        <div className="fs2" id="grafico_pastel_titulo"></div>
-        <GraficoPastel className="fs" id="grafico_pastel"/>
-      </div>
+        <div className="fs2" id="grafico_pastel_titulo"></div> */}
+        <Card><CardBody><GraficoPastel/></CardBody></Card>        
+      {/* </div>
     </div>
-  </div></div>
-
+  </div></div> */}
+  </>
 )
 }

@@ -13,7 +13,7 @@ import {
 const App: React.FC = () => {
 
   const [taskCreatorVisible, setTaskCreatorVisible] = useState(false);
-  const [tasks, setTasks] = useState<Task[]>([]); // Initialize tasks state with an empty array
+  const [tasks, setTasks] = useState<Task[]>([]);
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   const handleNewTask = () => {
