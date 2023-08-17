@@ -20,10 +20,6 @@ public class TaskController {
         return taskDAO.getTasks();
 
     }
-    @RequestMapping("api/statistics")
-    public List<TaskStatistics> getStatistics() {
-        String username = "quim"; // Cambiar el nombre de usuario si es necesario
-        return taskDAO.getStatistics(username);
-    }
+
 
 }

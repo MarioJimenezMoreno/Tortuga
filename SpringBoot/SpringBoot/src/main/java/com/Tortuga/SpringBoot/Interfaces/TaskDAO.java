@@ -7,8 +7,4 @@ import java.util.List;
 public interface TaskDAO {
     List<Task> getTasks();
 
-/*
-    List<Task> getStatistics2();*/
-
-    List<TaskStatistics> getStatistics(String username);
 }

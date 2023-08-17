@@ -9,22 +9,22 @@ import lombok.Data;
 
 import java.sql.Timestamp;
 @Data
-@Entity(name="tareas")
+@Entity(name="tasks")
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer tarea_id;
-    @Column(name="tarea")
+    private Integer task_id;
+    @Column(name="task")
     private String task;
     @Column(name="urgencia")
-    private Boolean urgent;
-    @Column(name="fk_categoria_id")
+    private Boolean urgencia;
+    @Column(name="fk_category_id")
     private Integer fk_category_id;
-    @Column(name="inicio")
-    private Timestamp inicio;
-    @Column(name="finalxd")
-    private Timestamp finalxd;
-    @Column(name="duracion")
-    private Double duracion;
+    @Column(name="initialHour")
+    private Timestamp initialHour;
+    @Column(name="finalHour")
+    private Timestamp finalHour;
+    @Column(name="duration")
+    private Double duration;
 
 }
