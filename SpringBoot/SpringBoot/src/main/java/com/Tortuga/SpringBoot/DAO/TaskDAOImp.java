@@ -18,8 +18,10 @@ public class TaskDAOImp implements TaskDAO {
 
     @Override
     public List<Task> getTasks() {
-        String query = "FROM tareas ";
+        String query = "FROM tasks";
         return entityManager.createQuery(query).getResultList();
     }
+
+
 
 }

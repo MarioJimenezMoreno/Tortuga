@@ -249,7 +249,7 @@ let resultado = RESPUESTA_1.reduce(function (acumulador, elemento) {
 const diasUnicos = [...new Set(resultado.map(item => item.dia))];
 
 // Preparar un objeto para los datos del gráfico
-const data = {
+export let data = {
   labels: diasUnicos.map(dia => `Día ${dia}`),
   datasets: resultado.reduce((datasets, item) => {
     const datasetIndex = datasets.findIndex(ds => ds.label === item.tarea);
@@ -270,7 +270,7 @@ const data = {
 };
 
 // Configuración del gráfico
-const opciones = {
+export let options = {
     maintainAspectRatio: false,
     plugins: {
       legend: {
@@ -309,7 +309,7 @@ const opciones = {
 
 function GraficoBarras() {
     return <Bar
-    options={opciones}
+    options={options}
     data={data}
   />
   }

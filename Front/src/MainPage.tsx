@@ -4,10 +4,11 @@ import Team from "./Team";
 import { ThemeProps } from "./types";
 
 function MainPage({onThemeChange}:ThemeProps) {
-    
+
   return (
     <> 
     <HeaderMP onThemeChange={onThemeChange}/>
+    <div id="home"/>
     <div className="h-screen px-80 py-28">
           <div className="cont_imagen">
             <img className="imagen" alt="placeholder" />
@@ -31,7 +32,9 @@ function MainPage({onThemeChange}:ThemeProps) {
           </div>
       </div>
         </div>
+      <div id="team"/>
       <Team/>
+
     </>
   )
 }

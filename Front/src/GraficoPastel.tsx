@@ -60,50 +60,55 @@ let resultado_2 = RESPUESTA_2.reduce(function (acumulador, elemento) {
 //------------------------------------//
 
 /*********-reorganiza el array de mayor a menor-*********/
-function compararMayorMenor(a, b) {
+function compararMayorMenor(a, b){
   return b.duracion - a.duracion;
 }
 resultado_2.sort(compararMayorMenor);
 //------------------------------------//
 
 // Datos para el gráfico
-let color_array_2 = [];
-let data_array_2 = [];
-let categoria_array_2 = [];
+let color= [];
+let dataset= [];
+let categories = [];
 resultado_2.forEach(element => {
-  color_array_2.push(element.color_code);
-  data_array_2.push(element.duracion);
-  categoria_array_2.push(element.tarea);
+  color.push(element.color_code);
+  dataset.push(element.duracion);
+  categories.push(element.tarea);
 });
 
-let datos_2 = {
-  labels: categoria_array_2,
-  datasets: [{
-    data: data_array_2,
-    backgroundColor: color_array_2,
-    borderWidth: 1,
-    borderColor: "#1B262C"
-  }]
+export let data = {
+  labels: categories,
+  datasets: [
+    {
+      label: 'Label',
+      data: dataset,
+      backgroundColor: color,
+      borderColor: "#1B262C",
+      borderWidth: 1,
+    },
+  ],
 };
 
-// Opciones de personalización
-let opciones_2 = {
+export let options: {
+  scales: {
+    y: {
+      beginAtZero: true
+    }
+  }
   responsive: true,
   maintainAspectRatio: false,
   plugins: {
-    legend: {
-      
+    legend: {      
       position: "right",
       labels: {
         color: "#000",
       }
     }
   },
-};
-
+}
 
 function GraficoPastel() {
-  return <Doughnut data={datos_2} options={opciones_2} />;
+  return <Doughnut data={data} options={options} />;
 }
 
 export default GraficoPastel;
