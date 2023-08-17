@@ -1,22 +1,9 @@
-package com.Tortuga.SpringBoot.models;
+/*package com.Tortuga.SpringBoot.Models;
 
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.sql.Date;
 
-/*
-CREATE TABLE IF NOT EXISTS tareas(
-tarea_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-tarea VARCHAR(45),
-urgencia BOOLEAN,
-nota VARCHAR(150),
-fk_categoria_id INT,
-inicio DATETIME,
-final DATETIME,
-duracion DOUBLE
-);
-*/
 
 @Data
 @Entity(name = "users_tareas")
@@ -38,12 +25,13 @@ public class UserTasks {
     private Integer fk_task_category_id;
 
     @Column(name = "inicio")
-    private java.sql.Date BeginningDate;
+    private java.sql.Date beginningDate;
 
     @Column(name = "final")
-    private java.sql.Date EndingDate;
+    private java.sql.Date endingDate;
 
     @Column(name= "duracion")
-    private double Duration;
+    private double duration;
 
 }
+*/

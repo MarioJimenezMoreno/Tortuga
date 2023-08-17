@@ -1,15 +1,15 @@
-package com.Tortuga.SpringBoot.controllers;
+package com.Tortuga.SpringBoot.Controllers;
 
 import java.util.List;
 
 import com.Tortuga.SpringBoot.Interfaces.UserDAO;
-import com.Tortuga.SpringBoot.utils.JWTUtil;
+import com.Tortuga.SpringBoot.Utils.JWTUtil;
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.Tortuga.SpringBoot.models.User;
+import com.Tortuga.SpringBoot.Models.User;
 
 @RestController
 public class UserController {
@@ -45,7 +45,6 @@ public class UserController {
 
 		return userDAO.getUserById(id);
 	}
-
 	@RequestMapping(value = "api/users/{id}", method = RequestMethod.DELETE)
 	public void deleteUser(@RequestHeader (value = "Authorization") String token,
 						   @PathVariable Integer id ) {
