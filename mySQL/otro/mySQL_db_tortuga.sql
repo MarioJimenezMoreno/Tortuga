@@ -25,11 +25,19 @@ VALUES
     ("Trabajo","Azul","#0000FF"),
     ("Ocio","Morado","#800080");	
 
-SELECT username, inicio, tarea, duracion, color_code
-FROM tareas
-         JOIN users_tareas ON tareas.tarea_id = users_tareas.fk_tarea_id
-         JOIN users ON users.id = users_tareas.fk_user_id
-         JOIN categorias ON categorias.categoria_id = tareas.fk_categoria_id
+
+SELECT username, date, name, duration, color_code
+FROM tasks
+         JOIN users_tasks ON tasks.task_id = users_tasks.fk_task_id
+         JOIN users ON users.id = users_tasks.fk_user_id
+         JOIN categories ON categories.category_id = tasks.fk_category_id
+WHERE username = "quim";
+
+SELECT username, name, duration, color_code
+FROM tasks
+         JOIN users_tasks ON tasks.task_id = users_tasks.fk_task_id
+         JOIN users ON users.id = users_tasks.fk_user_id
+         JOIN categories ON categories.category_id = tasks.fk_category_id
 WHERE username = "quim";
 
 /*username: "Quim",

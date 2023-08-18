@@ -6,45 +6,45 @@ Chart.register(ArcElement, Tooltip, Legend);
 
 interface DataElement {
   username: string;
-  tarea: string;
-  duracion: number;
+  name: string;
+  duration: number;
   color_code: string;
 }
   const RESPUESTA_2 = [
     {
       username: "Quim",
-      tarea: "Libre",
-      duracion: 10,
+      name: "Libre",
+      duration: 10,
       color_code: "#FCD8D4"
     },
     {
       username: "Quim",
-      tarea: "Libre",
-      duracion: 20,
+      name: "Libre",
+      duration: 20,
       color_code: "#FCD8D4"
     },
     {
       username: "Quim",
-      tarea: "Trabajo",
-      duracion: 36,
+      name: "Trabajo",
+      duration: 36,
       color_code: "#FDF6F0"
     },
     {
       username: "Quim",
-      tarea: "Trabajo",
-      duracion: 106,
+      name: "Trabajo",
+      duration: 106,
       color_code: "#FDF6F0"
     },
     {
       username: "Quim",
-      tarea: "Ocio",
-      duracion: 80,
+      name: "Ocio",
+      duration: 80,
       color_code: "#F8E2CF"
     },
     {
       username: "Quim",
-      tarea: "Deporte",
-      duracion: 30,
+      name: "Deporte",
+      duration: 30,
       color_code: "#F5C6AA"
     }
 ];
@@ -52,11 +52,11 @@ interface DataElement {
 // para el grafico de PASTEL Y CATEGORIA
 let resultado_2 = RESPUESTA_2.reduce(function (acumulador: DataElement[], elemento) {
   let elementoExistente = acumulador.find(function (item) {
-    return item.tarea === elemento.tarea;
+    return item.name === elemento.name;
   });
 
   if (elementoExistente) {
-    elementoExistente.duracion += elemento.duracion;
+    elementoExistente.duration += elemento.duration;
   } else {
     acumulador.push(elemento);
   }
@@ -66,7 +66,7 @@ let resultado_2 = RESPUESTA_2.reduce(function (acumulador: DataElement[], elemen
 
 /*********-reorganiza el array de mayor a menor-*********/
 function compararMayorMenor(a: DataElement, b: DataElement) {
-  return b.duracion - a.duracion;
+  return b.duration - a.duration;
 }
 resultado_2.sort(compararMayorMenor);
 
@@ -76,8 +76,8 @@ let dataset: number[] = [];
 let categories: string[] = [];
 resultado_2.forEach(element => {
   color.push(element.color_code);
-  dataset.push(element.duracion);
-  categories.push(element.tarea);
+  dataset.push(element.duration);
+  categories.push(element.name);
 });
 
 export interface ChartData {
