@@ -692,22 +692,6 @@ video {
   top: var(--navbar-height);
 }
 
-.left-3\/4 {
-  left: 75%;
-}
-
-.top-3\/4 {
-  top: 75%;
-}
-
-.left-full {
-  left: 100%;
-}
-
-.top-96 {
-  top: 24rem;
-}
-
 .-z-10 {
   z-index: -10;
 }
@@ -1542,18 +1526,6 @@ video {
   gap: var(--nextui-spacing-unit-3);
 }
 
-.gap-6 {
-  gap: 1.5rem;
-}
-
-.gap-52 {
-  gap: 13rem;
-}
-
-.gap-44 {
-  gap: 11rem;
-}
-
 .gap-40 {
   gap: 10rem;
 }
@@ -1568,14 +1540,6 @@ video {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.125rem * var(--tw-space-x-reverse));
   margin-left: calc(0.125rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
-.self-start {
-  align-self: flex-start;
-}
-
-.self-end {
-  align-self: flex-end;
 }
 
 .self-center {
@@ -2228,11 +2192,6 @@ video {
   padding-right: 8rem;
 }
 
-.py-5 {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-}
-
 .\!pb-0 {
   padding-bottom: 0px !important;
 }
@@ -2370,16 +2329,6 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-
-.text-9xl {
-  font-size: 8rem;
-  line-height: 1;
-}
-
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
 }
 
 .text-3xl {
