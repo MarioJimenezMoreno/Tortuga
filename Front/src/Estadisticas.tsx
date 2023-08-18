@@ -33,9 +33,9 @@ export default function Estadisticas() {
     <Header/>
     
         <Card className="mb-4"><CardBody><Categories/></CardBody></Card>
-        <div className="flex justify-between">
-          <Card className=""><CardBody className=""><GraficoBarras/></CardBody></Card>
-          <Card className=""><CardBody><GraficoPastel/></CardBody></Card>
+        <div className="flex justify-between h-96 ">
+          <Card className="w-2/3"><CardBody><GraficoBarras/></CardBody></Card>
+          <Card className="ml-4 w-1/3"><CardBody><GraficoPastel/></CardBody></Card>
         </div>
                 
       

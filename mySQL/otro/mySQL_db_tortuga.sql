@@ -31,3 +31,9 @@ FROM tareas
          JOIN users ON users.id = users_tareas.fk_user_id
          JOIN categorias ON categorias.categoria_id = tareas.fk_categoria_id
 WHERE username = "quim";
+
+/*username: "Quim",
+        dia: -1,
+        tarea: "Libre",
+        duracion: 6,
+        color_code: "#FCD8D4"*/
