@@ -15,9 +15,9 @@
   // Definir la interfaz para los elementos en RESPUESTA_1
   interface RespuestaItem {
     username: string;
-    dia: number;
-    tarea: string;
-    duracion: number;
+    date: number;
+    name: string;
+    duration: number;
     color_code: string;
   }
   
@@ -33,205 +33,205 @@
   const RESPUESTA_1: RespuestaItem[] = [
       {
         username: "Quim",
-        dia: -1,
-        tarea: "Libre",
-        duracion: 6,
+        date: -1,
+        name: "Libre",
+        duration: 6,
         color_code: "#FCD8D4"
       },
       {
         username: "Quim",
-        dia: -1,
-        tarea: "Trabajo",
-        duracion: 1,
+        date: -1,
+        name: "Trabajo",
+        duration: 1,
         color_code: "#FDF6F0"
       },
       {
         username: "Quim",
-        dia: -1,
-        tarea: "Ocio",
-        duracion: 14,
+        date: -1,
+        name: "Ocio",
+        duration: 14,
         color_code: "#F8E2CF"
       },
       {
         username: "Quim",
-        dia: -1,
-        tarea: "Ocio",
-        duracion: 12,
+        date: -1,
+        name: "Ocio",
+        duration: 12,
         color_code: "#F8E2CF"
       },
       {
         username: "Quim",
-        dia: -1,
-        tarea: "Deporte",
-        duracion: 5,
+        date: -1,
+        name: "Deporte",
+        duration: 5,
         color_code: "#F5C6AA"
       },
       {
         username: "Quim",
-        dia: -2,
-        tarea: "Libre",
-        duracion: 7,
+        date: -2,
+        name: "Libre",
+        duration: 7,
         color_code: "#FCD8D4"
       },
       {
         username: "Quim",
-        dia: -2,
-        tarea: "Trabajo",
-        duracion: 3,
+        date: -2,
+        name: "Trabajo",
+        duration: 3,
         color_code: "#FDF6F0"
       },
       {
         username: "Quim",
-        dia: -2,
-        tarea: "Ocio",
-        duracion: 15,
+        date: -2,
+        name: "Ocio",
+        duration: 15,
         color_code: "#F8E2CF"
       },
       {
         username: "Quim",
-        dia: -2,
-        tarea: "Deporte",
-        duracion: 4,
+        date: -2,
+        name: "Deporte",
+        duration: 4,
         color_code: "#F5C6AA"
       },
       {
         username: "Quim",
-        dia: -3,
-        tarea: "Libre",
-        duracion: 8,
+        date: -3,
+        name: "Libre",
+        duration: 8,
         color_code: "#FCD8D4"
       },
       {
         username: "Quim",
-        dia: -3,
-        tarea: "Trabajo",
-        duracion: 5,
+        date: -3,
+        name: "Trabajo",
+        duration: 5,
         color_code: "#FDF6F0"
       },
       {
         username: "Quim",
-        dia: -3,
-        tarea: "Ocio",
-        duracion: 10,
+        date: -3,
+        name: "Ocio",
+        duration: 10,
         color_code: "#F8E2CF"
       },
       {
         username: "Quim",
-        dia: -3,
-        tarea: "Deporte",
-        duracion: 3,
+        date: -3,
+        name: "Deporte",
+        duration: 3,
         color_code: "#F5C6AA"
       },
       {
         username: "Quim",
-        dia: -4,
-        tarea: "Libre",
-        duracion: 5,
+        date: -4,
+        name: "Libre",
+        duration: 5,
         color_code: "#FCD8D4"
       },
       {
         username: "Quim",
-        dia: -4,
-        tarea: "Trabajo",
-        duracion: 6,
+        date: -4,
+        name: "Trabajo",
+        duration: 6,
         color_code: "#FDF6F0"
       },
       {
         username: "Quim",
-        dia: -4,
-        tarea: "Ocio",
-        duracion: 9,
+        date: -4,
+        name: "Ocio",
+        duration: 9,
         color_code: "#F8E2CF"
       },
       {
         username: "Quim",
-        dia: -4,
-        tarea: "Deporte",
-        duracion: 6,
+        date: -4,
+        name: "Deporte",
+        duration: 6,
         color_code: "#F5C6AA"
       },
       {
         username: "Quim",
-        dia: -5,
-        tarea: "Libre",
-        duracion: 9,
+        date: -5,
+        name: "Libre",
+        duration: 9,
         color_code: "#FCD8D4"
       },
       {
         username: "Quim",
-        dia: -5,
-        tarea: "Trabajo",
-        duracion: 7,
+        date: -5,
+        name: "Trabajo",
+        duration: 7,
         color_code: "#FDF6F0"
       },
       {
         username: "Quim",
-        dia: -5,
-        tarea: "Ocio",
-        duracion: 11,
+        date: -5,
+        name: "Ocio",
+        duration: 11,
         color_code: "#F8E2CF"
       },
       {
         username: "Quim",
-        dia: -5,
-        tarea: "Deporte",
-        duracion: 2,
+        date: -5,
+        name: "Deporte",
+        duration: 2,
         color_code: "#F5C6AA"
       },
       {
         username: "Quim",
-        dia: -6,
-        tarea: "Libre",
-        duracion: 3,
+        date: -6,
+        name: "Libre",
+        duration: 3,
         color_code: "#FCD8D4"
       },
       {
         username: "Quim",
-        dia: -6,
-        tarea: "Trabajo",
-        duracion: 8,
+        date: -6,
+        name: "Trabajo",
+        duration: 8,
         color_code: "#FDF6F0"
       },
       {
         username: "Quim",
-        dia: -6,
-        tarea: "Ocio",
-        duracion: 8,
+        date: -6,
+        name: "Ocio",
+        duration: 8,
         color_code: "#F8E2CF"
       },
       {
         username: "Quim",
-        dia: -6,
-        tarea: "Deporte",
-        duracion: 7,
+        date: -6,
+        name: "Deporte",
+        duration: 7,
         color_code: "#F5C6AA"
       },
       {
         username: "Quim",
-        dia: -7,
-        tarea: "Libre",
-        duracion: 2,
+        date: -7,
+        name: "Libre",
+        duration: 2,
         color_code: "#FCD8D4"
       },
       {
         username: "Quim",
-        dia: -7,
-        tarea: "Trabajo",
-        duracion: 6,
+        date: -7,
+        name: "Trabajo",
+        duration: 6,
         color_code: "#FDF6F0"
       },
       {
         username: "Quim",
-        dia: -7,
-        tarea: "Ocio",
-        duracion: 15,
+        date: -7,
+        name: "Ocio",
+        duration: 15,
         color_code: "#F8E2CF"
       },
       {
         username: "Quim",
-        dia: -7,
-        tarea: "Deporte",
-        duracion: 3,
+        date: -7,
+        name: "Deporte",
+        duration: 3,
         color_code: "#F5C6AA"
       }
     
@@ -242,11 +242,11 @@
   // para el grafico de BARRAS
   let resultado: RespuestaItem[] = RESPUESTA_1.reduce(function (acumulador, elemento) {
     let elementoExistente = acumulador.find(function (item) {
-      return item.dia === elemento.dia && item.tarea === elemento.tarea;
+      return item.date === elemento.date && item.name === elemento.name;
     });
   
     if (elementoExistente) {
-      elementoExistente.duracion += elemento.duracion;
+      elementoExistente.duration += elemento.duration;
     } else {
       acumulador.push(elemento);
     }
@@ -257,20 +257,20 @@
   //------------------------------------//
   
   // Obtener un objeto con días únicos
-  const diasUnicos: number[] = [...new Set(resultado.map(item => item.dia))];
+  const diasUnicos: number[] = [...new Set(resultado.map(item => item.date))];
   
   // Preparar un objeto para los datos del gráfico
   export const data = {
-    labels: diasUnicos.map(dia => `Día ${dia}`),
+    labels: diasUnicos.map(date => `Día ${date}`),
     datasets: resultado.reduce((datasets, item) => {
-      const datasetIndex = datasets.findIndex(ds => ds.label === item.tarea);
+      const datasetIndex = datasets.findIndex(ds => ds.label === item.name);
       if (datasetIndex !== -1) {
-        datasets[datasetIndex].data.push(item.duracion);
+        datasets[datasetIndex].data.push(item.duration);
         datasets[datasetIndex].backgroundColor.push(item.color_code);
       } else {
         datasets.push({
-          label: item.tarea,
-          data: [item.duracion],
+          label: item.name,
+          data: [item.duration],
           backgroundColor: [item.color_code],
         });
       }
