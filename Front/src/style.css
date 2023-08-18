@@ -1526,6 +1526,10 @@ video {
   gap: var(--nextui-spacing-unit-3);
 }
 
+.gap-40 {
+  gap: 10rem;
+}
+
 .space-x-0 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(0px * var(--tw-space-x-reverse));
@@ -2183,6 +2187,11 @@ video {
   padding-bottom: 1rem;
 }
 
+.px-32 {
+  padding-left: 8rem;
+  padding-right: 8rem;
+}
+
 .\!pb-0 {
   padding-bottom: 0px !important;
 }
@@ -2320,6 +2329,16 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.text-8xl {
+  font-size: 6rem;
+  line-height: 1;
 }
 
 .font-bold {
