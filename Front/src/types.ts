@@ -6,6 +6,7 @@ export interface Task {
   duration: string;
   category: string;
   date: string;
+  color_code: string;
 }
 
 export interface Data {
