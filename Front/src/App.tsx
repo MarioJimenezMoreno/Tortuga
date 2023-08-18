@@ -28,6 +28,7 @@ const App: React.FC = () => {
       duration: "1 hour 30 minutes",
       category: "Meeting",
       date: format(selectedDate, 'dd/MM/yyyy'),
+      color_code: "#6020A0"
     },
     {
       title: "Write Blog Post",
@@ -37,6 +38,7 @@ const App: React.FC = () => {
       duration: "2 hours",
       category: "Content Creation",
       date: format(selectedDate, 'dd/MM/yyyy'),
+      color_code: "#12A150"
     },
     {
       title: "Gym Workout",
@@ -46,6 +48,7 @@ const App: React.FC = () => {
       duration: "1 hour",
       category: "Health & Fitness",
       date: format(selectedDate, 'dd/MM/yyyy'),
+      color_code: "#C20E4D"
     },
     {
       title: "Read Book",
@@ -55,6 +58,7 @@ const App: React.FC = () => {
       duration: "1 hour 30 minutes",
       category: "Personal Development",
       date: format(selectedDate, 'dd/MM/yyyy'),
+      color_code: "#C4841D"
     },
     {
       title: "Cook Dinner",
@@ -64,6 +68,7 @@ const App: React.FC = () => {
       duration: "1 hour",
       category: "Cooking",
       date: format(selectedDate, 'dd/MM/yyyy'),
+      color_code: "#CC3EA4"
     },
   ];
 
