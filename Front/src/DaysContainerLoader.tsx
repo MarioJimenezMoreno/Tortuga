@@ -7,7 +7,7 @@ const DaysContainerLoader: React.FC<DaysContainerLoaderProps> = ({ selectedDate 
   return (
     <div className="dayContainer">
       <div className="dateTitle"><p>{format(selectedDate, 'eeee, dd/MM/yyyy')}</p></div>
-      <div className="loaderContainer"><Spinner label="Loading Tasks" color="default" labelColor="foreground"/></div>
+      <div className="loaderContainer"><Spinner label="Loading Tasks" color="primary" labelColor="foreground"/></div>
     </div>
   );
 };

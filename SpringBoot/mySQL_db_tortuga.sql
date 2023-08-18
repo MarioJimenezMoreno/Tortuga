@@ -19,13 +19,13 @@ CREATE TABLE IF NOT EXISTS tasks(
     title VARCHAR(45),
     description VARCHAR(150),
     fk_category_id INT,
-    initialHour TIME,
-    finalHour TIME,
+    beginning_hour TIME,
+    final_hour TIME,
     date DATE,
     duration DOUBLE
     );
 
-INSERT INTO tasks (title,fk_category_id,initialHour,finalHour,date,duration)
+INSERT INTO tasks (title,fk_category_id,beginning_hour,final_hour,date,duration)
 VALUES
     ('descansar',1,'7:30','9:00','2012-11-11',1.5),
     ('correr',2,'9:30','19:00','2011-11-11',9.5),
@@ -60,7 +60,7 @@ VALUES
     ("Trabajo","Azul","#0000FF"),
     ("Ocio","Morado","#800080");	
 
-SELECT username, TIME_FORMAT(initialHour, '%H:%i') AS initialHour,TIME_FORMAT(finalHour, '%H:%i') AS finalHour,DATE_FORMAT(date, '%d/%m/%Y') AS date, title, duration, color_code
+SELECT username, TIME_FORMAT(beginning_hour, '%H:%i') AS beginning_hour,TIME_FORMAT(final_hour, '%H:%i') AS final_hour,DATE_FORMAT(date, '%d/%m/%Y') AS date, title, duration, color_code
 FROM tasks
          JOIN users_tasks ON tasks.task_id = users_tasks.fk_task_id
          JOIN users ON users.id = users_tasks.fk_user_id
