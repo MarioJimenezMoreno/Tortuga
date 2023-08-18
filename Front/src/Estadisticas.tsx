@@ -29,7 +29,7 @@ for (let i = 0; i < FS2.length; i++) {
 //------------------------------------//
 export default function Estadisticas() {
   return(
-    <>
+    <div className="min-h-screen">
     <Header/>
     
         <Card className="mb-4"><CardBody><Categories/></CardBody></Card>
@@ -39,6 +39,6 @@ export default function Estadisticas() {
         </div>
                 
       
-  </>
+  </div>
 )
 }
