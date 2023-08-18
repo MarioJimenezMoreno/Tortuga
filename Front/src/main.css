@@ -11,14 +11,6 @@
 .newTaskButton {
   top: 85%;
   left: 90%;
-  width: 80px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  cursor: pointer;
-  z-index: 2;
 }
 .newTaskButton img {
   height: 50px;
@@ -129,6 +121,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  position: static;
 }
 .profileContainer {
   height: 90vh;
