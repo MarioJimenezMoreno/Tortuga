@@ -1,40 +1,20 @@
 import "./MainPage.css";
 import HeaderMP from './HeaderMP'
-import Team from "./Team";
 import { ThemeProps } from "./types";
-
+import Home from "./Home";
+import Info from "./Info";
+import Team from "./Team";
 function MainPage({onThemeChange}:ThemeProps) {
 
   return (
     <> 
-    <HeaderMP onThemeChange={onThemeChange}/>
-    <div id="home"/>
-    <div className="h-screen px-80 py-28">
-          <div className="cont_imagen">
-            <img className="imagen" alt="placeholder" />
-          </div>
-          <div className="textos">
-            <h1 className="titulo">Boostea tu PRODUCTIVIDAD</h1>
-            <div className="parrafo">
-              Con esta aplicación podrás organizarte como nunca antes con la
-              revolucionaria tecnologia tortuga
-            </div>
-          </div>
-          <div className="box_texto flex der"> 
-          <div className="cont_imagen">
-            <img className="imagen" alt="placeholder" />
-          </div>
-          <div className="textos">
-            <h1 className="titulo">O tu vida social</h1>
-            <div className="parrafo">
-              Permite que Tortuga Corporation calcule, analice y recomiende tus actividades de ocio.
-            </div>
-          </div>
-      </div>
-        </div>
+      <HeaderMP onThemeChange={onThemeChange}/>
+      <div id="home"/>
+      <Home/>
+      <div id="info"/>
+      <Info/>
       <div id="team"/>
       <Team/>
-
     </>
   )
 }

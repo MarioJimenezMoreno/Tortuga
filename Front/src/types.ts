@@ -1,14 +1,11 @@
 export interface Task {
-  startHour: string;
-  endHour: string;
-  duration: string;
   title: string;
+  description: string;
+  beggining_hour: string;
+  final_hour: string;
+  duration: string;
   category: string;
   date: string;
-}
-export interface Link {
-  label: string;
-  url: string;
 }
 
 export interface Data {
@@ -45,10 +42,9 @@ export interface ThemeProps {
   onThemeChange: () => void;
 }
 
-export interface Categories{
-  username: string,
-  tarea: string,
-  duracion: number,
-  color_code: string
+export interface Categories {
+  username: string;
+  tarea: string;
+  duracion: number;
+  color_code: string;
 }
-
