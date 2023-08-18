@@ -44,3 +44,11 @@ export interface ModalProps {
 export interface ThemeProps {
   onThemeChange: () => void;
 }
+
+export interface Categories{
+  username: string,
+  tarea: string,
+  duracion: number,
+  color_code: string
+}
+
