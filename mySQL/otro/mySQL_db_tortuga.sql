@@ -60,9 +60,15 @@ VALUES
     ("Trabajo","Azul","#0000FF"),
     ("Ocio","Morado","#800080");	
 
-SELECT username, TIME_FORMAT(beginning_hour, '%H:%i') AS beginning_hour,TIME_FORMAT(final_hour, '%H:%i') AS final_hour,DATE_FORMAT(date, '%d/%m/%Y') AS date, title, duration, color_code
-FROM tasks
-         JOIN users_tasks ON tasks.task_id = users_tasks.fk_task_id
-         JOIN users ON users.id = users_tasks.fk_user_id
-         JOIN categories ON categories.category_id = tasks.fk_category_id
+SELECT username, inicio, tarea, duracion, color_code
+FROM tareas
+         JOIN users_tareas ON tareas.tarea_id = users_tareas.fk_tarea_id
+         JOIN users ON users.id = users_tareas.fk_user_id
+         JOIN categorias ON categorias.categoria_id = tareas.fk_categoria_id
 WHERE username = "quim";
+
+/*username: "Quim",
+        dia: -1,
+        tarea: "Libre",
+        duracion: 6,
+        color_code: "#FCD8D4"*/
