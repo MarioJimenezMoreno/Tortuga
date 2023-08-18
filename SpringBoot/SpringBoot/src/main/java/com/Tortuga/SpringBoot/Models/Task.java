@@ -21,10 +21,10 @@ public class Task {
     private String description;
     @Column(name="fk_category_id")
     private Integer fk_category_id;
-    @Column(name="initialHour")
-    private Time initialHour;
-    @Column(name="finalHour")
-    private Time finalHour;
+    @Column(name="beginning_hour")
+    private Time beginning_hour;
+    @Column(name="final_hour")
+    private Time final_hour;
     @Column(name="date")
     private Date date;
     @Column(name="duration")
