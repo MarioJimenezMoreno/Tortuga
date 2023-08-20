@@ -6,7 +6,7 @@ import '../Styles/App.css'
 import '../Styles/Style.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import {NextUIProvider} from "@nextui-org/react";
-import Estadisticas from './Estadisticas';
+import Estadisticas from './Analytics';
 
 function App() {
 
