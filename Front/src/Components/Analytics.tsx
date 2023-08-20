@@ -1,8 +1,8 @@
 
-import GraficoPastel from "./GraficoPastel";
-import GraficoBarras from "./GraficoBarras";
-import Categories from "./Categorias";
-import Header from "../Header";
+import GraficoPastel from "./Analytics/GraficoPastel";
+import GraficoBarras from "./Analytics/GraficoBarras";
+import Categories from "./Analytics/Categorias";
+import Header from "./Header";
 import {Card, CardBody} from '@nextui-org/react'
 /* const HTML = document.getElementById("html");
 const ANCHO = HTML.offsetWidth;
