@@ -20,10 +20,10 @@ const DaysContainer: React.FC<DaysContainerProps> = ({
   };
 
   const doTasksOverlap = (taskA: Task, taskB: Task) => {
-    const startTimeA = parse(taskA.beggining_hour, "HH:mm", new Date());
+    const startTimeA = parse(taskA.beginning_hour, "HH:mm", new Date());
     const endTimeA = parse(taskA.final_hour, "HH:mm", new Date());
 
-    const startTimeB = parse(taskB.beggining_hour, "HH:mm", new Date());
+    const startTimeB = parse(taskB.beginning_hour, "HH:mm", new Date());
     const endTimeB = parse(taskB.final_hour, "HH:mm", new Date());
 
     return (

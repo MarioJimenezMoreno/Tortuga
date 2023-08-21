@@ -29,7 +29,7 @@ const TaskCreator = ({
   const [taskTitle, setTaskTitle] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
   const [category, setCategory] = useState("");
-  const [begginingHour, setStartTime] = useState("");
+  const [beginningHour, setStartTime] = useState("");
   const [finalHour, setEndTime] = useState("");
   const [date, setDate] = useState(selectedDate);
   const [colorCode, setColorCode] = useState("");
@@ -43,7 +43,7 @@ const TaskCreator = ({
   );
 
   const handleCreateTask = () => {
-    const startTime = parse(begginingHour, "HH:mm", new Date());
+    const startTime = parse(beginningHour, "HH:mm", new Date());
     const endTime = parse(finalHour, "HH:mm", new Date());
     const totalMinutes = differenceInMinutes(endTime, startTime);
 
@@ -65,7 +65,7 @@ const TaskCreator = ({
     const newTask = {
       title: taskTitle,
       description: taskDescription,
-      beggining_hour: begginingHour,
+      beginning_hour: beginningHour,
       final_hour: finalHour,
       duration: totalMinutes,
       category: category,
@@ -90,7 +90,7 @@ const TaskCreator = ({
       taskTitle !== "" &&
       taskDescription !== "" &&
       category !== "" &&
-      begginingHour !== "" &&
+      beginningHour !== "" &&
       finalHour !== ""
     ) {
       setIsFormValid(true);
@@ -100,7 +100,7 @@ const TaskCreator = ({
   };
 
   const handleHourSetUp = () => {
-    if (begginingHour > finalHour && finalHour != "") {
+    if (beginningHour > finalHour && finalHour != "") {
       setEndTime("");
     }
   };
@@ -190,7 +190,7 @@ const TaskCreator = ({
                         Select
                       </button>
                     )}
-                    <span>Start time: {begginingHour}</span>
+                    <span>Start time: {beginningHour}</span>
                   </div>
                   <div className="endHour">
                     <span>END HOUR</span>
@@ -199,7 +199,7 @@ const TaskCreator = ({
                         time="23:59"
                         onChange={(newTime) => setEndTime(newTime.formatted24)}
                         hour24Mode
-                        disabledTimeRange={{ from: "23:59", to: begginingHour }}
+                        disabledTimeRange={{ from: "23:59", to: beginningHour }}
                         onDoneClick={() => {
                           setShowEndTime(false), handleInputChange();
                         }}

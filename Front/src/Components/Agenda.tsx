@@ -20,7 +20,7 @@ const Agenda = () => {
     {
       title: "Meeting with Team",
       description: "Discuss project progress and updates with the team.",
-      beggining_hour: "10:00",
+      beginning_hour: "10:00",
       final_hour: "11:30",
       duration: "1 hour 30 minutes",
       category: "Meeting",
@@ -31,7 +31,7 @@ const Agenda = () => {
       title: "Write Blog Post",
       description:
         "Write an informative blog post about recent industry trends.",
-      beggining_hour: "14:00",
+      beginning_hour: "14:00",
       final_hour: "16:00",
       duration: "2 hours",
       category: "Content Creation",
@@ -41,7 +41,7 @@ const Agenda = () => {
     {
       title: "Gym Workout",
       description: "Hit the gym for a cardio and strength training session.",
-      beggining_hour: "17:30",
+      beginning_hour: "17:30",
       final_hour: "18:30",
       duration: "1 hour",
       category: "Health & Fitness",
@@ -51,7 +51,7 @@ const Agenda = () => {
     {
       title: "Read Book",
       description: "Read chapters 5-8 of 'The Great Novel'",
-      beggining_hour: "20:00",
+      beginning_hour: "20:00",
       final_hour: "21:30",
       duration: "1 hour 30 minutes",
       category: "Personal Development",
@@ -61,7 +61,7 @@ const Agenda = () => {
     {
       title: "Cook Dinner",
       description: "Prepare a healthy and delicious dinner.",
-      beggining_hour: "19:00",
+      beginning_hour: "19:00",
       final_hour: "21:00",
       duration: "1 hour",
       category: "Cooking",
@@ -71,7 +71,7 @@ const Agenda = () => {
     {
       title: "Cook Lunch",
       description: "Prepare a healthy and delicious dinner.",
-      beggining_hour: "13:00",
+      beginning_hour: "13:00",
       final_hour: "13:20",
       duration: "1 hour",
       category: "Cooking",

@@ -6,7 +6,7 @@ import { Card, CardBody, Divider } from "@nextui-org/react";
 const containerHeight = 1200;
 
 const calculatePositionAndSize = (task: Task) => {
-  const startTime = parse(task.beggining_hour, "HH:mm", new Date());
+  const startTime = parse(task.beginning_hour, "HH:mm", new Date());
   const endTime = parse(task.final_hour, "HH:mm", new Date());
   const totalMinutes = differenceInMinutes(endTime, startTime);
 
@@ -45,7 +45,7 @@ const TaskComponent: React.FC<{
     <Card fullWidth style={style} className={task.color_code}>
       <CardBody className="flex flex-row gap-2 p-2">
         <div className="flex flex-col text-xs justify-between">
-          <p>{task.beggining_hour}</p>
+          <p>{task.beginning_hour}</p>
           <p>{task.final_hour}</p>
         </div>
         <Divider className="h-auto" orientation="vertical" />

@@ -1,7 +1,7 @@
 export interface Task {
   title: string;
   description: string;
-  beggining_hour: string;
+  beginning_hour: string;
   final_hour: string;
   duration: string;
   category: string;
