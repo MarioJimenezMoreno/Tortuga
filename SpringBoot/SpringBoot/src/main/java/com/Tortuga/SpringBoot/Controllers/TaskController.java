@@ -34,6 +34,4 @@ public class TaskController {
     public void deleteTask(@RequestBody Integer id ) {
         taskDAO.delete(id);
     }
-
-
 }

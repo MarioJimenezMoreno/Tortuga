@@ -24,7 +24,6 @@ public class UserController {
 		return userID != null;
 	}
 
-	//Obtener usuario
 	@RequestMapping(value= "api/users", method = RequestMethod.GET)
 	public List<User> getUsers() {
 		return userDAO.getUsers();
