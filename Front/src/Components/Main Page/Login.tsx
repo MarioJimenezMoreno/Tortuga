@@ -1,18 +1,27 @@
 import { useState } from "react";
-import {Link} from 'react-router-dom'
-import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter,Input, Checkbox, Button} from "@nextui-org/react";
+import { Link } from "react-router-dom";
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Input,
+  Checkbox,
+  Button,
+} from "@nextui-org/react";
 import { LockIcon } from "../Icons/LockIcon";
 import { MailIcon } from "../Icons/MailIcon";
 import { ModalProps } from "../../types";
 
-function Login ({isOpen, onOpenChange}: ModalProps)  {
+function Login({ isOpen, onOpenChange }: ModalProps) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const loginUser= async () => {
+  const loginUser = async () => {
     const data = { email, password };
 
-    const response = await fetch("api/login", {
+    const response = await fetch("http://localhost:8080/api/login", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -33,67 +42,60 @@ function Login ({isOpen, onOpenChange}: ModalProps)  {
   };
 
   return (
-        <>
-                <Modal 
-                  isOpen={isOpen} 
-                  onOpenChange={onOpenChange}
-                  placement="top-center"  
-                >
-                  <div className={`text-foreground bg-background`}>
-                  <ModalContent>
-                    {(onClose) => (
-                      <>
-                        <ModalHeader className="flex flex-col gap-1">Welcome Back!</ModalHeader>
-                        <ModalBody>
-                          <Input
-                            autoFocus
-                            endContent={
-                              <MailIcon/>
-                            }
-                            label="Email"
-                            placeholder="Enter your email"
-                            variant="bordered"
-                            onChange={(e) => setEmail(e.target.value)}
-                          />
-                          <Input
-                            endContent={
-                              <LockIcon/>
-                            }
-                            label="Password"
-                            placeholder="Enter your password"
-                            type="password"
-                            variant="bordered"
-                            onChange={(e) => setPassword(e.target.value)}                          
-                          />
-                          <div className="flex py-2 px-1 justify-between">
-                            <Checkbox
-                              classNames={{
-                                label: "text-small",
-                              }}
-                            >
-                              Remember me
-                            </Checkbox>
-                            <Link color="primary" to="/">
-                              Forgot password?
-                            </Link>
-                          </div>
-                        </ModalBody>
-                        <ModalFooter>
-                          <Button color="danger" variant="flat" onClick={onClose}>
-                            Close
-                          </Button>
-                          <Button color="primary" onPress={loginUser}>
-                            Log In
-                          </Button>
-                        </ModalFooter>
-                      </>
-                    )}
-                  </ModalContent>
+    <>
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="top-center">
+        <div className={`text-foreground bg-background`}>
+          <ModalContent>
+            {(onClose) => (
+              <>
+                <ModalHeader className="flex flex-col gap-1">
+                  Welcome Back!
+                </ModalHeader>
+                <ModalBody>
+                  <Input
+                    autoFocus
+                    endContent={<MailIcon />}
+                    label="Email"
+                    placeholder="Enter your email"
+                    variant="bordered"
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                  <Input
+                    endContent={<LockIcon />}
+                    label="Password"
+                    placeholder="Enter your password"
+                    type="password"
+                    variant="bordered"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <div className="flex py-2 px-1 justify-between">
+                    <Checkbox
+                      classNames={{
+                        label: "text-small",
+                      }}
+                    >
+                      Remember me
+                    </Checkbox>
+                    <Link color="primary" to="/">
+                      Forgot password?
+                    </Link>
                   </div>
-                </Modal>
-                </>
-            );
-          }
-
+                </ModalBody>
+                <ModalFooter>
+                  <Button color="danger" variant="flat" onClick={onClose}>
+                    Close
+                  </Button>
+                  <Button color="primary" onPress={loginUser}>
+                    Log In
+                  </Button>
+                </ModalFooter>
+              </>
+            )}
+          </ModalContent>
+        </div>
+      </Modal>
+    </>
+  );
+}
 
 export default Login;

@@ -82,7 +82,12 @@ const Agenda = () => {
 
   const fetchTasks = () => {
     axios
-      .get(`/api/tasks?date=${format(selectedDate, "yyyy-MM-dd")}`)
+      .get(
+        `http://localhost:8080//api/tasks?date=${format(
+          selectedDate,
+          "yyyy-MM-dd"
+        )}`
+      )
       .then((response) => {
         setTasks(response.data);
       })

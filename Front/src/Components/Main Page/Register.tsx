@@ -9,7 +9,7 @@ import { PhoneIcon } from '../Icons/PhoneIcon';
 import { ModalProps, Data } from "../../types";
 
 async function registerUser (data: Data) {
-      const request = await fetch('api/users/register', {
+      const request = await fetch('http://localhost:8080/api/users/register', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',

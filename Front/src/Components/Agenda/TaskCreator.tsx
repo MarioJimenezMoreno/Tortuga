@@ -74,7 +74,7 @@ const TaskCreator = ({
     };
     console.log(newTask);
     axios
-      .post(`/api/tasks`, newTask)
+      .post(`http://localhost:8080//api/tasks`, newTask)
       .then((response) => {
         console.log("Tarea creada:", response.data);
         onSuccess();
