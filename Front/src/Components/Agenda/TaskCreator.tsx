@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import TimeKeeper from "react-timekeeper";
@@ -35,7 +35,6 @@ const TaskCreator = ({
   const [colorCode, setColorCode] = useState("");
 
   const [isFormValid, setIsFormValid] = useState(false);
-  const [startTimeValid, setStartTimeValid] = useState(false);
   const [showStartTime, setShowStartTime] = useState(false);
   const [showEndTime, setShowEndTime] = useState(false);
 
@@ -103,9 +102,6 @@ const TaskCreator = ({
   const handleHourSetUp = () => {
     if (begginingHour > finalHour && finalHour != "") {
       setEndTime("");
-    }
-    if (begginingHour != "") {
-      setStartTimeValid(true);
     }
   };
 
