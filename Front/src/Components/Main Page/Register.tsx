@@ -21,8 +21,10 @@ import axios from "axios";
 async function registerUser(data: Data) {
   axios
     .post(`http://localhost:8080/api/users/register`, data)
-    .then(() => {
+    .then((response) => {
       window.location.href = "/app";
+      localStorage.token = response;
+      localStorage.email = data.email;
     })
     .catch(() => {
       alert("An error occurred while registering the account");
