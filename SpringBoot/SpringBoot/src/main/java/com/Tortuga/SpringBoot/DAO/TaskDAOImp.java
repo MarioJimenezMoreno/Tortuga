@@ -1,6 +1,7 @@
 package com.Tortuga.SpringBoot.DAO;
 
 import com.Tortuga.SpringBoot.Interfaces.TaskDAO;
+import com.Tortuga.SpringBoot.Models.Allin;
 import com.Tortuga.SpringBoot.Models.Task;
 import com.Tortuga.SpringBoot.Models.User;
 import jakarta.persistence.EntityManager;
@@ -61,6 +62,19 @@ public class TaskDAOImp implements TaskDAO {
         Task task = entityManager.find(Task.class, id);
         entityManager.remove(task);
     }
+
+	@Override
+	public List<Allin> getAllTasks(String username) {
+		String query = "SELECT username, date, name, duration, color_code FROM tasks "+
+				"JOIN users_tasks ON tasks.task_id = users_tasks.task_id "+
+		        "JOIN users ON users.user_id = users_tasks.user_id "+
+		        "JOIN categories ON categories.category_id = tasks.category_id "+
+				"WHERE username = :username";
+ 
+ return entityManager.createNativeQuery(query)
+ 		.setParameter("username", username)
+         .getResultList();
+	}
 
 }
 

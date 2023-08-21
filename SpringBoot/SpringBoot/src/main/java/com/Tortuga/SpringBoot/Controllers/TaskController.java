@@ -1,6 +1,7 @@
 package com.Tortuga.SpringBoot.Controllers;
 
 import com.Tortuga.SpringBoot.Interfaces.TaskDAO;
+import com.Tortuga.SpringBoot.Models.Allin;
 import com.Tortuga.SpringBoot.Models.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,12 @@ public class TaskController {
     @RequestMapping(value= "api/tasks", method = RequestMethod.GET)
     public List<Task> getTasks() {
         return taskDAO.getTasks();
+
+    }
+    @CrossOrigin(origins = "http://localhost:5173")
+    @RequestMapping(value= "api/stats", method = RequestMethod.GET)
+    public List<Allin> getAllTasks(@RequestParam("username") String username) {
+        return taskDAO.getAllTasks(username);
 
     }
     @CrossOrigin(origins = "http://localhost:5173")
