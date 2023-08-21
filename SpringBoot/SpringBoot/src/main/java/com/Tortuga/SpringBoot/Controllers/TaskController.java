@@ -23,7 +23,6 @@ public class TaskController {
         return taskDAO.getTasks();
 
     }
-
     @CrossOrigin(origins = "http://localhost:5173")
     @RequestMapping(value= "api/tasks", method = RequestMethod.POST)
     public void save(@RequestBody Task task ){

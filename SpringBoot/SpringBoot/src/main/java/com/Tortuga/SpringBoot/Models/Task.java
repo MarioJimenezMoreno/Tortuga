@@ -9,7 +9,6 @@ import jakarta.persistence.Id;
 import lombok.Data;
 
 import java.sql.Date;
-import java.sql.Time;
 @Data
 @Entity(name="tasks")
 public class Task {
@@ -20,18 +19,20 @@ public class Task {
     private String title;
     @Column(name="description")
     private String description;
-    @Column(name="fk_category_id")
-    private Integer fk_category_id;
+    @Column(name="category")
+    private String category;
+    @Column(name="color_code")
+    private String color_code;
     @Column(name="beginning_hour")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
-    private Time beginning_hour;
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
+    private String beginning_hour;
     @Column(name="final_hour")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
-    private Time final_hour;
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
+    private String final_hour;
     @Column(name="date")
     private Date date;
     @Column(name="duration")
-    private Double duration;
+    private String duration;
 }
 
 

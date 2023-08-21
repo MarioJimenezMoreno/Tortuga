@@ -23,13 +23,13 @@ public class UserController {
 		String userID = jwtUtil.getKey(token);
 		return userID != null;
 	}
-
+	@CrossOrigin(origins = "http://localhost:5173")
 	@RequestMapping(value= "api/users", method = RequestMethod.GET)
 	public List<User> getUsers() {
 		return userDAO.getUsers();
 	}
 
-
+	@CrossOrigin(origins = "http://localhost:5173")
 	@RequestMapping(value= "api/users/register", method = RequestMethod.POST)
 	public void registerUser(@RequestBody User user) {
 		Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
@@ -37,10 +37,13 @@ public class UserController {
 		user.setPassword(hash);
 		userDAO.register(user);
 	}
+	@CrossOrigin(origins = "http://localhost:5173")
 	@RequestMapping(value = "api/users/{id}", method = RequestMethod.GET)
 	public User getUser(@PathVariable Integer id) {
 		return userDAO.getUserById(id);
 	}
+
+	@CrossOrigin(origins = "http://localhost:5173")
 	@RequestMapping(value = "api/users/{id}", method = RequestMethod.DELETE)
 	public void deleteUser(@RequestHeader (value = "Authorization") String token,
 						   @PathVariable Integer id ) {

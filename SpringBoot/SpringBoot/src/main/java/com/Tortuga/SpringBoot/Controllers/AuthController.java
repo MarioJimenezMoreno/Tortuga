@@ -14,6 +14,7 @@ public class AuthController {
 
     @Autowired
     private JWTUtil jwtUtil;
+    @CrossOrigin(origins = "http://localhost:5173")
     @RequestMapping(value= "api/login", method = RequestMethod.POST)
     public String login(@RequestBody User user) {
         User userLogged = userDAO.obtainUserByCredentials(user);

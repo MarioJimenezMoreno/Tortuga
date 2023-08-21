@@ -1,4 +1,4 @@
-package com.Tortuga.SpringBoot.Models;
+/*package com.Tortuga.SpringBoot.Models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,14 +15,7 @@ public class Categories {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer category_id;
 
-    @Column(name="name")
-    private String name;
-
-    @Column(name="color")
-    private String color;
-
-    @Column(name="color_code")
-    private String color_code;
 
 
 }
+*/

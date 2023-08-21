@@ -1,4 +1,4 @@
-package com.Tortuga.SpringBoot.Interfaces;
+/*package com.Tortuga.SpringBoot.Interfaces;
 
 import com.Tortuga.SpringBoot.Models.Categories;
 
@@ -8,3 +8,4 @@ public interface CategoriesDAO {
 
     List<Categories> getCategories();
 }
+*/
