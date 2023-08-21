@@ -10,4 +10,8 @@ public interface TaskDAO {
 
 
     List<Task> getTasksByDate(Date date);
+
+    void save(Task task);
+
+    void delete(Integer id);
 }

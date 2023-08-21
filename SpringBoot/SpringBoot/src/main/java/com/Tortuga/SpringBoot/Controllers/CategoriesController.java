@@ -1,9 +1,7 @@
 package com.Tortuga.SpringBoot.Controllers;
 
 import com.Tortuga.SpringBoot.Interfaces.CategoriesDAO;
-import com.Tortuga.SpringBoot.Interfaces.TaskDAO;
 import com.Tortuga.SpringBoot.Models.Categories;
-import com.Tortuga.SpringBoot.Models.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

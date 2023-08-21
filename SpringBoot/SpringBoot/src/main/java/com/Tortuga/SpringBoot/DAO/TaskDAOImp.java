@@ -2,6 +2,7 @@ package com.Tortuga.SpringBoot.DAO;
 
 import com.Tortuga.SpringBoot.Interfaces.TaskDAO;
 import com.Tortuga.SpringBoot.Models.Task;
+import com.Tortuga.SpringBoot.Models.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
@@ -23,7 +24,12 @@ public class TaskDAOImp implements TaskDAO {
         return entityManager.createQuery(query, Task.class).getResultList();
     }
 
+    @Override
+    public List<Task> getTasksByDate(Date date) {
+        return null;
+    }
 
+/*
     public List<Task> getTasksByDate(Date date) {
         String query = "SELECT t FROM tasks t"
                 + " JOIN UsersTasks ut ON t.task_id = ut.fk_task_id"
@@ -42,6 +48,18 @@ public class TaskDAOImp implements TaskDAO {
         }
 
         return tasks;
+    }*/
+
+    @Override
+    public void save(Task task) {
+        entityManager.merge(task);
+    }
+
+
+    @Override
+    public void delete(Integer id) {
+        Task task = entityManager.find(Task.class, id);
+        entityManager.remove(task);
     }
 
 }

@@ -41,8 +41,6 @@ public class UserController {
 	}
 	@RequestMapping(value = "api/users/{id}", method = RequestMethod.GET)
 	public User getUser(@PathVariable Integer id) {
-
-
 		return userDAO.getUserById(id);
 	}
 	@RequestMapping(value = "api/users/{id}", method = RequestMethod.DELETE)

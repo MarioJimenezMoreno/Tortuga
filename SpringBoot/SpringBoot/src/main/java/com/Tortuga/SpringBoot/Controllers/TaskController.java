@@ -2,23 +2,24 @@ package com.Tortuga.SpringBoot.Controllers;
 
 import com.Tortuga.SpringBoot.Interfaces.TaskDAO;
 import com.Tortuga.SpringBoot.Models.Task;
+import com.Tortuga.SpringBoot.Models.User;
+import de.mkammerer.argon2.Argon2;
+import de.mkammerer.argon2.Argon2Factory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
-import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.List;
-
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 @RestController
 public class TaskController {
 
+    @PersistenceContext
+    private EntityManager entityManager;
     @Autowired
     private TaskDAO taskDAO;
     @RequestMapping(value= "api/tasks", method = RequestMethod.GET)
@@ -27,20 +28,15 @@ public class TaskController {
 
     }
 
-    @RequestMapping(value = "api/tasksByDate", method = RequestMethod.GET)
-    public List<Task> getTasksByDate(@RequestParam("date") String dateString) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Date date;
-        try {
-            date = new Date(dateFormat.parse(dateString).getTime());
-        } catch (ParseException e) {
-            // Manejar la excepción en caso de que ocurra un error de parseo
-            // Puedes retornar una respuesta de error o loguear la excepción
-            return null;
-        }
 
-        List<Task> tasks = taskDAO.getTasksByDate(date);
-        return tasks;
+    @RequestMapping(value= "api/tasks", method = RequestMethod.POST)
+    public void save(@PathVariable Task task ){
+        taskDAO.save(task);
     }
+    @RequestMapping(value = "api/tasks", method = RequestMethod.DELETE)
+    public void deleteTask(@PathVariable Integer id ) {
+        taskDAO.delete(id);
+    }
+
 
 }

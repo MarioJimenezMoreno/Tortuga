@@ -1,14 +1,22 @@
 export interface Task {
-  startHour: string;
-  endHour: string;
-  duration: string;
   title: string;
+  description: string;
+  beggining_hour: string;
+  final_hour: string;
+  duration: string;
   category: string;
   date: string;
+  color_code: string;
 }
-export interface Link {
-  label: string;
-  url: string;
+
+export interface TaskCreatorProps extends ModalProps {
+  selectedDate: Date;
+  onSuccess: () => void;
+}
+
+export interface ModalProps {
+  isOpen: boolean;
+  onOpenChange: () => void;
 }
 
 export interface Data {
@@ -23,10 +31,6 @@ export interface CalendarProps {
   setSelectedDate: React.Dispatch<React.SetStateAction<Date>>;
 }
 
-export interface TaskCreatorProps {
-  handleNewTask: () => void;
-  selectedDate: Date;
-}
 export interface DaysContainerLoaderProps {
   selectedDate: Date;
 }
@@ -35,20 +39,9 @@ export interface DaysContainerProps {
   selectedDate: Date;
 }
 
-export interface ModalProps {
-  isOpen: boolean;
-  onOpenChange: () => void;
-  theme: string;
+export interface Categories {
+  username: string;
+  tarea: string;
+  duracion: number;
+  color_code: string;
 }
-
-export interface ThemeProps {
-  onThemeChange: () => void;
-}
-
-export interface Categories{
-  username: string,
-  tarea: string,
-  duracion: number,
-  color_code: string
-}
-

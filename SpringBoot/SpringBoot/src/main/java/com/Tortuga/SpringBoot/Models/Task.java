@@ -29,8 +29,6 @@ public class Task {
     private Date date;
     @Column(name="duration")
     private Double duration;
-    public void setDateFormatted(String format) {
-    }
 }
 
 
