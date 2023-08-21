@@ -21,21 +21,22 @@ export interface CalendarProps {
   setSelectedDate: React.Dispatch<React.SetStateAction<Date>>;
 }
 
-export interface TaskCreatorProps {
+export interface TaskCreatorProps extends ModalProps {
   handleNewTask: () => void;
-  selectedDate: Date;
-}
-export interface DaysContainerLoaderProps {
-  selectedDate: Date;
-}
-export interface DaysContainerProps {
-  tasks: Task[];
   selectedDate: Date;
 }
 
 export interface ModalProps {
   isOpen: boolean;
   onOpenChange: () => void;
+}
+
+export interface DaysContainerLoaderProps {
+  selectedDate: Date;
+}
+export interface DaysContainerProps {
+  tasks: Task[];
+  selectedDate: Date;
 }
 
 export interface Categories {

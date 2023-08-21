@@ -10,7 +10,7 @@ const Header = () => {
   const location = useLocation();
 
   return (
-    <Navbar height="10vh">
+    <Navbar height="10vh" isBordered>
     <NavbarBrand>
       <p className="font-bold text-inherit">Tortoise</p>
     </NavbarBrand>

@@ -1,7 +1,6 @@
       function Info() {
         return (
             <div className="h-screen px-32 py-28 flex">
-
               <div className="flex flex-col justify-between">
                 <div>     
                   <h1 className="">Make time matter</h1>
@@ -25,9 +24,7 @@
                   Let the app analize your activities thorougly and recommend user-oriented plans to                  
                 </div>
               </div>
-
-            </div>
-            
+            </div>            
         );
       }
       export default Info;

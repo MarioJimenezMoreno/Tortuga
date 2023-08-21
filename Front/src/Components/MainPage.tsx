@@ -1,4 +1,4 @@
-import "../Styles/MainPage.css";
+// import "../Styles/MainPage.css";
 import Header from './Header'
 import Home from "./Main Page/Home";
 import Info from "./Main Page/Info";
