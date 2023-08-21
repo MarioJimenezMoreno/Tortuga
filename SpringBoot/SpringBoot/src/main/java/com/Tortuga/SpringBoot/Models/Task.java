@@ -23,10 +23,10 @@ public class Task {
     @Column(name="fk_category_id")
     private Integer fk_category_id;
     @Column(name="beginning_hour")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
     private Time beginning_hour;
     @Column(name="final_hour")
-    @JsonFormat(shape = JsonFormagit.Shape.STRING, pattern = "HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
     private Time final_hour;
     @Column(name="date")
     private Date date;
