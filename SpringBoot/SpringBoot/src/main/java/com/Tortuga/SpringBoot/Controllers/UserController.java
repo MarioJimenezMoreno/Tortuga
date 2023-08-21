@@ -26,8 +26,7 @@ public class UserController {
 
 	//Obtener usuario
 	@RequestMapping(value= "api/users", method = RequestMethod.GET)
-	public List<User> getUsers(@RequestHeader (value = "Authorization") String token) {
-		if (!tokenValidation(token)){return null;}
+	public List<User> getUsers() {
 		return userDAO.getUsers();
 	}
 
