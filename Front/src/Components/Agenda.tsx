@@ -98,8 +98,9 @@ const Agenda = () => {
   };
 
   useEffect(() => {
+    setTasks([]);
     fetchTasks();
-  }, []);
+  }, [selectedDate]);
 
   return (
     <>
