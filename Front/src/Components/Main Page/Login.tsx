@@ -13,6 +13,7 @@ import {
 import { LockIcon } from "../Icons/LockIcon";
 import { MailIcon } from "../Icons/MailIcon";
 import { ModalProps } from "../../types";
+import axios from "axios";
 
 function Login({ isOpen, onOpenChange }: ModalProps) {
   const [email, setEmail] = useState("");
@@ -21,24 +22,14 @@ function Login({ isOpen, onOpenChange }: ModalProps) {
   const loginUser = async () => {
     const data = { email, password };
 
-    const response = await fetch("http://localhost:8080/api/login", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-
-    const credentials = await response.text();
-
-    if (credentials == "OK") {
-      localStorage.token = credentials;
-      localStorage.email = email;
-      window.location.href = "/app";
-    } else {
-      alert("Email or password are incorrect.");
-    }
+    axios
+      .post(`http://localhost:8080/api/users/login`, data)
+      .then(() => {
+        window.location.href = "/app";
+      })
+      .catch(() => {
+        alert("Email or password are incorrect.");
+      });
   };
 
   return (
