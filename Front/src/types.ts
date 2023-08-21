@@ -9,6 +9,16 @@ export interface Task {
   color_code: string;
 }
 
+export interface TaskCreatorProps extends ModalProps {
+  selectedDate: Date;
+  onSuccess: () => void;
+}
+
+export interface ModalProps {
+  isOpen: boolean;
+  onOpenChange: () => void;
+}
+
 export interface Data {
   username: string;
   email: string;
@@ -19,16 +29,6 @@ export interface Data {
 export interface CalendarProps {
   selectedDate: Date;
   setSelectedDate: React.Dispatch<React.SetStateAction<Date>>;
-}
-
-export interface TaskCreatorProps extends ModalProps {
-  handleNewTask: () => void;
-  selectedDate: Date;
-}
-
-export interface ModalProps {
-  isOpen: boolean;
-  onOpenChange: () => void;
 }
 
 export interface DaysContainerLoaderProps {

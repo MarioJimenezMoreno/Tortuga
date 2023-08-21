@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import TimeKeeper from "react-timekeeper";
@@ -16,21 +16,26 @@ import {
   ModalHeader,
 } from "@nextui-org/react";
 import { TaskCreatorProps } from "../../types";
+import { format } from "date-fns";
+import axios from "axios";
+import { differenceInMinutes, parse } from "date-fns";
 
 const TaskCreator = ({
-  handleNewTask,
   selectedDate,
   isOpen,
   onOpenChange,
+  onSuccess,
 }: TaskCreatorProps) => {
-  const [taskName, setTaskName] = useState("");
+  const [taskTitle, setTaskTitle] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
   const [category, setCategory] = useState("");
-  const [startTime, setStartTime] = useState("");
-  const [endTime, setEndTime] = useState("");
+  const [begginingHour, setStartTime] = useState("");
+  const [finalHour, setEndTime] = useState("");
+  const [date, setDate] = useState(selectedDate);
+  const [colorCode, setColorCode] = useState("");
+
   const [isFormValid, setIsFormValid] = useState(false);
   const [startTimeValid, setStartTimeValid] = useState(false);
-  const [startDate, setStartDate] = useState(selectedDate);
   const [showStartTime, setShowStartTime] = useState(false);
   const [showEndTime, setShowEndTime] = useState(false);
 
@@ -39,15 +44,55 @@ const TaskCreator = ({
   );
 
   const handleCreateTask = () => {
-    handleNewTask();
+    const startTime = parse(begginingHour, "HH:mm", new Date());
+    const endTime = parse(finalHour, "HH:mm", new Date());
+    const totalMinutes = differenceInMinutes(endTime, startTime);
+
+    switch (category) {
+      case "work":
+        setColorCode("bg-success-300");
+        break;
+      case "entertainment":
+        setColorCode("bg-warning-300");
+        break;
+      case "cook":
+        setColorCode("bg-danger-300");
+        break;
+      case "sport":
+        setColorCode("bg-primary-300");
+        break;
+    }
+
+    const newTask = {
+      title: taskTitle,
+      description: taskDescription,
+      beggining_hour: begginingHour,
+      final_hour: finalHour,
+      duration: totalMinutes,
+      category: category,
+      date: format(date, "yyyy-MM-dd"),
+      color_code: colorCode,
+    };
+    console.log(newTask);
+    axios
+      .post(`/api/tasks`, newTask)
+      .then((response) => {
+        console.log("Tarea creada:", response.data);
+        onSuccess();
+      })
+      .catch((error) => {
+        console.error("Error al crear la tarea:", error);
+        onSuccess();
+      });
   };
 
   const handleInputChange = () => {
     if (
-      taskName !== "" &&
+      taskTitle !== "" &&
+      taskDescription !== "" &&
       category !== "" &&
-      startTime !== "" &&
-      endTime !== ""
+      begginingHour !== "" &&
+      finalHour !== ""
     ) {
       setIsFormValid(true);
     } else {
@@ -56,10 +101,10 @@ const TaskCreator = ({
   };
 
   const handleHourSetUp = () => {
-    if (startTime > endTime && endTime != "") {
+    if (begginingHour > finalHour && finalHour != "") {
       setEndTime("");
     }
-    if (startTime != "") {
+    if (begginingHour != "") {
       setStartTimeValid(true);
     }
   };
@@ -81,9 +126,9 @@ const TaskCreator = ({
                   placeholder="Enter task title"
                   type="text"
                   variant="bordered"
-                  value={taskName}
+                  value={taskTitle}
                   onChange={(e) => {
-                    setTaskName(e.target.value);
+                    setTaskTitle(e.target.value);
                     handleInputChange();
                   }}
                 />
@@ -109,7 +154,14 @@ const TaskCreator = ({
                     disallowEmptySelection
                     selectionMode="single"
                     selectedKeys={selectedKey}
-                    onSelectionChange={setSelectedKey}
+                    onSelectionChange={(newSelectedKeys) => {
+                      const selectedKeyArray = Array.from(newSelectedKeys);
+                      //@ts-ignore
+                      setSelectedKey(newSelectedKeys);
+                      //@ts-ignore
+                      setCategory(selectedKeyArray[0]);
+                      handleInputChange();
+                    }}
                   >
                     <DropdownItem key="work">Work</DropdownItem>
                     <DropdownItem key="sport">Sport</DropdownItem>
@@ -130,7 +182,9 @@ const TaskCreator = ({
                         }
                         hour24Mode
                         onDoneClick={() => {
-                          setShowStartTime(false), handleHourSetUp();
+                          setShowStartTime(false),
+                            handleHourSetUp(),
+                            handleInputChange();
                         }}
                         switchToMinuteOnHourSelect
                       />
@@ -140,7 +194,7 @@ const TaskCreator = ({
                         Select
                       </button>
                     )}
-                    <span>Start time: {startTime}</span>
+                    <span>Start time: {begginingHour}</span>
                   </div>
                   <div className="endHour">
                     <span>END HOUR</span>
@@ -149,36 +203,38 @@ const TaskCreator = ({
                         time="23:59"
                         onChange={(newTime) => setEndTime(newTime.formatted24)}
                         hour24Mode
-                        disabledTimeRange={{ from: "23:59", to: startTime }}
-                        onDoneClick={() => setShowEndTime(false)}
+                        disabledTimeRange={{ from: "23:59", to: begginingHour }}
+                        onDoneClick={() => {
+                          setShowEndTime(false), handleInputChange();
+                        }}
                         switchToMinuteOnHourSelect
                       />
                     )}
                     {!showEndTime && (
                       <button
-                        disabled={!startTimeValid}
+                        // disabled={!startTimeValid}
                         onClick={() => setShowEndTime(true)}
                       >
                         Select
                       </button>
                     )}
-                    <span>End time: {endTime}</span>
+                    <span>End time: {finalHour}</span>
                   </div>
                 </div>
                 <DatePicker
-                  selected={startDate}
-                  onChange={(date) => setStartDate(date || new Date())}
+                  selected={date}
+                  onChange={(date) => setDate(date || new Date())}
                   dateFormat="dd/MM/yyyy"
                 />
-                <span>Date is {startDate.toLocaleDateString()}</span>
+                <span>Date is {date.toLocaleDateString()}</span>
               </ModalBody>
               <ModalFooter>
                 <Button
-                  color="primary"
-                  onPress={() => {
-                    handleCreateTask;
-                    onClose;
+                  onClick={() => {
+                    handleCreateTask();
+                    onClose();
                   }}
+                  color="primary"
                   disabled={!isFormValid}
                 >
                   Create Task

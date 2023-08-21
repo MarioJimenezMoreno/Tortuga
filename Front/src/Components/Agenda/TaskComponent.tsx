@@ -35,14 +35,14 @@ const TaskComponent: React.FC<{
     minHeight: `${height}px`,
     maxHeight: "auto",
     maxWidth: "50%",
-    backgroundColor: task.color_code,
+    // backgroundColor: task.color_code,
     width: `${overlappedWidth}%`,
     left: position === "absolute" ? `${overlappedWidth * indexInGroup}%` : "0",
     zIndex: groupIndex,
   };
 
   return (
-    <Card fullWidth style={style}>
+    <Card fullWidth style={style} className={task.color_code}>
       <CardBody className="flex flex-row gap-2 p-2">
         <div className="flex flex-col text-xs justify-between">
           <p>{task.beggining_hour}</p>

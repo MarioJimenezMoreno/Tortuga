@@ -11,15 +11,11 @@ import { Button, useDisclosure } from "@nextui-org/react";
 import EditIcon from "./Icons/EditIcon";
 
 const Agenda = () => {
-  const [taskCreatorVisible, setTaskCreatorVisible] = useState(false);
   const [tasks, setTasks] = useState<Task[]>([]);
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
-  const handleNewTask = () => {
-    setTaskCreatorVisible(!taskCreatorVisible);
-  };
   const hardcodedTasks: Task[] = [
     {
       title: "Meeting with Team",
@@ -29,7 +25,7 @@ const Agenda = () => {
       duration: "1 hour 30 minutes",
       category: "Meeting",
       date: format(selectedDate, "dd/MM/yyyy"),
-      color_code: "#6020A0",
+      color_code: "bg-success-300",
     },
     {
       title: "Write Blog Post",
@@ -40,7 +36,7 @@ const Agenda = () => {
       duration: "2 hours",
       category: "Content Creation",
       date: format(selectedDate, "dd/MM/yyyy"),
-      color_code: "#12A150",
+      color_code: "bg-success-300",
     },
     {
       title: "Gym Workout",
@@ -50,7 +46,7 @@ const Agenda = () => {
       duration: "1 hour",
       category: "Health & Fitness",
       date: format(selectedDate, "dd/MM/yyyy"),
-      color_code: "#C20E4D",
+      color_code: "bg-primary-300",
     },
     {
       title: "Read Book",
@@ -60,7 +56,7 @@ const Agenda = () => {
       duration: "1 hour 30 minutes",
       category: "Personal Development",
       date: format(selectedDate, "dd/MM/yyyy"),
-      color_code: "#C4841D",
+      color_code: "bg-warning-300",
     },
     {
       title: "Cook Dinner",
@@ -70,7 +66,7 @@ const Agenda = () => {
       duration: "1 hour",
       category: "Cooking",
       date: format(selectedDate, "dd/MM/yyyy"),
-      color_code: "#CC3EA4",
+      color_code: "bg-danger-300",
     },
     {
       title: "Cook Lunch",
@@ -80,11 +76,11 @@ const Agenda = () => {
       duration: "1 hour",
       category: "Cooking",
       date: "14/08/2023",
-      color_code: "#CC3EA4",
+      color_code: "bg-danger-300",
     },
   ];
 
-  useEffect(() => {
+  const fetchTasks = () => {
     axios
       .get(`/api/tasks?date=${format(selectedDate, "yyyy-MM-dd")}`)
       .then((response) => {
@@ -94,6 +90,10 @@ const Agenda = () => {
         console.error("Error fetching tasks:", error);
         setTasks(hardcodedTasks);
       });
+  };
+
+  useEffect(() => {
+    fetchTasks();
   }, []);
 
   return (
@@ -115,17 +115,11 @@ const Agenda = () => {
         onPress={onOpen}
       ></Button>
       <TaskCreator
-        handleNewTask={handleNewTask}
         selectedDate={selectedDate}
         isOpen={isOpen}
         onOpenChange={onOpenChange}
+        onSuccess={fetchTasks}
       />
-      {/* {taskCreatorVisible && (
-        <>
-          <div className="fader" onClick={handleNewTask}></div>
-          <TaskCreator  handleNewTask={handleNewTask} selectedDate={selectedDate} />
-        </>
-      )} */}
     </>
   );
 };

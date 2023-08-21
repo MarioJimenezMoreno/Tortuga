@@ -6,14 +6,12 @@ import {
   addWeeks,
   isSameWeek,
   isSameDay,
-} from 'date-fns';
-import {Button, Card,CardBody,CardHeader, Divider} from '@nextui-org/react'
-import '../../Styles/Calendar.css';
-import { CalendarProps } from '../../types';
-
+} from "date-fns";
+import { Button, Card, CardBody, CardHeader, Divider } from "@nextui-org/react";
+import "../../Styles/Calendar.css";
+import { CalendarProps } from "../../types";
 
 function Calendar({ selectedDate, setSelectedDate }: CalendarProps) {
-  
   const startOfWeekDate = startOfWeek(selectedDate, { weekStartsOn: 1 });
   const endOfWeekDate = endOfWeek(selectedDate, { weekStartsOn: 1 });
   const startDate = startOfWeekDate;
@@ -43,40 +41,47 @@ function Calendar({ selectedDate, setSelectedDate }: CalendarProps) {
 
   for (let i = 0; i < days.length; i++) {
     dayItems.push(
-      <div key={`name-${days[i].toString()}`} className="text-center font-medium text-xl">
-        {format(days[i], 'eee')}
+      <div
+        key={`name-${days[i].toString()}`}
+        className="text-center font-medium text-xl"
+      >
+        {format(days[i], "eee")}
         <Divider></Divider>
       </div>
     );
     dayItems.push(
-      <Button  key={`button-${days[i].toString()}`} className={`flex-grow m-2 ${isSameDay(days[i], selectedDate) ? 'bg-primary' : ''}`}>
-          <div
-        key={days[i].toString()}
-        className={`day ${isSameWeek(days[i], startOfWeekDate) ? '' : 'outside'}`}
-        onClick={() => handleDateClick(days[i])}
-      ><span className="date">
-          {format(days[i], 'd')}
-        </span>
+      <Button
+        key={`button-${days[i].toString()}`}
+        className={`flex-grow m-2 ${
+          isSameDay(days[i], selectedDate) ? "bg-primary-300" : ""
+        }`}
+      >
+        <div
+          key={days[i].toString()}
+          className={`day ${
+            isSameWeek(days[i], startOfWeekDate) ? "" : "outside"
+          }`}
+          onClick={() => handleDateClick(days[i])}
+        >
+          <span className="date">{format(days[i], "d")}</span>
         </div>
-        </Button>
+      </Button>
     );
   }
 
   return (
     <>
-    <Card className='h-[90vh] w-[150px] fixed' radius='none'>
-      <CardHeader className=' flex flex-col gap-2'>
-      <p className="calendarTitle" >{format(selectedDate, 'MMM yyyy')}</p>
-      <Divider></Divider>
-      <button onClick={handlePrevWeek}>^</button>
-      </CardHeader>
-      <CardBody className='py-0'>
-      <div className="days flex-grow">
-        {dayItems}
-      </div>
-      </CardBody>
-      <button onClick={handleNextWeek}>v</button>
-    </Card>
+      <Card className="h-[90vh] w-[150px] fixed" radius="none">
+        <CardHeader className=" flex flex-col gap-2">
+          <p className="calendarTitle">{format(selectedDate, "MMM yyyy")}</p>
+          <Divider></Divider>
+          <button onClick={handlePrevWeek}>^</button>
+        </CardHeader>
+        <CardBody className="py-0">
+          <div className="days flex-grow">{dayItems}</div>
+        </CardBody>
+        <button onClick={handleNextWeek}>v</button>
+      </Card>
     </>
   );
 }
