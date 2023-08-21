@@ -6,7 +6,8 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Repository;
-
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 @Repository
@@ -18,10 +19,37 @@ public class TaskDAOImp implements TaskDAO {
 
     @Override
     public List<Task> getTasks() {
-        String query = "FROM tasks";
-        return entityManager.createQuery(query).getResultList();
+        String query = "FROM tasks"; // Cambio "tasks" a "Task" para usar el nombre de la entidad Java
+        return entityManager.createQuery(query, Task.class).getResultList();
     }
 
 
+    public List<Task> getTasksByDate(Date date) {
+        String query = "SELECT t FROM tasks t"
+                + " JOIN UsersTasks ut ON t.task_id = ut.fk_task_id"
+                + " JOIN Users u ON u.id = ut.fk_user_id"
+                + " JOIN Categories c ON c.category_id = t.fk_category_id"
+                + " WHERE t.date = :date";
+
+        List<Task> tasks = entityManager.createQuery(query, Task.class)
+                .setParameter("date", date)
+                .getResultList();
+
+        // Formatear la fecha en cada tarea
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        for (Task task : tasks) {
+            task.setDateFormatted(dateFormat.format(task.getDate()));
+        }
+
+        return tasks;
+    }
 
 }
+
+
+
+
+
+
+
+

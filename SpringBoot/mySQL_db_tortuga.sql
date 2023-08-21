@@ -34,10 +34,10 @@ VALUES
     ('ir al gym',2,'21:30','22:00','2011-11-11',0.5);
 
 CREATE TABLE IF NOT EXISTS users_tasks(/*deberia ser así pero mejor me aseguro*/
-                                           users_tasks_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,/*probablemente esto sobre*/
-                                           fk_user_id INTEGER UNSIGNED,
-                                           fk_task_id INTEGER UNSIGNED,
-                                           fk_tasks_categories_id INTEGER UNSIGNED
+users_tasks_id INTEGER UNSIGNED PRIMARY KEY AUTO_INCREMENT,/*probablemente esto sobre*/
+fk_user_id INTEGER UNSIGNED,
+fk_task_id INTEGER UNSIGNED,
+fk_tasks_categories_id INTEGER UNSIGNED
 );
 INSERT INTO users_tasks (fk_user_id,fk_task_id,fk_tasks_categories_id)
 VALUES
