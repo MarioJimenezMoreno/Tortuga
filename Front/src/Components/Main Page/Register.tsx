@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Modal,
   ModalContent,
@@ -19,12 +19,15 @@ import { ModalProps, Data } from "../../types";
 import axios from "axios";
 
 async function registerUser(data: Data) {
+  const navigate = useNavigate();
+  const handleRegister = () => navigate("/app");
+
   axios
     .post(`http://localhost:8080/api/users/register`, data)
     .then((response) => {
-      window.location.href = "/app";
       localStorage.token = response;
       localStorage.email = data.email;
+      handleRegister();
     })
     .catch(() => {
       alert("An error occurred while registering the account");

@@ -72,6 +72,15 @@ const TaskCreator = ({
       category: category,
       date: format(date, "yyyy-MM-dd"),
       color_code: colorCode == "" ? "bg-success-300" : colorCode,
+      userList: [
+        {
+          id: 1,
+          email: localStorage.email,
+          password: "quim123",
+          phone: "642480539",
+          username: "QUIM",
+        },
+      ],
     };
     console.log(newTask);
     axios
