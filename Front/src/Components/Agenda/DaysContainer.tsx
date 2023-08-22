@@ -10,7 +10,7 @@ const DaysContainer: React.FC<DaysContainerProps> = ({
   selectedDate,
 }) => {
   const [position, setPosition] = React.useState<"absolute" | "static">(
-    "static"
+    "absolute"
   );
 
   const handlePositionChange = () => {
@@ -51,6 +51,7 @@ const DaysContainer: React.FC<DaysContainerProps> = ({
       <div className="dateTitle flex justify-between">
         <p>{format(selectedDate, "eeee, dd/MM/yyyy")}</p>
         <Switch
+          defaultSelected
           onChange={handlePositionChange}
           size="sm"
           color="primary"

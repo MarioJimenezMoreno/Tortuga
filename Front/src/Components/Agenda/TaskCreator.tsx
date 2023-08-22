@@ -3,17 +3,17 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import TimeKeeper from "react-timekeeper";
 import {
+  //@ts-ignore
+  Avatar,
   Button,
-  Dropdown,
-  DropdownItem,
-  DropdownMenu,
-  DropdownTrigger,
   Input,
   Modal,
   ModalBody,
   ModalContent,
   ModalFooter,
   ModalHeader,
+  Select,
+  SelectItem,
 } from "@nextui-org/react";
 import { TaskCreatorProps } from "../../types";
 import { format } from "date-fns";
@@ -38,29 +38,30 @@ const TaskCreator = ({
   const [showStartTime, setShowStartTime] = useState(false);
   const [showEndTime, setShowEndTime] = useState(false);
 
-  const [selectedKey, setSelectedKey] = useState(
-    new Set(["Choose a category"])
-  );
+  const handleColorCode = () => {
+    switch (category) {
+      case "Work":
+        setColorCode("bg-success-300");
+        break;
+      case "Entertainment":
+        setColorCode("bg-warning-300");
+        break;
+      case "Cook":
+        setColorCode("bg-danger-300");
+        break;
+      case "Sports":
+        setColorCode("bg-primary-300");
+        break;
+    }
+    console.log("colorasignado :" + colorCode);
+  };
 
   const handleCreateTask = () => {
     const startTime = parse(beginningHour, "HH:mm", new Date());
     const endTime = parse(finalHour, "HH:mm", new Date());
     const totalMinutes = differenceInMinutes(endTime, startTime);
 
-    switch (category) {
-      case "work":
-        setColorCode("bg-success-300");
-        break;
-      case "entertainment":
-        setColorCode("bg-warning-300");
-        break;
-      case "cook":
-        setColorCode("bg-danger-300");
-        break;
-      case "sport":
-        setColorCode("bg-primary-300");
-        break;
-    }
+    console.log(colorCode);
 
     const newTask = {
       title: taskTitle,
@@ -70,7 +71,7 @@ const TaskCreator = ({
       duration: totalMinutes,
       category: category,
       date: format(date, "yyyy-MM-dd"),
-      color_code: colorCode,
+      color_code: colorCode == "" ? "bg-success-300" : colorCode,
     };
     console.log(newTask);
     axios
@@ -138,35 +139,77 @@ const TaskCreator = ({
                     handleInputChange();
                   }}
                 />
-                <Dropdown>
-                  <DropdownTrigger>
-                    <Button variant="bordered" className="capitalize">
-                      {selectedKey}
-                    </Button>
-                  </DropdownTrigger>
-                  <DropdownMenu
-                    variant="flat"
-                    aria-label="Single selection actions"
-                    disallowEmptySelection
-                    selectionMode="single"
-                    selectedKeys={selectedKey}
-                    onSelectionChange={(newSelectedKeys) => {
-                      const selectedKeyArray = Array.from(newSelectedKeys);
-                      //@ts-ignore
-                      setSelectedKey(newSelectedKeys);
-                      //@ts-ignore
-                      setCategory(selectedKeyArray[0]);
-                      handleInputChange();
+                <Select
+                  placeholder="Select a category"
+                  label="Category"
+                  isRequired
+                  onChange={() => {
+                    console.log(category);
+                    handleInputChange;
+                    handleColorCode();
+                  }}
+                >
+                  <SelectItem
+                    key="Work"
+                    value="Work"
+                    startContent={
+                      <Avatar
+                        className="bg-success-300 w-6 h-6 text-tiny"
+                        name=" "
+                      />
+                    }
+                    onClick={() => {
+                      setCategory("Work");
                     }}
                   >
-                    <DropdownItem key="work">Work</DropdownItem>
-                    <DropdownItem key="sport">Sport</DropdownItem>
-                    <DropdownItem key="entertainment">
-                      Entertainment
-                    </DropdownItem>
-                    <DropdownItem key="cook">Cook</DropdownItem>
-                  </DropdownMenu>
-                </Dropdown>
+                    Work
+                  </SelectItem>
+                  <SelectItem
+                    key="Sports"
+                    value="Sports"
+                    startContent={
+                      <Avatar
+                        className="bg-primary-300 w-6 h-6 text-tiny"
+                        name=" "
+                      />
+                    }
+                    onClick={() => {
+                      setCategory("Sports");
+                    }}
+                  >
+                    Sports
+                  </SelectItem>
+                  <SelectItem
+                    key="Entertainment"
+                    value="Entertainment"
+                    startContent={
+                      <Avatar
+                        className="bg-warning-300 w-6 h-6 text-tiny"
+                        name=" "
+                      />
+                    }
+                    onClick={() => {
+                      setCategory("Entertainment");
+                    }}
+                  >
+                    Entertainment
+                  </SelectItem>
+                  <SelectItem
+                    key="Cook"
+                    value="Cook"
+                    startContent={
+                      <Avatar
+                        className="bg-danger-300 w-6 h-6 text-tiny"
+                        name=" "
+                      />
+                    }
+                    onClick={() => {
+                      setCategory("Cook");
+                    }}
+                  >
+                    Cook
+                  </SelectItem>
+                </Select>
                 <div className="hourContainer">
                   <div className="startHour">
                     <span>INITIAL HOUR</span>
@@ -207,10 +250,7 @@ const TaskCreator = ({
                       />
                     )}
                     {!showEndTime && (
-                      <button
-                        // disabled={!startTimeValid}
-                        onClick={() => setShowEndTime(true)}
-                      >
+                      <button onClick={() => setShowEndTime(true)}>
                         Select
                       </button>
                     )}
@@ -231,7 +271,7 @@ const TaskCreator = ({
                     onClose();
                   }}
                   color="primary"
-                  disabled={!isFormValid}
+                  isDisabled={!isFormValid}
                 >
                   Create Task
                 </Button>

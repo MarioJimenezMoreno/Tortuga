@@ -25,9 +25,9 @@ function Login({ isOpen, onOpenChange }: ModalProps) {
     axios
       .post(`http://localhost:8080/api/users/login`, data)
       .then((response) => {
+        localStorage.setItem("response", response.data);
+        localStorage.setItem("email", data.email);
         window.location.href = "/app";
-        localStorage.token = response;
-        localStorage.email = data.email;
       })
       .catch(() => {
         alert("Email or password are incorrect.");

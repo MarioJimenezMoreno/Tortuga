@@ -27,7 +27,7 @@ const TaskComponent: React.FC<{
 }> = ({ task, position, indexInGroup, totalTasksInGroup, groupIndex }) => {
   const { top, height } = calculatePositionAndSize(task);
 
-  const overlappedWidth = 100 / totalTasksInGroup;
+  const overlappedWidth = 100 / (totalTasksInGroup * 2);
 
   const style: React.CSSProperties = {
     position: position,
@@ -35,10 +35,10 @@ const TaskComponent: React.FC<{
     minHeight: `${height}px`,
     maxHeight: "auto",
     maxWidth: "50%",
-    // backgroundColor: task.color_code,
     width: `${overlappedWidth}%`,
     left: position === "absolute" ? `${overlappedWidth * indexInGroup}%` : "0",
     zIndex: groupIndex,
+    marginLeft: "5px",
   };
 
   return (

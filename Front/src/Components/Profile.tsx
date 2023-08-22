@@ -30,6 +30,7 @@ const Profile = () => {
                 type="email"
                 color={isUsernameReadOnly ? "primary" : "default"}
                 label="Username"
+                placeholder="Enter Username"
                 defaultValue="Mordisquitos"
                 className="max-w-xs"
               />
@@ -103,6 +104,7 @@ const Profile = () => {
                 type="email"
                 color={isEmailReadOnly ? "primary" : "default"}
                 label="Email"
+                placeholder="Enter Email"
                 defaultValue="mariojm2612@gmail.com"
                 className="max-w-xs"
               />
@@ -131,6 +133,7 @@ const Profile = () => {
                 isReadOnly={isPhoneReadOnly}
                 type="number"
                 color={isPhoneReadOnly ? "primary" : "default"}
+                placeholder="Enter Phone"
                 label="Phone"
                 defaultValue="644343107"
                 className="max-w-xs"
