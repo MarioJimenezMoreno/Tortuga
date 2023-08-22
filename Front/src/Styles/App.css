@@ -56,10 +56,6 @@
 .dayHeader {
   background-color: aquamarine;
 }
-.hourContainer {
-  display: flex;
-  gap: 200px;
-}
 .startHour {
   display: flex;
   flex-direction: column;

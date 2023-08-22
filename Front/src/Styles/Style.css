@@ -2296,10 +2296,6 @@ video {
   padding-top: 1.25rem;
 }
 
-.pt-6 {
-  padding-top: 1.5rem;
-}
-
 .text-left {
   text-align: left;
 }
@@ -2360,6 +2356,11 @@ video {
 .text-medium {
   font-size: var(--nextui-font-size-medium);
   line-height: var(--nextui-line-height-medium);
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 .text-small {
