@@ -32,7 +32,7 @@ public class TaskController {
         return taskDAO.getTasksByDate(date);
     }
 
-    @CrossOrigin(origins = "http://localhost:5173")
+   /* @CrossOrigin(origins = "http://localhost:5173")
     @RequestMapping(value = "api/session-dates", method = RequestMethod.GET)
     public List<Task> getTasksByDateAndEmail(@RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") String dateString,
                                              @RequestParam("email") String userEmail) {
@@ -44,7 +44,7 @@ public class TaskController {
                 .collect(Collectors.toList());
 
         return filteredTasks;
-    }
+    }*/
 
     @CrossOrigin(origins = "http://localhost:5173")
     @RequestMapping(value= "api/tasks", method = RequestMethod.POST)
