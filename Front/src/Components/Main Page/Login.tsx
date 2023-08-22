@@ -14,20 +14,23 @@ import { LockIcon } from "../Icons/LockIcon";
 import { MailIcon } from "../Icons/MailIcon";
 import { ModalProps } from "../../types";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Login({ isOpen, onOpenChange }: ModalProps) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
+  const handleLogin = () => navigate("/app");
+
   const loginUser = async () => {
     const data = { email, password };
-
     axios
       .post(`http://localhost:8080/api/users/login`, data)
       .then((response) => {
         localStorage.setItem("response", response.data);
         localStorage.setItem("email", data.email);
-        window.location.href = "/app";
+        handleLogin();
       })
       .catch(() => {
         alert("Email or password are incorrect.");
