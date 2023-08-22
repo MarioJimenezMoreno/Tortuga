@@ -1,15 +1,14 @@
-/**/
 import { FC } from 'react';
 import { Card } from '@nextui-org/react';
 
-interface Task {
+interface TaskAnalytics {
   username: string;
   name: string;
   duration: number;
   color_code: string;
 }
 
-const RESPUESTA_2: Task[] = [
+const RESPUESTA_2: TaskAnalytics[] = [
 
   {
     username: "Quim",
@@ -50,7 +49,7 @@ const RESPUESTA_2: Task[] = [
 ];
 
 // Reducción del array RESPUESTA_2
-let resultado_2 = RESPUESTA_2.reduce(function (acumulador: Task[], elemento: Task) {
+let resultado = RESPUESTA_2.reduce(function (acumulador: TaskAnalytics[], elemento: TaskAnalytics) {
   let elementoExistente = acumulador.find(function (item) {
     return item.name === elemento.name;
   });
@@ -64,34 +63,34 @@ let resultado_2 = RESPUESTA_2.reduce(function (acumulador: Task[], elemento: Tas
   return acumulador;
 }, []);
 
-// Ordenar el array resultado_2
-function compararMayorMenor(a: Task, b: Task) {
+// Ordenar el array resultado
+function compararMayorMenor(a: TaskAnalytics, b: TaskAnalytics) {
   return b.duration - a.duration;
 }
-resultado_2.sort(compararMayorMenor);
+resultado.sort(compararMayorMenor);
 
 const Categories: FC = () => {
   return (
     <div className="flex justify-between items-center">
-      <Card className="flex-grow p-4 text-black text-center" id="categoria_0" style={{ backgroundColor: resultado_2[0].color_code }}>
-        {resultado_2[0].name}:
+      <Card className="flex-grow p-4 text-black text-center" id="categoria_0" style={{ backgroundColor: resultado[0].color_code }}>
+        {resultado[0].name}:
         <br />
-        {resultado_2[0].duration} horas
+        {resultado[0].duration} horas
       </Card>
-      <Card className="flex-grow p-4 ml-4 text-black text-center" id="categoria_1" style={{ backgroundColor: resultado_2[1].color_code }}>
-        {resultado_2[1].name}:
+      <Card className="flex-grow p-4 ml-4 text-black text-center" id="categoria_1" style={{ backgroundColor: resultado[1].color_code }}>
+        {resultado[1].name}:
         <br />
-        {resultado_2[1].duration} horas
+        {resultado[1].duration} horas
       </Card>
-      <Card className="flex-grow p-4 ml-4 text-black text-center" id="categoria_2" style={{ backgroundColor: resultado_2[2].color_code }}>
-        {resultado_2[2].name}:
+      <Card className="flex-grow p-4 ml-4 text-black text-center" id="categoria_2" style={{ backgroundColor: resultado[2].color_code }}>
+        {resultado[2].name}:
         <br />
-        {resultado_2[2].duration} horas
+        {resultado[2].duration} horas
       </Card>
-      <Card className="flex-grow p-4 ml-4 text-black text-center" id="categoria_3" style={{ backgroundColor: resultado_2[3].color_code }}>
-        {resultado_2[3].name}:
+      <Card className="flex-grow p-4 ml-4 text-black text-center" id="categoria_3" style={{ backgroundColor: resultado[3].color_code }}>
+        {resultado[3].name}:
         <br />
-        {resultado_2[3].duration} horas
+        {resultado[3].duration} horas
       </Card>
     </div>
   );
