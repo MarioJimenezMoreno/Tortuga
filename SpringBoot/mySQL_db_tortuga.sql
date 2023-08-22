@@ -4,16 +4,16 @@ USE db_tortuga;
 
 CREATE TABLE IF NOT EXISTS users(
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(45) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL UNIQUE,
-    phone INT UNIQUE,
+    username VARCHAR(45) NOT NULL ,
+    password VARCHAR(255) NOT NULL ,
+    phone INT ,
     email VARCHAR(45) NOT NULL UNIQUE
     );
 
 
 SELECT * FROM users;
 INSERT INTO users (username,password,email,phone)
-VALUES ('QUIM', 'quim123', 'quim@gmail.com', 642480539);
+VALUES ('QUIM', 'quim123', 'mariojm2612@gmail.com', 642480539);
 
 
 CREATE TABLE IF NOT EXISTS tasks (
