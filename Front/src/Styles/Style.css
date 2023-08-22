@@ -2019,6 +2019,11 @@ video {
   background-color: hsl(var(--nextui-secondary) / var(--nextui-secondary-opacity, var(--tw-bg-opacity)));
 }
 
+.bg-secondary-300 {
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--nextui-secondary-300) / var(--nextui-secondary-300-opacity, var(--tw-bg-opacity)));
+}
+
 .bg-secondary-50 {
   --tw-bg-opacity: 1;
   background-color: hsl(var(--nextui-secondary-50) / var(--nextui-secondary-50-opacity, var(--tw-bg-opacity)));
@@ -2073,11 +2078,6 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-secondary-300 {
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--nextui-secondary-300) / var(--nextui-secondary-300-opacity, var(--tw-bg-opacity)));
 }
 
 .bg-stripe-gradient {
@@ -2313,6 +2313,14 @@ video {
   padding-top: 1.25rem;
 }
 
+.pb-2 {
+  padding-bottom: 0.5rem;
+}
+
+.pt-0 {
+  padding-top: 0px;
+}
+
 .text-left {
   text-align: left;
 }
@@ -2375,6 +2383,11 @@ video {
   line-height: var(--nextui-line-height-medium);
 }
 
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
 .text-small {
   font-size: var(--nextui-font-size-small);
   line-height: var(--nextui-line-height-small);
@@ -2409,10 +2422,6 @@ video {
 
 .font-semibold {
   font-weight: 600;
-}
-
-.capitalize {
-  text-transform: capitalize;
 }
 
 .\!text-danger {

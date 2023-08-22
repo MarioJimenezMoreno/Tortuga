@@ -1,7 +1,7 @@
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import TimeKeeper from "react-timekeeper";
+// import TimeKeeper from "react-timekeeper";
 import {
   //@ts-ignore
   Avatar,
@@ -19,6 +19,10 @@ import { TaskCreatorProps } from "../../types";
 import { format } from "date-fns";
 import axios from "axios";
 import { differenceInMinutes, parse } from "date-fns";
+// import { TimePicker } from "antd";
+// import dayjs from "dayjs";
+//@ts-ignore
+import { TimePicker } from "react-ios-time-picker";
 
 const TaskCreator = ({
   selectedDate,
@@ -29,14 +33,22 @@ const TaskCreator = ({
   const [taskTitle, setTaskTitle] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
   const [category, setCategory] = useState("");
-  const [beginningHour, setStartTime] = useState("");
-  const [finalHour, setEndTime] = useState("");
+  const [beginningHour, setBeginningHour] = useState("00:00");
+  const [finalHour, setFinalHour] = useState("01:00");
   const [date, setDate] = useState(selectedDate);
   const [colorCode, setColorCode] = useState("");
 
   const [isFormValid, setIsFormValid] = useState(false);
-  const [showStartTime, setShowStartTime] = useState(false);
-  const [showEndTime, setShowEndTime] = useState(false);
+
+  // const [showStartTime, setShowStartTime] = useState(false);
+  // const [showEndTime, setShowEndTime] = useState(false);
+
+  // const [values, setValues] = useState<[dayjs.Dayjs, dayjs.Dayjs]>([
+  //   dayjs("07:00", "HH:mm"),
+  //   dayjs("09:00", "HH:mm"),
+  // ]);
+
+  // const hourFormat = "HH:mm";
 
   const handleColorCode = () => {
     switch (category) {
@@ -71,7 +83,7 @@ const TaskCreator = ({
       duration: totalMinutes,
       category: category,
       date: format(date, "yyyy-MM-dd"),
-      color_code: colorCode == "" ? "bg-success-300" : colorCode,
+      color_code: colorCode == "" ? "bg-primary-300" : colorCode,
       userList: [
         {
           id: 1,
@@ -107,17 +119,24 @@ const TaskCreator = ({
     } else {
       setIsFormValid(false);
     }
+    console.log(beginningHour + " " + finalHour);
   };
 
-  const handleHourSetUp = () => {
-    if (beginningHour > finalHour && finalHour != "") {
-      setEndTime("");
-    }
-  };
+  // const handleHourSetUp = () => {
+  //   console.log("entramoh");
+  //   setBeginningHour(values[0][0]);
+  //   setFinalHour(values[1]);
+  //   console.log(finalHour + " " + beginningHour);
+  // };
 
   return (
     <>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="top-center">
+      <Modal
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+        isDismissable={false}
+        placement="top-center"
+      >
         <ModalContent>
           {(onClose) => (
             <>
@@ -219,59 +238,37 @@ const TaskCreator = ({
                     Cook
                   </SelectItem>
                 </Select>
-                <div className="hourContainer">
-                  <div className="startHour">
-                    <span>INITIAL HOUR</span>
-                    {showStartTime && (
-                      <TimeKeeper
-                        time="00:00"
-                        onChange={(newTime) =>
-                          setStartTime(newTime.formatted24)
-                        }
-                        hour24Mode
-                        onDoneClick={() => {
-                          setShowStartTime(false),
-                            handleHourSetUp(),
-                            handleInputChange();
-                        }}
-                        switchToMinuteOnHourSelect
-                      />
-                    )}
-                    {!showStartTime && (
-                      <button onClick={() => setShowStartTime(true)}>
-                        Select
-                      </button>
-                    )}
-                    <span>Start time: {beginningHour}</span>
-                  </div>
-                  <div className="endHour">
-                    <span>END HOUR</span>
-                    {showEndTime && (
-                      <TimeKeeper
-                        time="23:59"
-                        onChange={(newTime) => setEndTime(newTime.formatted24)}
-                        hour24Mode
-                        disabledTimeRange={{ from: "23:59", to: beginningHour }}
-                        onDoneClick={() => {
-                          setShowEndTime(false), handleInputChange();
-                        }}
-                        switchToMinuteOnHourSelect
-                      />
-                    )}
-                    {!showEndTime && (
-                      <button onClick={() => setShowEndTime(true)}>
-                        Select
-                      </button>
-                    )}
-                    <span>End time: {finalHour}</span>
-                  </div>
+                <div className="flex flex-col">
+                  <p className="text-xs px-2 pb-1 font-bold">Hour Range</p>
+                  <TimePicker
+                    onChange={(e: string) => {
+                      setBeginningHour(e);
+                    }}
+                    value={beginningHour}
+                  />
+                  <TimePicker
+                    onChange={(e: string) => {
+                      setFinalHour(e);
+                    }}
+                    value={finalHour}
+                  />
+                  {/* <TimePicker.RangePicker
+                    format={hourFormat}
+                    minuteStep={15}
+                    onOpenChange={() => {
+                      handleHourSetUp;
+                    }}
+                    value={[values[0], values[1]]}
+                  /> */}
                 </div>
-                <DatePicker
-                  selected={date}
-                  onChange={(date) => setDate(date || new Date())}
-                  dateFormat="dd/MM/yyyy"
-                />
-                <span>Date is {date.toLocaleDateString()}</span>
+                <p className="text-xs px-2 pb-1 font-bold">Date</p>
+                <div className="px-3">
+                  <DatePicker
+                    selected={date}
+                    onChange={(date) => setDate(date || new Date())}
+                    dateFormat="dd/MM/yyyy"
+                  />
+                </div>
               </ModalBody>
               <ModalFooter>
                 <Button
