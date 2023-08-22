@@ -1,14 +1,12 @@
 package com.Tortuga.SpringBoot.Models;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.sql.Date;
+import java.util.List;
+
 @Data
 @Entity(name="tasks")
 public class Task {
@@ -33,6 +31,10 @@ public class Task {
     private Date date;
     @Column(name="duration")
     private String duration;
+
+    @ManyToMany
+    @JoinTable(name = "tasks_users", joinColumns = @JoinColumn(name="task_id"),inverseJoinColumns = @JoinColumn(name = "id"))
+    List<User> userList;
 }
 
 

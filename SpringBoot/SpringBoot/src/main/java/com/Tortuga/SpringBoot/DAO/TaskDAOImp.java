@@ -20,13 +20,16 @@ public class TaskDAOImp implements TaskDAO {
 
     @Override
     public List<Task> getTasks() {
-        String query = "FROM tasks"; // Cambio "tasks" a "Task" para usar el nombre de la entidad Java
+        String query = "FROM tasks";
         return entityManager.createQuery(query, Task.class).getResultList();
     }
 
     @Override
     public List<Task> getTasksByDate(Date date) {
-        return null;
+        String query = "FROM tasks WHERE date = :date";
+        return entityManager.createQuery(query, Task.class)
+                .setParameter("date", date)
+                .getResultList();
     }
 
 /*

@@ -1,4 +1,5 @@
 import {
+  //@ts-ignore
   Avatar,
   Dropdown,
   DropdownItem,
@@ -20,7 +21,7 @@ const AppRoutes = () => {
             <Avatar
               isBordered
               as="button"
-              className="transition-transform"
+              className="transition-transform bg-secondary-300"
               color="secondary"
               name="Jason Hughes"
               size="sm"

@@ -31,7 +31,7 @@ export interface CalendarProps {
   setSelectedDate: React.Dispatch<React.SetStateAction<Date>>;
 }
 
-export interface DaysContainerLoaderProps {
+export interface SecondaryDaysContainerProps {
   selectedDate: Date;
 }
 export interface DaysContainerProps {
