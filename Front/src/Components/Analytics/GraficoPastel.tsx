@@ -1,6 +1,7 @@
 
 import { Doughnut } from 'react-chartjs-2';
 import { ArcElement, Tooltip, Legend, Chart, CategoryScale, LinearScale } from 'chart.js';
+import axios from "axios";
 
 Chart.register(ArcElement, Tooltip, Legend);
 
@@ -10,8 +11,25 @@ interface DataElement {
   duration: number;
   color_code: string;
 }
-  const RESPUESTA_2 = [
-    {
+
+let RESPUESTA_2: DataElement[] = []; 
+
+axios
+.get('http://localhost:8080/api/stats', {
+  params: {
+    // Aquí tus parámetros de consulta
+    username: "QUIM"//MODIFICAR
+  }
+})
+  .then(response => {
+    // Manejar la respuesta del servidor
+    console.log('Respuesta:', response.data);
+    RESPUESTA_2 = response.data;
+  })
+  .catch(error => {
+    // Manejar errores
+    console.error('Error:', error);
+    RESPUESTA_2 = [{
       username: "Quim",
       name: "Libre",
       duration: 10,
@@ -46,8 +64,10 @@ interface DataElement {
       name: "Deporte",
       duration: 30,
       color_code: "#F5C6AA"
-    }
-];
+    }];
+  });
+
+  
 
 // para el grafico de PASTEL Y CATEGORIA
 let resultado_2 = RESPUESTA_2.reduce(function (acumulador: DataElement[], elemento) {

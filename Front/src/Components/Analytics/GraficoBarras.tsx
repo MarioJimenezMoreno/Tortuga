@@ -1,6 +1,7 @@
 
 
   //------------------------------------//
+  import axios from "axios";
   import {
     Chart as ChartJS,
     CategoryScale,
@@ -29,9 +30,25 @@
     Tooltip,
     Legend
   );
-  
-  const RESPUESTA_1: RespuestaItem[] = [
-      {
+
+  let RESPUESTA_1: RespuestaItem[] = [];
+
+  axios
+.get('http://localhost:8080/api/stats', {
+  params: {
+    // Aquí tus parámetros de consulta
+    username: "QUIM"//MODIFICAR
+  }
+})
+  .then(response => {
+    // Manejar la respuesta del servidor
+    console.log('Respuesta:', response.data);
+    RESPUESTA_1 = response.data;
+  })
+  .catch(error => {
+    // Manejar errores
+    console.error('Error:', error);
+    RESPUESTA_1 = [{
         username: "Quim",
         date: -1,
         name: "Libre",
@@ -233,9 +250,9 @@
         name: "Deporte",
         duration: 3,
         color_code: "#F5C6AA"
-      }
-    
-  ];
+      }];
+  });
+ 
   
   //------------------------------------//
   
