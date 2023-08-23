@@ -466,7 +466,9 @@ SELECT *
 FROM tasks
 JOIN tasks_users ON tasks.task_id = tasks_users.task_id
 JOIN users ON users.id = tasks_users.id
-WHERE email = 'mariojm2612@gmail.com';
+WHERE email = 'quim@gmail.com';
+
+SELECT * from users;
 
 /*
 INSERT INTO tasks (title,beginning_hour,final_hour,date,duration)
