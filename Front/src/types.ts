@@ -1,3 +1,5 @@
+import { LinearScale } from "chart.js";
+
 export interface Task {
   title: string;
   description: string;
@@ -7,6 +9,48 @@ export interface Task {
   category: string;
   date: string;
   color_code: string;
+}
+
+export interface ChartData {
+  labels: string[];
+  datasets: {
+    label: string;
+    data: number[];
+    backgroundColor: string[];
+    borderColor: string;
+    borderWidth: number;
+  }[];
+}
+
+export interface RespuestaItem {
+  username: string;
+  date: number;
+  name: string;
+  duration: number;
+  color_code: string;
+}
+
+export interface DataElement {
+  username: string;
+  name: string;
+  duration: number;
+  color_code: string;
+}
+
+export interface ChartOptions {
+  scales: {
+    y: LinearScale[];
+  };
+  responsive: boolean;
+  maintainAspectRatio: boolean;
+  plugins: {
+    legend: {
+      position: string;
+      labels: {
+        color: string;
+      };
+    };
+  };
 }
 
 export interface TaskCreatorProps extends ModalProps {

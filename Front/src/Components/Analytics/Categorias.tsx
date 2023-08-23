@@ -1,6 +1,6 @@
 /**/
-import { FC } from 'react';
-import { Card } from '@nextui-org/react';
+import { FC } from "react";
+import { Card } from "@nextui-org/react";
 
 interface Task {
   username: string;
@@ -10,47 +10,49 @@ interface Task {
 }
 
 const RESPUESTA_2: Task[] = [
-
   {
     username: "Quim",
     name: "Libre",
     duration: 10,
-    color_code: "#FCD8D4"
+    color_code: "#FCD8D4",
   },
   {
     username: "Quim",
     name: "Libre",
     duration: 20,
-    color_code: "#FCD8D4"
+    color_code: "#FCD8D4",
   },
   {
     username: "Quim",
     name: "Trabajo",
     duration: 36,
-    color_code: "#FDF6F0"
+    color_code: "#FDF6F0",
   },
   {
     username: "Quim",
     name: "Trabajo",
     duration: 106,
-    color_code: "#FDF6F0"
+    color_code: "#FDF6F0",
   },
   {
     username: "Quim",
     name: "Ocio",
     duration: 80,
-    color_code: "#F8E2CF"
+    color_code: "#F8E2CF",
   },
   {
     username: "Quim",
     name: "Deporte",
     duration: 30,
-    color_code: "#F5C6AA"
-  }
+    color_code: "#F5C6AA",
+  },
 ];
 
 // Reducción del array RESPUESTA_2
-let resultado_2 = RESPUESTA_2.reduce(function (acumulador: Task[], elemento: Task) {
+let resultado_2 = RESPUESTA_2.reduce(function (
+  acumulador: Task[],
+  elemento: Task
+) {
   let elementoExistente = acumulador.find(function (item) {
     return item.name === elemento.name;
   });
@@ -62,7 +64,8 @@ let resultado_2 = RESPUESTA_2.reduce(function (acumulador: Task[], elemento: Tas
   }
 
   return acumulador;
-}, []);
+},
+[]);
 
 // Ordenar el array resultado_2
 function compararMayorMenor(a: Task, b: Task) {
@@ -73,25 +76,37 @@ resultado_2.sort(compararMayorMenor);
 const Categories: FC = () => {
   return (
     <div className="flex justify-between items-center">
-      <Card className="flex-grow p-4 text-black text-center" id="categoria_0" style={{ backgroundColor: resultado_2[0].color_code }}>
-        {resultado_2[0].name}:
+      <Card
+        className="flex-grow p-4 font-bold text-xl text-center bg-warning-300"
+        id="categoria_0"
+      >
+        {"Work"}
         <br />
-        {resultado_2[0].duration} horas
+        {resultado_2[0].duration} h
       </Card>
-      <Card className="flex-grow p-4 ml-4 text-black text-center" id="categoria_1" style={{ backgroundColor: resultado_2[1].color_code }}>
-        {resultado_2[1].name}:
+      <Card
+        className="flex-grow p-4 ml-4 font-bold text-xl text-center bg-danger-300"
+        id="categoria_1"
+      >
+        {"Entertainment"}
         <br />
-        {resultado_2[1].duration} horas
+        {resultado_2[1].duration} h
       </Card>
-      <Card className="flex-grow p-4 ml-4 text-black text-center" id="categoria_2" style={{ backgroundColor: resultado_2[2].color_code }}>
-        {resultado_2[2].name}:
+      <Card
+        className="flex-grow p-4 ml-4 font-bold text-xl text-center bg-success-300"
+        id="categoria_2"
+      >
+        {"Cook"}
         <br />
-        {resultado_2[2].duration} horas
+        {resultado_2[2].duration} h
       </Card>
-      <Card className="flex-grow p-4 ml-4 text-black text-center" id="categoria_3" style={{ backgroundColor: resultado_2[3].color_code }}>
-        {resultado_2[3].name}:
+      <Card
+        className="flex-grow p-4 ml-4 font-bold text-xl text-center bg-primary-300"
+        id="categoria_3"
+      >
+        {"Sport"}
         <br />
-        {resultado_2[3].duration} horas
+        {resultado_2[3].duration} h
       </Card>
     </div>
   );
@@ -99,4 +114,4 @@ const Categories: FC = () => {
 
 export default Categories;
 
-// 
+//
