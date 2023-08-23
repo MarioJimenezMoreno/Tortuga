@@ -13,5 +13,5 @@ public interface TaskDAO {
 
     void save(Task task);
 
-    void delete(Integer id);
+    void delete(String beginning_hour);
 }

@@ -53,7 +53,7 @@ public class TaskController {
     }
     @CrossOrigin(origins = "http://localhost:5173")
     @RequestMapping(value = "api/tasks", method = RequestMethod.DELETE)
-    public void deleteTask(@RequestBody Integer id ) {
-        taskDAO.delete(id);
+    public void deleteTask(@RequestParam("beginning_hour") String beginning_hour ) {
+        taskDAO.delete(beginning_hour);
     }
 }

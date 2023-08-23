@@ -60,8 +60,8 @@ public class TaskDAOImp implements TaskDAO {
 
 
     @Override
-    public void delete(Integer id) {
-        Task task = entityManager.find(Task.class, id);
+    public void delete(String beginning_hour) {
+        Task task = entityManager.find(Task.class, beginning_hour);
         entityManager.remove(task);
     }
 

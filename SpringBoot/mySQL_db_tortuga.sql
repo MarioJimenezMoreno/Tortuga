@@ -222,8 +222,8 @@ VALUES
     'Follow up with a client regarding their inquiries.',
     'Business',
     'bg-secondary-300',
+    '14:00',
     '15:00',
-    '15:45',
     '2023-08-24',
     '45 minutes'),
 

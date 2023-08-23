@@ -52,7 +52,7 @@ function Calendar({ selectedDate, setSelectedDate }: CalendarProps) {
     dayItems.push(
       <Button
         key={`button-${days[i].toString()}`}
-        className={`flex-grow m-2 ${
+        className={`flex-grow m-2 text-2xl${
           isSameDay(days[i], selectedDate) ? "bg-primary-300" : ""
         }`}
       >

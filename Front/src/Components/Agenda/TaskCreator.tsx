@@ -243,12 +243,14 @@ const TaskCreator = ({
                   <TimePicker
                     onChange={(e: string) => {
                       setBeginningHour(e);
+                      handleInputChange();
                     }}
                     value={beginningHour}
                   />
                   <TimePicker
                     onChange={(e: string) => {
                       setFinalHour(e);
+                      handleInputChange();
                     }}
                     value={finalHour}
                   />
