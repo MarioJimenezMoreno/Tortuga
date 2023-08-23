@@ -77,20 +77,20 @@ const Categories: FC = () => {
   return (
     <div className="flex justify-between items-center">
       <Card
-        className="flex-grow p-4 font-bold text-xl text-center bg-warning-300"
+        className="flex-grow p-4 font-bold text-xl text-center bg-danger-300"
         id="categoria_0"
-      >
-        {"Work"}
-        <br />
-        {resultado_2[0].duration} h
-      </Card>
-      <Card
-        className="flex-grow p-4 ml-4 font-bold text-xl text-center bg-danger-300"
-        id="categoria_1"
       >
         {"Entertainment"}
         <br />
-        {resultado_2[1].duration} h
+        {"50"} h
+      </Card>
+      <Card
+        className="flex-grow p-4 ml-4 font-bold text-xl text-center bg-warning-300"
+        id="categoria_1"
+      >
+        {"Work"}
+        <br />
+        {"40"} h
       </Card>
       <Card
         className="flex-grow p-4 ml-4 font-bold text-xl text-center bg-success-300"

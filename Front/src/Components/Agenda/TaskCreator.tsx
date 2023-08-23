@@ -86,11 +86,11 @@ const TaskCreator = ({
       color_code: colorCode == "" ? "bg-primary-300" : colorCode,
       userList: [
         {
-          id: 1,
+          id: 2,
           email: localStorage.email,
-          password: "quim123",
-          phone: "642480539",
-          username: "QUIM",
+          password: "123123",
+          phone: "644343107",
+          username: "Mario",
         },
       ],
     };

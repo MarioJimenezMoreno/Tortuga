@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS users(
 
 SELECT * FROM users;
 INSERT INTO users (username,password,email,phone)
-VALUES ('QUIM', 'quim123', 'mariojm2612@gmail.com', 642480539);
+VALUES ('Mario', '123123', 'mariojm2612@gmail.com', 644343107);
 
 
 CREATE TABLE IF NOT EXISTS tasks (
@@ -462,7 +462,11 @@ VALUES
 
 -- Puedes agregar más registros siguiendo la misma estructura
 
-SELECT * FROM tasks WHERE date = "2023-08-21";
+SELECT *
+FROM tasks
+JOIN tasks_users ON tasks.task_id = tasks_users.task_id
+JOIN users ON users.id = tasks_users.id
+WHERE email = 'mariojm2612@gmail.com';
 
 /*
 INSERT INTO tasks (title,beginning_hour,final_hour,date,duration)

@@ -32,19 +32,19 @@ const RESPUESTA_2 = [
   {
     username: "Quim",
     name: "Work",
-    duration: 36,
+    duration: 10,
     color_code: "#f9c97c",
   },
   {
     username: "Quim",
     name: "Work",
-    duration: 106,
+    duration: 30,
     color_code: "#f9c97c",
   },
   {
     username: "Quim",
     name: "Entertainment",
-    duration: 80,
+    duration: 50,
     color_code: "#f871a0",
   },
   {
