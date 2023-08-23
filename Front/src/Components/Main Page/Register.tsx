@@ -18,22 +18,6 @@ import { PhoneIcon } from "../Icons/PhoneIcon";
 import { ModalProps, Data } from "../../types";
 import axios from "axios";
 
-async function registerUser(data: Data) {
-  const navigate = useNavigate();
-  const handleRegister = () => navigate("/app");
-
-  axios
-    .post(`http://localhost:8080/api/users/register`, data)
-    .then((response) => {
-      localStorage.token = response;
-      localStorage.email = data.email;
-      handleRegister();
-    })
-    .catch(() => {
-      alert("An error occurred while registering the account");
-    });
-}
-
 function Register({ isOpen, onOpenChange }: ModalProps) {
   const [isPasswordVisible, setPasswordVisible] = React.useState(false);
   const [isRepeatPasswordVisible, setRepeatPasswordVisible] =
@@ -49,6 +33,23 @@ function Register({ isOpen, onOpenChange }: ModalProps) {
   const [repeatPassword, setRepeatPassword] = useState("");
 
   const [value, setValue] = React.useState("");
+
+  const navigate = useNavigate();
+  const handleRegister = () => navigate("/app");
+
+  const registerUser = async (data: Data) => {
+
+    axios
+      .post(`http://localhost:8080/api/users/register`, data)
+      .then((response) => {
+        localStorage.setItem("response", response.data);
+        localStorage.setItem("email", data.email);
+        handleRegister();
+      })
+      .catch(() => {
+        alert("An error occurred while registering the account");
+      });
+  }
 
   const validateEmail = (value: string) =>
     value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i);

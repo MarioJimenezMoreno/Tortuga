@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS users(
 
 SELECT * FROM users;
 INSERT INTO users (username,password,email,phone)
-VALUES ('QUIM', 'quim123', 'quim@gmail.com', 642480539);
+VALUES ('QUIM', 'quim123', 'mariojm2612@gmail.com', 642480539);
 
 
 CREATE TABLE IF NOT EXISTS tasks (
